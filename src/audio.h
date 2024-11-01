@@ -50,6 +50,10 @@ uint8_t mcugdx_audio_get_master_volume(void);
 
 uint32_t mcugdx_audio_get_sample_rate(void);
 
+mcugdx_sound_t *mcugdx_sound_load(const char *path, mcugdx_file_system_t *fs,
+								  mcugdx_sound_type_t sound_type,
+								  mcugdx_memory_type_t mem_type);
+
 mcugdx_sound_t *mcugdx_sound_load_raw(int16_t *frames, uint32_t num_frames,
 									  mcugdx_audio_channels_t channels,
 									  uint32_t sample_rate,
@@ -59,11 +63,11 @@ void mcugdx_sound_unload(mcugdx_sound_t *sound);
 
 double mcugdx_sound_duration(mcugdx_sound_t *sound);
 
-mcugdx_sound_id_t mcugdx_sound_play(mcugdx_sound_t *sound, uint8_t volume, uint8_t pan, mcugdx_playback_mode_t mode);
+mcugdx_sound_id_t mcugdx_sound_play(mcugdx_sound_t *sound, uint8_t volume, int8_t pan, mcugdx_playback_mode_t mode);
 
 void mcugdx_sound_set_volume(mcugdx_sound_id_t sound_instance, uint8_t volume);
 
-void mcugdx_sound_set_pan(mcugdx_sound_id_t sound_instance, uint8_t pan);
+void mcugdx_sound_set_pan(mcugdx_sound_id_t sound_instance, int8_t pan);
 
 void mcugdx_sound_stop(mcugdx_sound_id_t sound_instance);
 

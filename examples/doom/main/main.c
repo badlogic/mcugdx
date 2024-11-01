@@ -107,7 +107,7 @@ void doom_update_sound_params(int handle, int vol, int sep) {
 
 int doom_start_sound(sfxinfo_t *sfxinfo, int channel, int vol, int sep) {
 	if (sfxinfo->driver_data) {
-		return mcugdx_sound_play((mcugdx_sound_t *) sfxinfo->driver_data, vol, sep, MCUGDX_SINGLE_SHOT);
+		return mcugdx_sound_play((mcugdx_sound_t *) sfxinfo->driver_data, vol, (int8_t)(sep - 128), MCUGDX_SINGLE_SHOT);
 	} else {
 		return -1;
 	}

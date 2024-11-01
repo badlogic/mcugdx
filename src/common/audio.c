@@ -34,7 +34,7 @@ typedef struct {
 typedef struct {
 	mcugdx_sound_internal_t *sound;
 	uint8_t volume;
-	uint8_t pan;
+	int8_t pan;
 	mcugdx_playback_mode_t mode;
 	uint32_t position;
 	uint32_t id;
@@ -220,7 +220,7 @@ static uint32_t stream_qoa_frame(mcugdx_sound_instance_t *instance) {
 }
 
 mcugdx_sound_id_t mcugdx_sound_play(mcugdx_sound_t *sound, uint8_t volume,
-									uint8_t pan, mcugdx_playback_mode_t mode) {
+									int8_t pan, mcugdx_playback_mode_t mode) {
 	mcugdx_mutex_lock(&audio_lock);
 	mcugdx_sound_instance_t *free_slot = NULL;
 	mcugdx_sound_id_t free_slot_idx = 0;
@@ -271,7 +271,7 @@ void mcugdx_sound_set_volume(mcugdx_sound_id_t sound_instance, uint8_t volume) {
 	mcugdx_mutex_unlock(&audio_lock);
 }
 
-void mcugdx_sound_set_pan(mcugdx_sound_id_t sound_instance, uint8_t pan) {
+void mcugdx_sound_set_pan(mcugdx_sound_id_t sound_instance, int8_t pan) {
 	if (sound_instance > MAX_SOUND_INSTANCES)
 		return;
 	mcugdx_mutex_lock(&audio_lock);
@@ -310,7 +310,7 @@ bool mcugdx_sound_is_playing(mcugdx_sound_id_t sound_instance) {
 	return is_playing;
 }
 
-static void calculate_pan_gains(uint8_t pan, int32_t *gain_left,
+static void calculate_pan_gains(int8_t pan, int32_t *gain_left,
 								int32_t *gain_right) {
 	float normalized_pan = pan / 128.0f;
 	*gain_left = (uint8_t) (255 * (1.0f - normalized_pan) / 2);
