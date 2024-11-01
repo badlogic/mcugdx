@@ -50,7 +50,10 @@ uint8_t mcugdx_audio_get_master_volume(void);
 
 uint32_t mcugdx_audio_get_sample_rate(void);
 
-mcugdx_sound_t *mcugdx_sound_load(const char *path, mcugdx_file_system_t *fs, mcugdx_sound_type_t sound_type, mcugdx_memory_type_t mem_type);
+mcugdx_sound_t *mcugdx_sound_load_raw(int16_t *frames, uint32_t num_frames,
+									  mcugdx_audio_channels_t channels,
+									  uint32_t sample_rate,
+									  mcugdx_memory_type_t mem_type);
 
 void mcugdx_sound_unload(mcugdx_sound_t *sound);
 

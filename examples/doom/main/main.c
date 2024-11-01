@@ -152,19 +152,13 @@ void doom_precache_sounds(sfxinfo_t *sounds, int num_sounds) {
 		data += 16;
 		length -= 32;
 
-		mcugdx_sound_t *sound = mcugdx_mem_alloc(sizeof(mcugdx_sound_t), MCUGDX_MEM_EXTERNAL);
-		sound->channels = MCUGDX_MONO;
-		sound->sample_rate = samplerate;
-		sound->frames = mcugdx_mem_alloc(length * sizeof(int16_t), MCUGDX_MEM_EXTERNAL);
-		sound->num_frames = length;
+
+		int16_t *frames = mcugdx_mem_alloc(length * sizeof(int16_t), MCUGDX_MEM_EXTERNAL);
 		for (int j = 0; j < length; j++) {
 			float sample = data[j] / 127.5 - 1;
-			sound->frames[j] = (int16_t) (sample * 32767.0f);
+			frames[j] = (int16_t) (sample * 32767.0f);
 		}
-
-		// mcugdx_sound_play(sound, 255, MCUGDX_SINGLE_SHOT);
-		// uint32_t duration_ms = (uint32_t) ((length / (double) samplerate) * 1000);
-		// mcugdx_sleep(duration_ms);
+		mcugdx_sound_t *sound = mcugdx_sound_load_raw(frames, length, MCUGDX_MONO, samplerate, MCUGDX_MEM_EXTERNAL);
 
 		W_ReleaseLumpNum(lumpnum);
 
