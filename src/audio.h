@@ -63,11 +63,11 @@ void mcugdx_sound_unload(mcugdx_sound_t *sound);
 
 double mcugdx_sound_duration(mcugdx_sound_t *sound);
 
-mcugdx_sound_id_t mcugdx_sound_play(mcugdx_sound_t *sound, uint8_t volume, int8_t pan, mcugdx_playback_mode_t mode);
+mcugdx_sound_id_t mcugdx_sound_play(mcugdx_sound_t *sound, uint8_t volume, uint8_t pan, mcugdx_playback_mode_t mode);
 
 void mcugdx_sound_set_volume(mcugdx_sound_id_t sound_instance, uint8_t volume);
 
-void mcugdx_sound_set_pan(mcugdx_sound_id_t sound_instance, int8_t pan);
+void mcugdx_sound_set_pan(mcugdx_sound_id_t sound_instance, uint8_t pan);
 
 void mcugdx_sound_stop(mcugdx_sound_id_t sound_instance);
 

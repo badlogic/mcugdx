@@ -27,7 +27,7 @@ extern "C" void app_main() {
 	mcugdx_log(TAG, "After load");
 	mcugdx_mem_print();
 
-	mcugdx_sound_id_t synth = mcugdx_sound_play(sound, 255, 0, MCUGDX_SINGLE_SHOT);
+	mcugdx_sound_id_t synth = mcugdx_sound_play(sound, 255, 127, MCUGDX_SINGLE_SHOT);
 
 	mcugdx_log(TAG, "After play");
 	mcugdx_mem_print();

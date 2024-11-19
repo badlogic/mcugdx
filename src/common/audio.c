@@ -4,9 +4,9 @@
 #define QOA_IMPLEMENTATION
 #define QOA_NO_STDIO
 #include "qoa.h"
-#include <math.h>
-#include <mcugdx.h>
 #include <string.h>
+#include <mcugdx.h>
+#include <math.h>
 
 #define TAG "mcugdx_audio"
 
@@ -34,7 +34,7 @@ typedef struct {
 typedef struct {
 	mcugdx_sound_internal_t *sound;
 	uint8_t volume;
-	int8_t pan;
+	uint8_t pan;
 	mcugdx_playback_mode_t mode;
 	uint32_t position;
 	uint32_t id;
@@ -53,9 +53,7 @@ extern mcugdx_mutex_t audio_lock;
 static uint8_t *decoding_buffer = NULL;
 static uint32_t decoding_buffer_size = 0;
 
-mcugdx_sound_t *mcugdx_sound_load(const char *path, mcugdx_file_system_t *fs,
-								  mcugdx_sound_type_t sound_type,
-								  mcugdx_memory_type_t mem_type) {
+mcugdx_sound_t *mcugdx_sound_load(const char *path, mcugdx_file_system_t *fs, mcugdx_sound_type_t sound_type, mcugdx_memory_type_t mem_type) {
 	if (sound_type == MCUGDX_PRELOADED) {
 		uint32_t size;
 		uint8_t *raw = fs->read_fully(path, &size, MCUGDX_MEM_EXTERNAL);
@@ -74,9 +72,7 @@ mcugdx_sound_t *mcugdx_sound_load(const char *path, mcugdx_file_system_t *fs,
 		}
 
 		if (qoa.samplerate != mcugdx_audio_get_sample_rate()) {
-			mcugdx_loge(
-					TAG, "Sample rate of sound file %li != audio system sample rate %li",
-					qoa.samplerate, mcugdx_audio_get_sample_rate());
+			mcugdx_loge(TAG, "Sample rate of sound file %li != audio system sample rate %li", qoa.samplerate, mcugdx_audio_get_sample_rate());
 			mcugdx_mem_free(raw);
 			return NULL;
 		}
@@ -88,9 +84,7 @@ mcugdx_sound_t *mcugdx_sound_load(const char *path, mcugdx_file_system_t *fs,
 			return NULL;
 		}
 
-		mcugdx_sound_internal_t *sound =
-				(mcugdx_sound_internal_t *) mcugdx_mem_alloc(
-						sizeof(mcugdx_sound_internal_t), mem_type);
+		mcugdx_sound_internal_t *sound = (mcugdx_sound_internal_t *) mcugdx_mem_alloc(sizeof(mcugdx_sound_internal_t), mem_type);
 		sound->base.type = sound_type;
 		sound->base.sample_rate = qoa.samplerate;
 		sound->base.channels = qoa.channels;
@@ -114,15 +108,12 @@ mcugdx_sound_t *mcugdx_sound_load(const char *path, mcugdx_file_system_t *fs,
 		}
 
 		qoa_desc qoa;
-		unsigned int first_frame_pos =
-				qoa_decode_header(header, QOA_MIN_FILESIZE, &qoa);
+		unsigned int first_frame_pos = qoa_decode_header(header, QOA_MIN_FILESIZE, &qoa);
 		if (!first_frame_pos) {
 			return NULL;
 		}
 
-		mcugdx_sound_internal_t *sound =
-				(mcugdx_sound_internal_t *) mcugdx_mem_alloc(
-						sizeof(mcugdx_sound_internal_t), mem_type);
+		mcugdx_sound_internal_t *sound = (mcugdx_sound_internal_t *) mcugdx_mem_alloc(sizeof(mcugdx_sound_internal_t), mem_type);
 		sound->base.type = sound_type;
 		sound->base.sample_rate = qoa.samplerate;
 		sound->base.channels = qoa.channels;
@@ -136,14 +127,11 @@ mcugdx_sound_t *mcugdx_sound_load(const char *path, mcugdx_file_system_t *fs,
 		if (decoding_buffer_size < sound->streamed.decoding_buffer_size) {
 			mcugdx_mutex_lock(&audio_lock);
 			mcugdx_mem_free(decoding_buffer);
-			decoding_buffer = mcugdx_mem_alloc(
-					sound->streamed.decoding_buffer_size,
-					MCUGDX_MEM_EXTERNAL);// FIXME we'll always need external mem this way
+			decoding_buffer = mcugdx_mem_alloc(sound->streamed.decoding_buffer_size, MCUGDX_MEM_EXTERNAL);// FIXME we'll always need external mem this way
 			decoding_buffer_size = sound->streamed.decoding_buffer_size;
 			mcugdx_mutex_unlock(&audio_lock);
 		}
-		sound->streamed.frames_size_in_bytes =
-				qoa.channels * QOA_FRAME_LEN * sizeof(int16_t) * 2;
+		sound->streamed.frames_size_in_bytes = qoa.channels * QOA_FRAME_LEN * sizeof(int16_t) * 2;
 		return &sound->base;
 	}
 }
@@ -196,31 +184,23 @@ double mcugdx_sound_duration(mcugdx_sound_t *sound) {
 }
 
 static uint32_t stream_qoa_frame(mcugdx_sound_instance_t *instance) {
-	if (instance->sound->base.type == MCUGDX_PRELOADED)
-		return 0;
+	if (instance->sound->base.type == MCUGDX_PRELOADED) return 0;
 	mcugdx_sound_internal_t *sound = (mcugdx_sound_internal_t *) instance->sound;
-	if (!instance->frames ||
-		instance->frames_size_in_bytes != sound->streamed.frames_size_in_bytes) {
+	if (!instance->frames || instance->frames_size_in_bytes != sound->streamed.frames_size_in_bytes) {
 		mcugdx_mem_free(instance->frames);
-		instance->frames = mcugdx_mem_alloc(sound->streamed.frames_size_in_bytes,
-											MCUGDX_MEM_EXTERNAL);
+		instance->frames = mcugdx_mem_alloc(sound->streamed.frames_size_in_bytes, MCUGDX_MEM_EXTERNAL);
 		instance->frames_size_in_bytes = sound->streamed.frames_size_in_bytes;
 	}
-	uint32_t read_bytes = instance->sound->streamed.fs->read(
-			sound->streamed.file,
-			instance->file_offset + sound->streamed.first_frame_pos, decoding_buffer,
-			sound->streamed.decoding_buffer_size);
+	uint32_t read_bytes = instance->sound->streamed.fs->read(sound->streamed.file, instance->file_offset + sound->streamed.first_frame_pos, decoding_buffer, sound->streamed.decoding_buffer_size);
 	instance->file_offset += read_bytes;
 	unsigned int num_samples = 0;
-	qoa_decode_frame(decoding_buffer, read_bytes, &instance->sound->streamed.qoa,
-					 (short *) instance->frames, &num_samples);
+	qoa_decode_frame(decoding_buffer, read_bytes, &instance->sound->streamed.qoa, (short *) instance->frames, &num_samples);
 	instance->frames_pos = 0;
 	instance->num_frames = num_samples / sound->base.channels;
 	return instance->num_frames;
 }
 
-mcugdx_sound_id_t mcugdx_sound_play(mcugdx_sound_t *sound, uint8_t volume,
-									int8_t pan, mcugdx_playback_mode_t mode) {
+mcugdx_sound_id_t mcugdx_sound_play(mcugdx_sound_t *sound, uint8_t volume, uint8_t pan, mcugdx_playback_mode_t mode) {
 	mcugdx_mutex_lock(&audio_lock);
 	mcugdx_sound_instance_t *free_slot = NULL;
 	mcugdx_sound_id_t free_slot_idx = 0;
@@ -259,8 +239,7 @@ mcugdx_sound_id_t mcugdx_sound_play(mcugdx_sound_t *sound, uint8_t volume,
 }
 
 void mcugdx_sound_set_volume(mcugdx_sound_id_t sound_instance, uint8_t volume) {
-	if (sound_instance > MAX_SOUND_INSTANCES)
-		return;
+	if (sound_instance > MAX_SOUND_INSTANCES) return;
 	mcugdx_mutex_lock(&audio_lock);
 	mcugdx_sound_instance_t *instance = &sound_instances[sound_instance];
 	if (!instance->sound) {
@@ -271,9 +250,8 @@ void mcugdx_sound_set_volume(mcugdx_sound_id_t sound_instance, uint8_t volume) {
 	mcugdx_mutex_unlock(&audio_lock);
 }
 
-void mcugdx_sound_set_pan(mcugdx_sound_id_t sound_instance, int8_t pan) {
-	if (sound_instance > MAX_SOUND_INSTANCES)
-		return;
+void mcugdx_sound_set_pan(mcugdx_sound_id_t sound_instance, uint8_t pan) {
+	if (sound_instance > MAX_SOUND_INSTANCES) return;
 	mcugdx_mutex_lock(&audio_lock);
 	mcugdx_sound_instance_t *instance = &sound_instances[sound_instance];
 	if (!instance->sound) {
@@ -285,8 +263,7 @@ void mcugdx_sound_set_pan(mcugdx_sound_id_t sound_instance, int8_t pan) {
 }
 
 void mcugdx_sound_stop(mcugdx_sound_id_t sound_instance) {
-	if (sound_instance > MAX_SOUND_INSTANCES)
-		return;
+	if (sound_instance > MAX_SOUND_INSTANCES) return;
 	mcugdx_mutex_lock(&audio_lock);
 	mcugdx_sound_instance_t *instance = &sound_instances[sound_instance];
 	if (!instance->sound) {
@@ -302,23 +279,20 @@ void mcugdx_sound_stop(mcugdx_sound_id_t sound_instance) {
 }
 
 bool mcugdx_sound_is_playing(mcugdx_sound_id_t sound_instance) {
-	if (sound_instance > MAX_SOUND_INSTANCES)
-		return false;
+	if (sound_instance > MAX_SOUND_INSTANCES) return false;
 	mcugdx_mutex_lock(&audio_lock);
 	bool is_playing = sound_instances[sound_instance].sound != NULL;
 	mcugdx_mutex_unlock(&audio_lock);
 	return is_playing;
 }
 
-static void calculate_pan_gains(int8_t pan, int32_t *gain_left,
-								int32_t *gain_right) {
+static void calculate_pan_gains(uint8_t pan, int32_t *gain_left, int32_t *gain_right) {
 	float normalized_pan = pan / 128.0f;
-	*gain_left = (uint8_t) (255 * (1.0f - normalized_pan) / 2);
-	*gain_right = (uint8_t) (255 * (1.0f + normalized_pan) / 2);
+	*gain_left = (uint8_t)(255 * (1.0f - normalized_pan) / 2);
+	*gain_right = (uint8_t)(255 * (1.0f + normalized_pan) / 2);
 }
 
-void mcugdx_audio_mix(int32_t *frames, uint32_t num_frames,
-					  mcugdx_audio_channels_t channels) {
+void mcugdx_audio_mix(int32_t *frames, uint32_t num_frames, mcugdx_audio_channels_t channels) {
 	memset(frames, 0, num_frames * channels * sizeof(int32_t));
 
 	mcugdx_mutex_lock(&audio_lock);
@@ -357,9 +331,7 @@ void mcugdx_audio_mix(int32_t *frames, uint32_t num_frames,
 		uint32_t sound_channels = sound->base.channels;
 		while (frames_to_mix > 0) {
 			uint32_t frames_left_in_sound = sound->base.num_frames - source_position;
-			uint32_t frames_to_process = (frames_to_mix < frames_left_in_sound)
-												 ? frames_to_mix
-												 : frames_left_in_sound;
+			uint32_t frames_to_process = (frames_to_mix < frames_left_in_sound) ? frames_to_mix : frames_left_in_sound;
 
 			for (uint32_t frame = 0; frame < frames_to_process; frame++) {
 				int32_t left_sample, right_sample;
@@ -375,8 +347,7 @@ void mcugdx_audio_mix(int32_t *frames, uint32_t num_frames,
 				} else {
 					if (instance->num_frames - instance->frames_pos == 0) {
 						if (!stream_qoa_frame(instance)) {
-							mcugdx_loge(TAG, "Could not decode remaining frames of sound. "
-											 "This should never happen");
+							mcugdx_loge(TAG, "Could not decode remaining frames of sound. This should never happen");
 						}
 					}
 
@@ -422,6 +393,7 @@ void mcugdx_audio_mix(int32_t *frames, uint32_t num_frames,
 		instance->position = source_position;
 	}
 
+
 	mcugdx_mutex_unlock(&audio_lock);
 
 	int32_t master_volume = mcugdx_audio_get_master_volume();
@@ -431,8 +403,7 @@ void mcugdx_audio_mix(int32_t *frames, uint32_t num_frames,
 	for (uint32_t i = 0; i < num_frames * channels; i++) {
 		int32_t sample = (frames[i] * master_volume) >> 8;
 		int32_t abs_sample = sample < 0 ? -sample : sample;
-		if (abs_sample > max_amplitude)
-			max_amplitude = abs_sample;
+		if (abs_sample > max_amplitude) max_amplitude = abs_sample;
 	}
 
 	// Calculate scaling factor if necessary
@@ -447,8 +418,7 @@ void mcugdx_audio_mix(int32_t *frames, uint32_t num_frames,
 		int32_t sample = (frames[i] * master_volume) >> 8;
 		sample = (int32_t) (sample * scale);
 
-		if (sample > INT16_MAX)
-			sample = INT16_MAX;
+		if (sample > INT16_MAX) sample = INT16_MAX;
 		else if (sample < INT16_MIN)
 			sample = INT16_MIN;
 
@@ -456,6 +426,10 @@ void mcugdx_audio_mix(int32_t *frames, uint32_t num_frames,
 	}
 }
 
-void mcugdx_audio_set_master_volume(uint8_t volume) { master_volume = volume; }
+void mcugdx_audio_set_master_volume(uint8_t volume) {
+	master_volume = volume;
+}
 
-uint8_t mcugdx_audio_get_master_volume(void) { return master_volume; }
+uint8_t mcugdx_audio_get_master_volume(void) {
+	return master_volume;
+}
