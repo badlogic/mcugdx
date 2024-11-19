@@ -287,7 +287,7 @@ bool mcugdx_sound_is_playing(mcugdx_sound_id_t sound_instance) {
 }
 
 static void calculate_pan_gains(uint8_t pan, int32_t *gain_left, int32_t *gain_right) {
-	float normalized_pan = pan / 128.0f;
+	float normalized_pan = (pan - 127) / 128.0f;
 	*gain_left = (uint8_t)(255 * (1.0f - normalized_pan) / 2);
 	*gain_right = (uint8_t)(255 * (1.0f + normalized_pan) / 2);
 }
