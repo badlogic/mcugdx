@@ -4,6 +4,12 @@
 extern "C" {
 #endif
 
+#ifdef ESP_PLATFORM
+#define mcugdx_main app_main
+#else
+#define mcugdx_main main
+#endif
+
 #include "log.h"
 #include "mem.h"
 #include "mutex.h"

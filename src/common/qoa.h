@@ -388,12 +388,12 @@ unsigned int qoa_encode_frame(const short *sample_data, qoa_desc *qoa, unsigned 
 			/* Brute for search for the best scalefactor. Just go through all
 			16 scalefactors, encode all samples for the current slice and
 			meassure the total squared error. */
-			qoa_uint64_t best_rank = -1;
+			qoa_uint64_t best_rank = 0xffffffffffffffff;
 #ifdef QOA_RECORD_TOTAL_ERROR
 			qoa_uint64_t best_error = -1;
 #endif
 			qoa_uint64_t best_slice = 0;
-			qoa_lms_t best_lms;
+			qoa_lms_t best_lms = {0};
 			int best_scalefactor = 0;
 
 			for (int sfi = 0; sfi < 16; sfi++) {
@@ -631,7 +631,7 @@ unsigned int qoa_decode_frame(const unsigned char *bytes, unsigned int size, qoa
 				int dequantized = qoa_dequant_tab[scalefactor][quantized];
 				int reconstructed = qoa_clamp_s16(predicted + dequantized);
 
-				sample_data[si] = reconstructed;
+				sample_data[si] = (short)reconstructed;
 				slice <<= 3;
 
 				qoa_lms_update(&qoa->lms[c], reconstructed, dequantized);

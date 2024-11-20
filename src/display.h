@@ -7,7 +7,14 @@
 extern "C" {
 #endif
 
+#if defined(_MSC_VER)
+#include <intrin.h>
+#define swap_bytes(color) _byteswap_ushort(color)
+#elif defined(__GNUC__) || defined(__clang__)
 #define swap_bytes(color) __builtin_bswap16(color)
+#else
+#error "Unsupported compiler"
+#endif
 #define MCUGDX_RED 0b1111100000000000
 #define MCUGDX_GREEN 0b11111100000
 #define MCUGDX_BLUE 0b11111

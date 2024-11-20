@@ -483,6 +483,15 @@ void *qoi_encode(const void *data, const qoi_desc *desc, int *out_len) {
 	return bytes;
 }
 
+#if defined(_MSC_VER)
+#include <intrin.h>
+#define swap_bytes(color) _byteswap_ushort(color)
+#elif defined(__GNUC__) || defined(__clang__)
+#define swap_bytes(color) __builtin_bswap16(color)
+#else
+#error "Unsupported compiler"
+#endif
+
 void *qoi_decode(const void *data, int size, qoi_desc *desc, int channels, mcugdx_memory_type_t mem_type) {
 	const unsigned char *bytes;
 	unsigned int header_magic;
@@ -572,7 +581,7 @@ void *qoi_decode(const void *data, int size, qoi_desc *desc, int channels, mcugd
 			uint8_t r = px.rgba.r >> 3;
 			uint8_t g = px.rgba.g >> 2;
 			uint8_t b = px.rgba.b >> 3;
-			pixels[px_pos] = __builtin_bswap16((r << 11) | (g << 5) | b);
+			pixels[px_pos] = swap_bytes((r << 11) | (g << 5) | b);
 		}
 	}
 

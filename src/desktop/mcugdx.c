@@ -15,9 +15,3 @@ void mcugdx_init(void) {
 void mcugdx_quit(void) {
     exit(0);
 }
-
-extern void app_main(void);
-
-int main(void) {
-	app_main();
-}

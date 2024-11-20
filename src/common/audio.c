@@ -16,7 +16,7 @@ static uint32_t next_id = 0;
 
 typedef struct {
 	mcugdx_sound_t base;
-	union {
+	union{
 		struct {
 			int16_t *frames;
 		} preloaded;
@@ -396,12 +396,11 @@ void mcugdx_audio_mix(int32_t *frames, uint32_t num_frames, mcugdx_audio_channel
 
 	mcugdx_mutex_unlock(&audio_lock);
 
-	int32_t master_volume = mcugdx_audio_get_master_volume();
 	int32_t max_amplitude = 0;
 
 	// First pass: find max amplitude
 	for (uint32_t i = 0; i < num_frames * channels; i++) {
-		int32_t sample = (frames[i] * master_volume) >> 8;
+		int32_t sample = (frames[i] * mcugdx_audio_get_master_volume()) >> 8;
 		int32_t abs_sample = sample < 0 ? -sample : sample;
 		if (abs_sample > max_amplitude) max_amplitude = abs_sample;
 	}

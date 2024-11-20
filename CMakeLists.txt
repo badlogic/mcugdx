@@ -34,7 +34,11 @@ if(CMAKE_BUILD_TYPE MATCHES Release)
     endif()
 endif()
 
-add_compile_options(-DDESKTOP_BUILD -Wall -Wextra -Wpedantic -Werror -Wno-implicit-fallthrough)
+if(MSVC)
+    add_compile_options(/DDESKTOP_BUILD /std:c++20 /W4 /wd4065 /wd4100 /wd4324 /wd4996 /wd4201)
+else()
+    add_compile_options(-DDESKTOP_BUILD -Wall -Wextra -Wpedantic -Werror -Wno-implicit-fallthrough)
+endif()
 
 # Library
 file(GLOB COMMON_SOURCES "src/common/*.c")

@@ -113,18 +113,28 @@ void get_executable_dir(char *path, size_t size) {
 #endif
 }
 
+#ifdef _WIN32
+#define PATH_SEPARATOR '\\'
+#else
+#define PATH_SEPARATOR '/'
+#endif
+
 uint8_t *read_partition_file(void) {
-	char executable_dir[1024];
-	get_executable_dir(executable_dir, sizeof(executable_dir));
+    char executable_dir[1024];
+    get_executable_dir(executable_dir, sizeof(executable_dir));
 
-	char rofs_bin_path[1060];
-	snprintf(rofs_bin_path, sizeof(rofs_bin_path), "%s/rofs.bin", executable_dir);
+    char rofs_bin_path[1060];
+    snprintf(rofs_bin_path, sizeof(rofs_bin_path), "%s%c%s", executable_dir, PATH_SEPARATOR, "rofs.bin");
 
-	FILE *file = fopen(rofs_bin_path, "rb");
-	if (!file) {
-		mcugdx_loge(TAG, "Failed to open file: %s\n", rofs_bin_path);
-		return NULL;
-	}
+    FILE *file = fopen(rofs_bin_path, "rb");
+    if (!file) {
+        snprintf(rofs_bin_path, sizeof(rofs_bin_path), "%s%c..%crofs.bin", executable_dir, PATH_SEPARATOR, PATH_SEPARATOR);
+        file = fopen(rofs_bin_path, "rb");
+        if (!file) {
+            fprintf(stderr, "Failed to open file: %s\n", rofs_bin_path);
+            return NULL;
+        }
+    }
 
 	fseek(file, 0, SEEK_END);
 	long file_size = ftell(file);

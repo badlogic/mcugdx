@@ -143,8 +143,8 @@ void mcugdx_display_blit_keyed(mcugdx_image_t *src, int32_t x, int32_t y, uint16
 	uint32_t *src_pixel32 = (uint32_t *) (src->pixels + src_y1 * src->width + src_x1);
 
 	uint32_t color_key32 = (color_key << 16) | (color_key);
-	for (int32_t y = dst_y1; y <= dst_y2; y++) {
-		int32_t x = 0;
+	for (y = dst_y1; y <= dst_y2; y++) {
+		x = 0;
 		for (; x < clipped_width - 3; x += 4) {
 			uint32_t src_colors1 = *src_pixel32++;
 			uint32_t src_colors2 = *src_pixel32++;

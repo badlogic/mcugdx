@@ -397,7 +397,7 @@ bool update_state(float delta_time) {
 	return true;
 }
 
-extern "C" void app_main() {
+void mcugdx_main() {
 	mcugdx_init();
 	mcugdx_rofs_init();
 
