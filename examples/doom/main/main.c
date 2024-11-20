@@ -259,7 +259,7 @@ int DG_GetKey(int *pressed, unsigned char *doomKey) {
 		return 0;
 	}
 }
-void app_main() {
+int mcugdx_main() {
 	mcugdx_init();
 	mcugdx_display_init(&display_config);
 	mcugdx_display_set_orientation(MCUGDX_LANDSCAPE);
@@ -285,4 +285,6 @@ void app_main() {
 	while (true) {
 		doomgeneric_Tick();
 	}
+
+	return 0;
 }

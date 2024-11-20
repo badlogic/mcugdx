@@ -2,7 +2,7 @@
 
 #define TAG "Audio example"
 
-extern "C" void app_main() {
+extern "C" int mcugdx_main() {
 	mcugdx_init();
 	mcugdx_rofs_init();
 
@@ -22,13 +22,13 @@ extern "C" void app_main() {
 	mcugdx_log(TAG, "frames: %li, channels: %li, sample rate: %li", sound->channels, sound->num_frames, sound->sample_rate);
 	if (sound == NULL) {
 		mcugdx_log(TAG, "Failed to load sound");
-		return;
+		return 0;
 	}
 
 	mcugdx_log(TAG, "After load");
 	mcugdx_mem_print();
 
-	mcugdx_sound_id_t synth = mcugdx_sound_play(sound, 255, 0, MCUGDX_SINGLE_SHOT);
+	mcugdx_sound_id_t synth = mcugdx_sound_play(sound, 255, 127, MCUGDX_SINGLE_SHOT);
 
 	mcugdx_log(TAG, "After play");
 	mcugdx_mem_print();
@@ -57,4 +57,6 @@ extern "C" void app_main() {
 	mcugdx_sound_unload(sound);
 	mcugdx_log(TAG, "After unload");
 	mcugdx_mem_print();
+
+	return 0;
 }

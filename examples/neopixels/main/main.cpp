@@ -3,7 +3,7 @@
 
 #define TAG "Neopixels example"
 
-extern "C" void app_main() {
+extern "C" int mcugdx_main() {
 	mcugdx_neopixels_config_t config = {
 			.num_leds = 31,
 			.pin = 5};
@@ -31,4 +31,6 @@ extern "C" void app_main() {
 		mcugdx_neopixels_show_max_milli_ampere(60);
 		mcugdx_sleep(2000);
 	}
+
+	return 0;
 }

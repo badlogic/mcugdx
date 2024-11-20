@@ -3,7 +3,7 @@
 
 #define TAG "Ultrasonic example"
 
-extern "C" void app_main() {
+extern "C" int mcugdx_main() {
 	mcugdx_ultrasonic_config_t config = {
 		.trigger = 1,
 		.echo = 2
@@ -18,4 +18,6 @@ extern "C" void app_main() {
 		}
 		mcugdx_sleep(100);
 	}
+
+	return 0;
 }

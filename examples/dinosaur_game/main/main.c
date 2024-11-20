@@ -1,5 +1,6 @@
 #include "mcugdx.h"
 #include <math.h>
+#include <stdlib.h>
 
 #define TAG "Dino game"
 
@@ -397,7 +398,7 @@ bool update_state(float delta_time) {
 	return true;
 }
 
-void mcugdx_main() {
+int mcugdx_main() {
 	mcugdx_init();
 	mcugdx_rofs_init();
 
@@ -443,7 +444,7 @@ void mcugdx_main() {
 		last_time = now;
 
 		if (!update_state(delta_time)) {
-			return;
+			return 0;
 		}
 
 		draw_background();
@@ -458,4 +459,6 @@ void mcugdx_main() {
 			mcugdx_log(TAG, "total: %.3f ms, fps: %.3f, delta: %.5f", total * 1000, 1000.0f / (total * 1000), delta_time);
 		}
 	}
+
+	return 0;
 }

@@ -183,7 +183,7 @@ void adc_to_color(int value, int32_t &r, int32_t &g, int32_t &b) {
 	b = (int) (b_f * factor * 255);
 }
 
-extern "C" void app_main() {
+extern "C" int mcugdx_main() {
 	mcugdx_init();
 	mcugdx_rofs_init();
 	config_read();
@@ -256,4 +256,6 @@ extern "C" void app_main() {
 		mcugdx_neopixels_show_max_milli_ampere(600);
 		mcugdx_sleep(10);
 	}
+
+	return 0;
 }

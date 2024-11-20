@@ -5,7 +5,7 @@
 #define BLINK_TIME 5    // 5 seconds
 #define RAMP_TIME 2     // 2 seconds
 
-extern "C" void app_main() {
+extern "C" int mcugdx_main() {
    mcugdx_init();
 
    while (true) {
@@ -40,4 +40,6 @@ extern "C" void app_main() {
            mcugdx_log(TAG, "Ramping down: %d", duty);
        }
    }
+
+   return 0;
 }

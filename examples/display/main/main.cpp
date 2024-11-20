@@ -63,7 +63,7 @@ struct box_t {
 	}
 };
 
-extern "C" void app_main() {
+extern "C" int mcugdx_main() {
 	mcugdx_mem_print();
 	mcugdx_init();
 	mcugdx_display_init(&display_config);
@@ -113,4 +113,6 @@ extern "C" void app_main() {
 			mcugdx_log(TAG, "clear: %.3f, draw: %.3f ms, show: %.3f ms, total: %.3f ms", (clear * 1000), (draw * 1000), (show * 1000), (total * 1000));
 		}
 	}
+
+	return 0;
 }

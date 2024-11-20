@@ -8,7 +8,7 @@
 
 double last_measure_time = 0;
 
-extern "C" void app_main(void) {
+extern "C" int mcugdx_main(void) {
 	mcugdx_init();
 	mcugdx_button_create(3, 50, MCUGDX_KEY_SPACE);
 	config_read();
@@ -64,4 +64,6 @@ extern "C" void app_main(void) {
 		motor_update();
 		mcugdx_sleep(100);
 	}
+
+	return 0;
 }

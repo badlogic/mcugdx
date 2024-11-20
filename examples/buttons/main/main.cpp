@@ -29,7 +29,7 @@ mcugdx_display_config_t display_config = {
 };
 #endif
 
-extern "C" void app_main(void) {
+extern "C" int mcugdx_main(void) {
     mcugdx_display_init(&display_config);
     mcugdx_display_set_orientation(MCUGDX_LANDSCAPE);
 
@@ -51,4 +51,6 @@ extern "C" void app_main(void) {
         mcugdx_display_show();
         mcugdx_sleep(0);
     }
+
+    return 0;
 }
