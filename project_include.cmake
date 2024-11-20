@@ -1,11 +1,21 @@
 # Function to add a custom command and integrate with ESP-IDF build
 function(mcugdx_create_rofs_partition partition_name input_dir)
     set(OUTPUT_FILE "${CMAKE_BINARY_DIR}/${partition_name}.bin")
+    if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Darwin")
+        set(ROFS_EXECUTABLE "rofs-mac")
+    elseif(CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
+        set(ROFS_EXECUTABLE "rofs-lin")
+    elseif(CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
+        set(ROFS_EXECUTABLE "rofs-win.exe")
+    else()
+        message(FATAL_ERROR "Unsupported operating system: ${CMAKE_HOST_SYSTEM_NAME}")
+    endif()
+    set(ROFS_PATH "${CMAKE_CURRENT_FUNCTION_LIST_DIR}/tools/bin/${ROFS_EXECUTABLE}")
 
     # Create a custom target for the ROFS binary generation
     add_custom_target(${partition_name}_rofs_bin ALL
         COMMAND ${CMAKE_COMMAND} -E echo "Generating ROFS binary..."
-        COMMAND ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/rofs.sh ${OUTPUT_FILE} ${input_dir}
+        COMMAND ${ROFS_PATH} ${OUTPUT_FILE} ${input_dir}
         COMMENT "Building ROFS partition image"
     )
 
