@@ -91,6 +91,7 @@ void tfDirClose( tfDIR* dir );
 int tfDirOpen( tfDIR* dir, const char* path );
 
 #if TF_PLATFORM == TF_WINDOWS
+	#include <windows.h>
 
 	struct tfFILE
 	{
