@@ -1,0 +1,7 @@
+{
+    "cmake.debugConfig": {
+        "args": [
+            "../../rofs.bin", "../../build"
+        ]
+    }
+}
