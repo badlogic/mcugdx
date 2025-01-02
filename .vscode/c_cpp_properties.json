@@ -24,8 +24,7 @@
             "cStandard": "c11",
             "cppStandard": "c++11",
             "intelliSenseMode": "macos-clang-arm64",
-            "configurationProvider": "ms-vscode.cmake-tools",
-            "compilerPath": "${config:idf.toolsPath}/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc"
+            "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
     "version": 4

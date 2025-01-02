@@ -1,7 +1,10 @@
 {
-    "idf.adapterTargetName": "esp32s3",
     "cmake.buildDirectory": "${workspaceFolder}/build-desktop",
     "idf.flashType": "UART",
-    "idf.port": "/dev/tty.usbmodem2101",
-    "C_Cpp.default.compilerPath": "/Users/badlogic/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/bin/xtensa-esp32s3-elf-gcc"
+    "idf.port": "/dev/tty.usbmodem1101",
+    "idf.espIdfPath": "/Users/badlogic/esp/v5.3.2/esp-idf",
+    "idf.toolsPath": "/Users/badlogic/.espressif",
+    "idf.openOcdConfigs": [
+        "board/esp32s3-builtin.cfg"
+    ]
 }
