@@ -40,7 +40,7 @@ typedef struct
  *  Do not access these fields directly.
  *
  */
-typedef struct 
+typedef struct
 {
     HMP3Decoder dec;
     uint8_t *mp3_buffer;
@@ -51,6 +51,7 @@ typedef struct
     size_t current_pcm_frame;
     uint32_t current_sample_rate;
     uint32_t current_bitrate;
+    uint8_t current_channels;
     const helix_mp3_io_t *io;
 } helix_mp3_t;
 
@@ -72,7 +73,7 @@ int helix_mp3_init(helix_mp3_t *mp3, const helix_mp3_io_t *io);
 
 /**
  * @brief Initializes the decoder for a given file
- * 
+ *
  * @param mp3 pointer to decoder context
  * @param path path to MP3 file to decode
  * @return int appropriate errno code on failure, zero on success
@@ -81,7 +82,7 @@ int helix_mp3_init_file(helix_mp3_t *mp3, const char *path);
 
 /**
  * @brief Deinitializes the decoder, freeing all internal resources
- * 
+ *
  * @param mp3 pointer to decoder context
  * @return int appropriate errno code on failure, zero on success
  */
@@ -89,7 +90,7 @@ int helix_mp3_deinit(helix_mp3_t *mp3);
 
 /**
  * @brief Returns sample rate of the last decoded frame
- * 
+ *
  * @param mp3 pointer to decoder context
  * @return uint32_t sample rate value in Hz
  */
@@ -97,7 +98,7 @@ uint32_t helix_mp3_get_sample_rate(helix_mp3_t *mp3);
 
 /**
  * @brief Returns bitrate of the last decoded frame
- * 
+ *
  * @param mp3 pointer to decoder context
  * @return uint32_t bitrate value in bps
  */
@@ -105,7 +106,7 @@ uint32_t helix_mp3_get_bitrate(helix_mp3_t *mp3);
 
 /**
  * @brief Returns number of PCM frames decoded so far
- * 
+ *
  * @param mp3 pointer to decoder context
  * @return size_t number of decoded PCM frames
  */
@@ -113,17 +114,25 @@ size_t helix_mp3_get_pcm_frames_decoded(helix_mp3_t *mp3);
 
 /**
  * @brief Decodes and reads requested number of PCM frames into the buffer
- * 
+ *
  * Keep in mind that this function operates on frames, not samples. Frame is just
- * a number of samples times number of channels. This library always returns 
- * decoded data in 2-channel format, for mono MP3 files both channels just contain 
+ * a number of samples times number of channels. This library always returns
+ * decoded data in 2-channel format, for mono MP3 files both channels just contain
  * the same data.
  * That means that the provided buffer always has to have size of at least
  * frames_to_read * 2 channels * sizeof(int16_t). Otherwise bad things will happen.
- * 
+ *
  * @param mp3 pointer to decoder context
  * @param buffer pointer to buffer big enough to store requested number of PCM frames
  * @param frames_to_read number of PCM frames to read
  * @return size_t number of frames written to buffer (can be less than frames_to_read if e.g. EOF reached)
  */
 size_t helix_mp3_read_pcm_frames_s16(helix_mp3_t *mp3, int16_t *buffer, size_t frames_to_read);
+
+/**
+ * @brief Returns number of channels in the audio stream
+ *
+ * @param mp3 pointer to decoder context
+ * @return uint8_t number of channels (typically 1 or 2)
+ */
+uint8_t helix_mp3_get_channels(helix_mp3_t *mp3);

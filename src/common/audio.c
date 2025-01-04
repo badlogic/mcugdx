@@ -224,7 +224,7 @@ static bool mp3_init_preloaded(const char *path, mcugdx_file_system_t *fs, mcugd
 
 	// First pass: count total frames
 	size_t total_frames = 0;
-	int16_t temp_buffer[HELIX_MP3_MAX_SAMPLES_PER_FRAME * 2]; // Double buffer size for stereo
+	int16_t temp_buffer[HELIX_MP3_MAX_SAMPLES_PER_FRAME * 2]; // Keep buffer size for worst case (stereo)
 
 	while (true) {
 		size_t frames = helix_mp3_read_pcm_frames_s16(&mp3, temp_buffer, HELIX_MP3_MAX_SAMPLES_PER_FRAME);
@@ -232,8 +232,11 @@ static bool mp3_init_preloaded(const char *path, mcugdx_file_system_t *fs, mcugd
 		total_frames += frames;
 	}
 
+	// Get the actual channel count
+	uint8_t mp3_channels = helix_mp3_get_channels(&mp3);
+
 	// Allocate buffer for all frames
-	size_t buffer_size = total_frames * 2 * sizeof(int16_t); // Stereo samples
+	size_t buffer_size = total_frames * mp3_channels * sizeof(int16_t); // Use actual channel count
 	*frames = mcugdx_mem_alloc(buffer_size, mem_type);
 	if (!*frames) {
 		helix_mp3_deinit(&mp3);
@@ -252,17 +255,26 @@ static bool mp3_init_preloaded(const char *path, mcugdx_file_system_t *fs, mcugd
 
 	// Second pass: decode all frames
 	size_t frames_read = 0;
+	int16_t *output_ptr = *frames;  // Track our position in the output buffer
+
 	while (frames_read < total_frames) {
+		size_t frames_to_read = total_frames - frames_read;
+
+		// Read directly into the current output buffer position
 		size_t num_frames = helix_mp3_read_pcm_frames_s16(&mp3,
-			*frames + (frames_read * 2),  // Advance by 2 samples per frame (stereo)
-			total_frames - frames_read);
+			output_ptr,
+			frames_to_read);
+
 		if (num_frames == 0) break;
+
+		// Advance the output pointer by the number of samples written
+		output_ptr += (num_frames * mp3_channels);
 		frames_read += num_frames;
 	}
 
 	*sample_rate = helix_mp3_get_sample_rate(&mp3);
-	*channels = 2; // MP3 decoder always outputs stereo
-	*num_samples = frames_read; // Use actual frames read instead of total_frames
+	*channels = mp3_channels;  // Use actual channel count
+	*num_samples = frames_read;
 
 	helix_mp3_deinit(&mp3);
 	fs->close(handle);
