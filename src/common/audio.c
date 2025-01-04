@@ -190,17 +190,10 @@ static bool mp3_init_streaming(const char* path, mcugdx_file_system_t* fs, mcugd
 	mp3_decoder_data_t* mp3_data = mcugdx_mem_alloc(sizeof(mp3_decoder_data_t), mem_type);
 	if (!mp3_data) return false;
 
-	// Create and initialize IO context
-	mp3_io_context_t* io_ctx = mcugdx_mem_alloc(sizeof(mp3_io_context_t), mem_type);
-	if (!io_ctx) {
+	mp3_data->fs = fs;
+	mp3_data->file = fs->open(path);
+	if (!mp3_data->file) {
 		mcugdx_mem_free(mp3_data);
-		return false;
-	}
-
-	io_ctx->fs = fs;
-	io_ctx->file = fs->open(path);
-	if (!io_ctx->file) {
-		mcugdx_mem_free(io_ctx);
 		mcugdx_mem_free(mp3_data);
 		return false;
 	}
@@ -209,12 +202,12 @@ static bool mp3_init_streaming(const char* path, mcugdx_file_system_t* fs, mcugd
 	helix_mp3_io_t io = {
 		.seek = mp3_seek_wrapper,
 		.read = mp3_read_wrapper,
-		.user_data = io_ctx
+		.user_data = mp3_data
 	};
 
 	if (helix_mp3_init(&mp3_data->helix, &io) != 0) {
-		fs->close(io_ctx->file);
-		mcugdx_mem_free(io_ctx);
+		fs->close(mp3_data->file);
+		mcugdx_mem_free(mp3_data);
 		mcugdx_mem_free(mp3_data);
 		return false;
 	}

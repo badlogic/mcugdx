@@ -18,7 +18,7 @@ extern "C" int mcugdx_main() {
 	mcugdx_log(TAG, "Before load");
 	mcugdx_mem_print();
 
-	mcugdx_sound_t *sound = mcugdx_sound_load("synth.mp3", &mcugdx_rofs, MCUGDX_PRELOADED, MCUGDX_MEM_EXTERNAL);
+	mcugdx_sound_t *sound = mcugdx_sound_load("synth.mp3", &mcugdx_rofs, MCUGDX_STREAMED, MCUGDX_MEM_EXTERNAL);
 	mcugdx_log(TAG, "frames: %li, channels: %li, sample rate: %li", sound->channels, sound->num_frames, sound->sample_rate);
 	if (sound == NULL) {
 		mcugdx_log(TAG, "Failed to load sound");
