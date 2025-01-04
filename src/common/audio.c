@@ -155,14 +155,14 @@ typedef struct {
 	const char *extension;
 	bool (*init_streaming)(const char *path, mcugdx_file_system_t *fs, mcugdx_memory_type_t mem_type,
 						   mcugdx_audio_decoder_t *decoder, uint32_t *first_frame_pos,
-						   uint32_t *sample_rate, uint32_t *channels, uint32_t *num_samples,
+						   uint32_t *sample_rate, uint32_t *channels, uint32_t *num_frames,
 						   uint32_t *buffer_size, uint32_t *frames_size);
 	bool (*init_preloaded)(const char *path, mcugdx_file_system_t *fs, mcugdx_memory_type_t mem_type,
-						   int16_t **frames, uint32_t *sample_rate, uint32_t *channels, uint32_t *num_samples);
+						   int16_t **frames, uint32_t *sample_rate, uint32_t *channels, uint32_t *num_frames);
 } mcugdx_audio_format_t;
 
 static bool qoa_init_preloaded(const char *path, mcugdx_file_system_t *fs, mcugdx_memory_type_t mem_type,
-							   int16_t **frames, uint32_t *sample_rate, uint32_t *channels, uint32_t *num_samples) {
+							   int16_t **frames, uint32_t *sample_rate, uint32_t *channels, uint32_t *num_frames) {
 	uint32_t size;
 	uint8_t *raw = fs->read_fully(path, &size, MCUGDX_MEM_EXTERNAL);
 	if (!raw) return false;
@@ -176,7 +176,7 @@ static bool qoa_init_preloaded(const char *path, mcugdx_file_system_t *fs, mcugd
 	*frames = qoa_decode(raw, size, &qoa, mem_type);
 	*sample_rate = qoa.samplerate;
 	*channels = qoa.channels;
-	*num_samples = qoa.samples;
+	*num_frames = qoa.samples;
 	mcugdx_mem_free(raw);
 	return *frames != NULL;
 }
@@ -200,7 +200,7 @@ static size_t mcugdx_file_read(void* ctx, void* buffer, size_t size) {
 }
 
 static bool mp3_init_preloaded(const char *path, mcugdx_file_system_t *fs, mcugdx_memory_type_t mem_type,
-							   int16_t **frames, uint32_t *sample_rate, uint32_t *channels, uint32_t *num_samples) {
+							   int16_t **frames, uint32_t *sample_rate, uint32_t *channels, uint32_t *num_frames) {
 	// Setup file IO for helix
 	helix_mp3_t mp3;
 	helix_mp3_io_t io = {0};
@@ -222,7 +222,7 @@ static bool mp3_init_preloaded(const char *path, mcugdx_file_system_t *fs, mcugd
 		return false;
 	}
 
-	// First pass: count total frames
+	// First pass: count total frames, this is super bad, it decodes the entire file...
 	size_t total_frames = 0;
 	int16_t temp_buffer[HELIX_MP3_MAX_SAMPLES_PER_FRAME * 2]; // Keep buffer size for worst case (stereo)
 
@@ -274,7 +274,7 @@ static bool mp3_init_preloaded(const char *path, mcugdx_file_system_t *fs, mcugd
 
 	*sample_rate = helix_mp3_get_sample_rate(&mp3);
 	*channels = mp3_channels;  // Use actual channel count
-	*num_samples = frames_read;
+	*num_frames = frames_read;
 
 	helix_mp3_deinit(&mp3);
 	fs->close(handle);
@@ -332,15 +332,15 @@ mcugdx_sound_t *mcugdx_sound_load(const char *path, mcugdx_file_system_t *fs,
 			return NULL;
 		}
 
-		uint32_t num_samples;
+		uint32_t num_frames;
 		if (!format->init_preloaded(path, fs, mem_type, &renderer_data->frames,
-									&internal->sound.sample_rate, &internal->sound.channels, &num_samples)) {
+									&internal->sound.sample_rate, &internal->sound.channels, &num_frames)) {
 			mcugdx_mem_free(renderer_data);
 			mcugdx_mem_free(internal);
 			return NULL;
 		}
 
-		renderer_data->num_frames = num_samples;
+		internal->sound.num_frames = renderer_data->num_frames = num_frames;
 		renderer_data->position = 0;
 		internal->create_renderer = create_preloaded_renderer;
 		internal->sound.type = MCUGDX_PRELOADED;
