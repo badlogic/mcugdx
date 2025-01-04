@@ -35,17 +35,21 @@ if(CMAKE_BUILD_TYPE MATCHES Release)
 endif()
 
 if(MSVC)
-    add_compile_options(/DDESKTOP_BUILD /std:c++20 /W4 /wd4065 /wd4100 /wd4324 /wd4996 /wd4201)
+    add_compile_options(/DDESKTOP_BUILD /std:c++20 /W4 /wd4065 /wd4100 /wd4324 /wd4996 /wd4201 /wd4189 /wd4101 /wd4100)
 else()
-    add_compile_options(-DDESKTOP_BUILD -Wall -Wextra -Wpedantic -Werror -Wno-implicit-fallthrough)
+    add_compile_options(-DDESKTOP_BUILD -Wall -Wextra -Wpedantic -Werror -Wno-implicit-fallthrough -Wno-unused-but-set-variable -Wno-unused-variable -Wno-unused-parameter)
 endif()
 
 # Library
-file(GLOB COMMON_SOURCES "src/common/*.c")
-file(GLOB DESKTOP_SOURCES "src/desktop/*.c")
+file(GLOB_RECURSE COMMON_SOURCES "src/common/*.c")
+file(GLOB_RECURSE DESKTOP_SOURCES "src/desktop/*.c")
 add_library(mcugdx  ${COMMON_SOURCES} ${DESKTOP_SOURCES})
 target_link_libraries(mcugdx LINK_PUBLIC SDL2-static)
-target_include_directories(mcugdx PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src")
+target_include_directories(mcugdx PUBLIC
+    "${CMAKE_CURRENT_SOURCE_DIR}/src"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/common/thirdparty/helix/src"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/common/thirdparty/helix/src/libhelix/pub"
+)
 target_include_directories(mcugdx PUBLIC ${SDL2_SOURCE_DIR}/include)
 
 if(APPLE)

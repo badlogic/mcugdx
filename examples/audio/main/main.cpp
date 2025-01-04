@@ -18,7 +18,7 @@ extern "C" int mcugdx_main() {
 	mcugdx_log(TAG, "Before load");
 	mcugdx_mem_print();
 
-	mcugdx_sound_t *sound = mcugdx_sound_load("synth.qoa", &mcugdx_rofs, MCUGDX_STREAMED, MCUGDX_MEM_EXTERNAL);
+	mcugdx_sound_t *sound = mcugdx_sound_load("synth.mp3", &mcugdx_rofs, MCUGDX_PRELOADED, MCUGDX_MEM_EXTERNAL);
 	mcugdx_log(TAG, "frames: %li, channels: %li, sample rate: %li", sound->channels, sound->num_frames, sound->sample_rate);
 	if (sound == NULL) {
 		mcugdx_log(TAG, "Failed to load sound");
@@ -33,22 +33,10 @@ extern "C" int mcugdx_main() {
 	mcugdx_log(TAG, "After play");
 	mcugdx_mem_print();
 
-    mcugdx_display_config_t display_config = {
-		.driver = MCUGDX_ST7789,
-		.native_width = 240,
-		.native_height = 320,
-		.mosi = 3,
-		.sck = 4,
-		.dc = 2,
-		.cs = 1,
-		.reset = -1};
-    mcugdx_display_init(&display_config);
-
     int frame = 0;
 	while (mcugdx_sound_is_playing(synth)) {
         double start = mcugdx_time();
-        mcugdx_display_clear_color(MCUGDX_PINK);
-		mcugdx_display_show();
+		mcugdx_sleep(1000);
 	}
 
 	mcugdx_log(TAG, "Before unload");

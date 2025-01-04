@@ -3,16 +3,24 @@
 #include "mutex.h"
 #define QOA_IMPLEMENTATION
 #define QOA_NO_STDIO
-#include "qoa.h"
+#include "thirdparty/qoa.h"
 #include <string.h>
 #include <mcugdx.h>
 #include <math.h>
+#include "helix_mp3.h"
 
 #define TAG "mcugdx_audio"
 
 #define MAX_SOUND_INSTANCES 32
 
 static uint32_t next_id = 0;
+
+// Add format-specific decoder struct
+typedef struct {
+	void (*decode_frame)(const uint8_t* data, uint32_t size, void* decoder_data, int16_t* output, uint32_t* num_frames);
+	void (*free_decoder)(void* decoder_data);
+	void* decoder_data;
+} mcugdx_audio_decoder_t;
 
 typedef struct {
 	mcugdx_sound_t base;
@@ -23,7 +31,7 @@ typedef struct {
 		struct {
 			mcugdx_file_system_t *fs;
 			mcugdx_file_handle_t file;
-			qoa_desc qoa;
+			mcugdx_audio_decoder_t decoder;
 			uint32_t first_frame_pos;
 			uint32_t decoding_buffer_size;
 			uint32_t frames_size_in_bytes;
@@ -53,87 +61,349 @@ extern mcugdx_mutex_t audio_lock;
 static uint8_t *decoding_buffer = NULL;
 static uint32_t decoding_buffer_size = 0;
 
-mcugdx_sound_t *mcugdx_sound_load(const char *path, mcugdx_file_system_t *fs, mcugdx_sound_type_t sound_type, mcugdx_memory_type_t mem_type) {
-	if (sound_type == MCUGDX_PRELOADED) {
-		uint32_t size;
-		uint8_t *raw = fs->read_fully(path, &size, MCUGDX_MEM_EXTERNAL);
+// QOA-specific decoder implementation
+typedef struct {
+	qoa_desc qoa;
+} qoa_decoder_data_t;
 
-		if (!raw) {
-			mcugdx_loge(TAG, "Could not open sound file %s", path);
-			return NULL;
-		}
+static void qoa_decode_frame_wrapper(const uint8_t* data, uint32_t size, void* decoder_data, int16_t* output, uint32_t* num_frames) {
+	qoa_decoder_data_t* qoa_data = (qoa_decoder_data_t*)decoder_data;
+	qoa_decode_frame(data, size, &qoa_data->qoa, output, num_frames);
+}
 
-		qoa_desc qoa;
-		unsigned int first_frame_pos = qoa_decode_header(raw, size, &qoa);
-		if (!first_frame_pos) {
-			mcugdx_loge(TAG, "Could not load sound file %s, invalid header", path);
-			mcugdx_mem_free(raw);
-			return NULL;
-		}
+static void qoa_free_decoder(void* decoder_data) {
+	mcugdx_mem_free(decoder_data);
+}
 
-		if (qoa.samplerate != mcugdx_audio_get_sample_rate()) {
-			mcugdx_loge(TAG, "Sample rate of sound file %li != audio system sample rate %li", qoa.samplerate, mcugdx_audio_get_sample_rate());
-			mcugdx_mem_free(raw);
-			return NULL;
-		}
+// Update MP3-specific decoder implementation
+typedef struct {
+	helix_mp3_t helix;
+	mcugdx_file_system_t* fs;
+	mcugdx_file_handle_t file;
+} mp3_decoder_data_t;
 
-		int16_t *frames = qoa_decode(raw, size, &qoa, mem_type);
-		if (!frames) {
-			mcugdx_loge(TAG, "Could not load sound %s, invalid data\n", path);
-			mcugdx_mem_free(raw);
-			return NULL;
-		}
+static void mp3_decode_frame_wrapper(const uint8_t* data, uint32_t size, void* decoder_data, int16_t* output, uint32_t* num_frames) {
+	mp3_decoder_data_t* mp3_data = (mp3_decoder_data_t*)decoder_data;
+	*num_frames = helix_mp3_read_pcm_frames_s16(&mp3_data->helix, output, QOA_FRAME_LEN);
+	*num_frames *= 2; // Convert frames to samples (always stereo output)
+}
 
-		mcugdx_sound_internal_t *sound = (mcugdx_sound_internal_t *) mcugdx_mem_alloc(sizeof(mcugdx_sound_internal_t), mem_type);
-		sound->base.type = sound_type;
-		sound->base.sample_rate = qoa.samplerate;
-		sound->base.channels = qoa.channels;
-		sound->base.num_frames = qoa.samples;
-		sound->preloaded.frames = frames;
+static void mp3_free_decoder(void* decoder_data) {
+	mp3_decoder_data_t* mp3_data = (mp3_decoder_data_t*)decoder_data;
+	helix_mp3_deinit(&mp3_data->helix);
+	mp3_data->fs->close(mp3_data->file);
+	mcugdx_mem_free(decoder_data);
+}
 
+static int mp3_seek_wrapper(void* user_data, int offset) {
+	mp3_decoder_data_t* mp3_data = (mp3_decoder_data_t*)user_data;
+	return mp3_data->fs->seek(mp3_data->file, offset) ? 0 : -1;
+}
+
+static size_t mp3_read_wrapper(void* user_data, void* buffer, size_t bytes_to_read) {
+	mp3_decoder_data_t* mp3_data = (mp3_decoder_data_t*)user_data;
+	return mp3_data->fs->read(mp3_data->file, buffer, bytes_to_read);
+}
+
+// Format-specific decoder interface
+typedef struct {
+	const char* extension;
+	bool (*init_streaming)(const char* path, mcugdx_file_system_t* fs, mcugdx_memory_type_t mem_type,
+						  mcugdx_audio_decoder_t* decoder, uint32_t* first_frame_pos,
+						  uint32_t* sample_rate, uint32_t* channels, uint32_t* num_samples,
+						  uint32_t* buffer_size, uint32_t* frames_size);
+	bool (*init_preloaded)(const char* path, mcugdx_file_system_t* fs, mcugdx_memory_type_t mem_type,
+						  int16_t** frames, uint32_t* sample_rate, uint32_t* channels, uint32_t* num_samples);
+} mcugdx_audio_format_t;
+
+// QOA implementation
+static bool qoa_init_streaming(const char* path, mcugdx_file_system_t* fs, mcugdx_memory_type_t mem_type,
+							  mcugdx_audio_decoder_t* decoder, uint32_t* first_frame_pos,
+							  uint32_t* sample_rate, uint32_t* channels, uint32_t* num_samples,
+							  uint32_t* buffer_size, uint32_t* frames_size) {
+	mcugdx_file_handle_t file = fs->open(path);
+	if (!file) return false;
+
+	unsigned char header[QOA_MIN_FILESIZE];
+	if (!fs->read(file, header, QOA_MIN_FILESIZE)) {
+		fs->close(file);
+		return false;
+	}
+
+	qoa_decoder_data_t* qoa_data = mcugdx_mem_alloc(sizeof(qoa_decoder_data_t), mem_type);
+	qoa_desc qoa;
+
+	*first_frame_pos = qoa_decode_header(header, QOA_MIN_FILESIZE, &qoa);
+	if (!*first_frame_pos) {
+		mcugdx_mem_free(qoa_data);
+		fs->close(file);
+		return false;
+	}
+
+	*sample_rate = qoa.samplerate;
+	*channels = qoa.channels;
+	*num_samples = qoa.samples;
+	*buffer_size = qoa_max_frame_size(&qoa);
+	*frames_size = qoa.channels * QOA_FRAME_LEN * sizeof(int16_t) * 2;
+
+	qoa_data->qoa = qoa;
+	decoder->decode_frame = qoa_decode_frame_wrapper;
+	decoder->free_decoder = qoa_free_decoder;
+	decoder->decoder_data = qoa_data;
+
+	fs->close(file);
+	return true;
+}
+
+static bool qoa_init_preloaded(const char* path, mcugdx_file_system_t* fs, mcugdx_memory_type_t mem_type,
+							  int16_t** frames, uint32_t* sample_rate, uint32_t* channels, uint32_t* num_samples) {
+	uint32_t size;
+	uint8_t* raw = fs->read_fully(path, &size, MCUGDX_MEM_EXTERNAL);
+	if (!raw) return false;
+
+	qoa_desc qoa;
+	if (!qoa_decode_header(raw, size, &qoa)) {
 		mcugdx_mem_free(raw);
+		return false;
+	}
 
-		return &sound->base;
+	*frames = qoa_decode(raw, size, &qoa, mem_type);
+	*sample_rate = qoa.samplerate;
+	*channels = qoa.channels;
+	*num_samples = qoa.samples;
+
+	mcugdx_mem_free(raw);
+	return *frames != NULL;
+}
+
+// Add a helper struct to store both fs and file handle
+typedef struct {
+	mcugdx_file_system_t* fs;
+	mcugdx_file_handle_t file;
+} mp3_io_context_t;
+
+// Update the MP3 streaming initialization
+static bool mp3_init_streaming(const char* path, mcugdx_file_system_t* fs, mcugdx_memory_type_t mem_type,
+							  mcugdx_audio_decoder_t* decoder, uint32_t* first_frame_pos,
+							  uint32_t* sample_rate, uint32_t* channels, uint32_t* num_samples,
+							  uint32_t* buffer_size, uint32_t* frames_size) {
+	mp3_decoder_data_t* mp3_data = mcugdx_mem_alloc(sizeof(mp3_decoder_data_t), mem_type);
+	if (!mp3_data) return false;
+
+	// Create and initialize IO context
+	mp3_io_context_t* io_ctx = mcugdx_mem_alloc(sizeof(mp3_io_context_t), mem_type);
+	if (!io_ctx) {
+		mcugdx_mem_free(mp3_data);
+		return false;
+	}
+
+	io_ctx->fs = fs;
+	io_ctx->file = fs->open(path);
+	if (!io_ctx->file) {
+		mcugdx_mem_free(io_ctx);
+		mcugdx_mem_free(mp3_data);
+		return false;
+	}
+
+	// Setup I/O callbacks for Helix
+	helix_mp3_io_t io = {
+		.seek = mp3_seek_wrapper,
+		.read = mp3_read_wrapper,
+		.user_data = io_ctx
+	};
+
+	if (helix_mp3_init(&mp3_data->helix, &io) != 0) {
+		fs->close(io_ctx->file);
+		mcugdx_mem_free(io_ctx);
+		mcugdx_mem_free(mp3_data);
+		return false;
+	}
+
+	*first_frame_pos = 0; // Not needed for MP3
+	*sample_rate = helix_mp3_get_sample_rate(&mp3_data->helix);
+	*channels = 2; // Helix always outputs stereo
+	*num_samples = 0; // We don't know the total number of samples upfront
+	*buffer_size = HELIX_MP3_DATA_CHUNK_SIZE;
+	*frames_size = QOA_FRAME_LEN * 2 * sizeof(int16_t); // Same buffer size as QOA for consistency
+
+	decoder->decode_frame = mp3_decode_frame_wrapper;
+	decoder->free_decoder = mp3_free_decoder;
+	decoder->decoder_data = mp3_data;
+
+	return true;
+}
+
+// Update the MP3 preloaded initialization similarly
+static bool mp3_init_preloaded(const char* path, mcugdx_file_system_t* fs, mcugdx_memory_type_t mem_type,
+							 int16_t** frames, uint32_t* sample_rate, uint32_t* channels, uint32_t* num_samples) {
+	// Create and initialize IO context
+	mp3_decoder_data_t* decoder = mcugdx_mem_alloc(sizeof(mp3_decoder_data_t), MCUGDX_MEM_EXTERNAL);
+	if (!decoder) return false;
+
+	decoder->fs = fs;
+	decoder->file = fs->open(path);
+	if (!decoder->file) {
+		mcugdx_mem_free(decoder);
+		return false;
+	}
+
+	// Setup I/O callbacks for Helix
+	helix_mp3_io_t io = {
+		.seek = mp3_seek_wrapper,
+		.read = mp3_read_wrapper,
+		.user_data = decoder
+	};
+
+	helix_mp3_t helix;
+	if (helix_mp3_init(&helix, &io) != 0) {
+		fs->close(decoder->file);
+		mcugdx_mem_free(decoder);
+		return false;
+	}
+
+	// First pass: count total frames
+	size_t total_frames = 0;
+	int16_t temp_buffer[HELIX_MP3_MAX_SAMPLES_PER_FRAME];
+	size_t frames_read;
+
+	do {
+		frames_read = helix_mp3_read_pcm_frames_s16(&helix, temp_buffer, HELIX_MP3_MAX_SAMPLES_PER_FRAME/2);
+		total_frames += frames_read;
+	} while (frames_read > 0);
+
+	// Reset decoder for second pass
+	fs->seek(decoder->file, 0);
+	helix_mp3_deinit(&helix);
+	if (helix_mp3_init(&helix, &io) != 0) {
+		fs->close(decoder->file);
+		mcugdx_mem_free(decoder);
+		return false;
+	}
+
+	// Allocate buffer for entire sound
+	*frames = mcugdx_mem_alloc(total_frames * 2 * sizeof(int16_t), mem_type);
+	if (!*frames) {
+		helix_mp3_deinit(&helix);
+		fs->close(decoder->file);
+		mcugdx_mem_free(decoder);
+		return false;
+	}
+
+	// Second pass: decode entire file
+	size_t frames_decoded = 0;
+	while (frames_decoded < total_frames) {
+		size_t frames_to_read = total_frames - frames_decoded;
+		if (frames_to_read > HELIX_MP3_MAX_SAMPLES_PER_FRAME/2) {
+			frames_to_read = HELIX_MP3_MAX_SAMPLES_PER_FRAME/2;
+		}
+
+		frames_read = helix_mp3_read_pcm_frames_s16(&helix,
+			*frames + (frames_decoded * 2), // *2 because stereo
+			frames_to_read);
+
+		if (frames_read == 0) break;
+		frames_decoded += frames_read;
+	}
+
+	*sample_rate = helix_mp3_get_sample_rate(&helix);
+	*channels = 2; // Helix always outputs stereo
+	*num_samples = frames_decoded;
+
+	helix_mp3_deinit(&helix);
+	fs->close(decoder->file);
+	mcugdx_mem_free(decoder);
+	return true;
+}
+
+static const mcugdx_audio_format_t formats[] = {
+	{ ".qoa", qoa_init_streaming, qoa_init_preloaded },
+	{ ".mp3", mp3_init_streaming, mp3_init_preloaded }, // Add MP3 support
+	{ NULL, NULL, NULL }
+};
+
+mcugdx_sound_t* mcugdx_sound_load(const char* path, mcugdx_file_system_t* fs,
+								 mcugdx_sound_type_t sound_type, mcugdx_memory_type_t mem_type) {
+	const char* ext = strrchr(path, '.');
+	if (!ext) {
+		mcugdx_loge(TAG, "No file extension found for %s", path);
+		return NULL;
+	}
+
+	const mcugdx_audio_format_t* format = NULL;
+	for (int i = 0; formats[i].extension != NULL; i++) {
+		if (strcmp(ext, formats[i].extension) == 0) {
+			format = &formats[i];
+			break;
+		}
+	}
+
+	if (!format) {
+		mcugdx_loge(TAG, "Unsupported audio format: %s", ext);
+		return NULL;
+	}
+
+	mcugdx_sound_internal_t* sound = mcugdx_mem_alloc(sizeof(mcugdx_sound_internal_t), mem_type);
+	if (!sound) return NULL;
+
+	if (sound_type == MCUGDX_PRELOADED) {
+		int16_t* frames;
+		uint32_t sample_rate, channels, num_samples;
+
+		if (!format->init_preloaded(path, fs, mem_type, &frames, &sample_rate, &channels, &num_samples)) {
+			mcugdx_mem_free(sound);
+			return NULL;
+		}
+
+		if (sample_rate != mcugdx_audio_get_sample_rate()) {
+			mcugdx_loge(TAG, "Sample rate mismatch: %li != %li", sample_rate, mcugdx_audio_get_sample_rate());
+			mcugdx_mem_free(frames);
+			mcugdx_mem_free(sound);
+			return NULL;
+		}
+
+		sound->base.type = MCUGDX_PRELOADED;
+		sound->base.sample_rate = sample_rate;
+		sound->base.channels = channels;
+		sound->base.num_frames = num_samples;
+		sound->preloaded.frames = frames;
 	} else {
-		mcugdx_file_handle_t file = fs->open(path);
-		if (!file) {
-			mcugdx_loge(TAG, "Could not open sound file %s", path);
+		mcugdx_audio_decoder_t decoder;
+		uint32_t first_frame_pos, sample_rate, channels, num_samples, buffer_size, frames_size;
+
+		if (!format->init_streaming(path, fs, mem_type, &decoder, &first_frame_pos,
+								  &sample_rate, &channels, &num_samples, &buffer_size, &frames_size)) {
+			mcugdx_mem_free(sound);
 			return NULL;
 		}
 
-		unsigned char header[QOA_MIN_FILESIZE];
-		int read = fs->read(file, 0, header, QOA_MIN_FILESIZE);
-		if (!read) {
+		if (sample_rate != mcugdx_audio_get_sample_rate()) {
+			mcugdx_loge(TAG, "Sample rate mismatch: %li != %li", sample_rate, mcugdx_audio_get_sample_rate());
+			decoder.free_decoder(decoder.decoder_data);
+			mcugdx_mem_free(sound);
 			return NULL;
 		}
 
-		qoa_desc qoa;
-		unsigned int first_frame_pos = qoa_decode_header(header, QOA_MIN_FILESIZE, &qoa);
-		if (!first_frame_pos) {
-			return NULL;
-		}
-
-		mcugdx_sound_internal_t *sound = (mcugdx_sound_internal_t *) mcugdx_mem_alloc(sizeof(mcugdx_sound_internal_t), mem_type);
-		sound->base.type = sound_type;
-		sound->base.sample_rate = qoa.samplerate;
-		sound->base.channels = qoa.channels;
-		sound->base.num_frames = qoa.samples;
+		sound->base.type = MCUGDX_STREAMED;
+		sound->base.sample_rate = sample_rate;
+		sound->base.channels = channels;
+		sound->base.num_frames = num_samples;
 		sound->streamed.fs = fs;
-		sound->streamed.file = file;
-		sound->streamed.qoa = qoa;
+		sound->streamed.file = fs->open(path);
+		sound->streamed.decoder = decoder;
 		sound->streamed.first_frame_pos = first_frame_pos;
+		sound->streamed.decoding_buffer_size = buffer_size;
+		sound->streamed.frames_size_in_bytes = frames_size;
 
-		sound->streamed.decoding_buffer_size = qoa_max_frame_size(&qoa);
-		if (decoding_buffer_size < sound->streamed.decoding_buffer_size) {
+		if (decoding_buffer_size < buffer_size) {
 			mcugdx_mutex_lock(&audio_lock);
 			mcugdx_mem_free(decoding_buffer);
-			decoding_buffer = mcugdx_mem_alloc(sound->streamed.decoding_buffer_size, MCUGDX_MEM_EXTERNAL);// FIXME we'll always need external mem this way
-			decoding_buffer_size = sound->streamed.decoding_buffer_size;
+			decoding_buffer = mcugdx_mem_alloc(buffer_size, MCUGDX_MEM_EXTERNAL);
+			decoding_buffer_size = buffer_size;
 			mcugdx_mutex_unlock(&audio_lock);
 		}
-		sound->streamed.frames_size_in_bytes = qoa.channels * QOA_FRAME_LEN * sizeof(int16_t) * 2;
-		return &sound->base;
 	}
+
+	return &sound->base;
 }
 
 mcugdx_sound_t *mcugdx_sound_load_raw(int16_t *frames, uint32_t num_frames,
@@ -173,6 +443,9 @@ void mcugdx_sound_unload(mcugdx_sound_t *sound) {
 	mcugdx_sound_internal_t *internal = (mcugdx_sound_internal_t *) sound;
 	if (sound->type == MCUGDX_STREAMED) {
 		internal->streamed.fs->close(internal->streamed.file);
+		if (internal->streamed.decoder.free_decoder) {
+			internal->streamed.decoder.free_decoder(internal->streamed.decoder.decoder_data);
+		}
 	}
 	mcugdx_mem_free(sound);
 	mcugdx_mutex_unlock(&audio_lock);
@@ -183,18 +456,34 @@ double mcugdx_sound_duration(mcugdx_sound_t *sound) {
 	return internal->base.num_frames / (double) internal->base.sample_rate;
 }
 
-static uint32_t stream_qoa_frame(mcugdx_sound_instance_t *instance) {
+static uint32_t stream_audio_frame(mcugdx_sound_instance_t *instance) {
 	if (instance->sound->base.type == MCUGDX_PRELOADED) return 0;
-	mcugdx_sound_internal_t *sound = (mcugdx_sound_internal_t *) instance->sound;
+	mcugdx_sound_internal_t *sound = (mcugdx_sound_internal_t *)instance->sound;
+
 	if (!instance->frames || instance->frames_size_in_bytes != sound->streamed.frames_size_in_bytes) {
 		mcugdx_mem_free(instance->frames);
 		instance->frames = mcugdx_mem_alloc(sound->streamed.frames_size_in_bytes, MCUGDX_MEM_EXTERNAL);
 		instance->frames_size_in_bytes = sound->streamed.frames_size_in_bytes;
 	}
-	uint32_t read_bytes = instance->sound->streamed.fs->read(sound->streamed.file, instance->file_offset + sound->streamed.first_frame_pos, decoding_buffer, sound->streamed.decoding_buffer_size);
+
+	sound->streamed.fs->seek(sound->streamed.file, instance->file_offset + sound->streamed.first_frame_pos);
+	uint32_t read_bytes = sound->streamed.fs->read(
+		sound->streamed.file,
+		decoding_buffer,
+		sound->streamed.decoding_buffer_size
+	);
+
 	instance->file_offset += read_bytes;
-	unsigned int num_samples = 0;
-	qoa_decode_frame(decoding_buffer, read_bytes, &instance->sound->streamed.qoa, (short *) instance->frames, &num_samples);
+	uint32_t num_samples = 0;
+
+	sound->streamed.decoder.decode_frame(
+		decoding_buffer,
+		read_bytes,
+		sound->streamed.decoder.decoder_data,
+		instance->frames,
+		&num_samples
+	);
+
 	instance->frames_pos = 0;
 	instance->num_frames = num_samples / sound->base.channels;
 	return instance->num_frames;
@@ -233,7 +522,7 @@ mcugdx_sound_id_t mcugdx_sound_play(mcugdx_sound_t *sound, uint8_t volume, uint8
 	instance->frames = NULL;
 	instance->num_frames = 0;
 	instance->frames_pos = 0;
-	stream_qoa_frame(instance);
+	stream_audio_frame(instance);
 	mcugdx_mutex_unlock(&audio_lock);
 	return id;
 }
@@ -346,7 +635,7 @@ void mcugdx_audio_mix(int32_t *frames, uint32_t num_frames, mcugdx_audio_channel
 					}
 				} else {
 					if (instance->num_frames - instance->frames_pos == 0) {
-						if (!stream_qoa_frame(instance)) {
+						if (!stream_audio_frame(instance)) {
 							mcugdx_loge(TAG, "Could not decode remaining frames of sound. This should never happen");
 						}
 					}

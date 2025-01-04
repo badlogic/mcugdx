@@ -1,0 +1,7181 @@
+
+audio_codec_mem.c.obj:
+         U calloc
+         U free
+         U malloc
+00000000 W media_lib_free
+00000000 W media_lib_module_calloc
+00000000 W media_lib_module_malloc
+00000000 W media_lib_module_realloc
+         U realloc
+
+esp_audio_codec_reg.c.obj:
+00000000 b audio_dec_libs
+00000000 b audio_enc_libs
+00000000 t codec_register
+00000000 t codec_unregister
+00000000 T esp_audio_dec_get_avail_type
+00000000 T esp_audio_dec_get_ops
+00000000 T esp_audio_dec_register
+00000000 T esp_audio_dec_unregister
+00000000 T esp_audio_dec_unregister_all
+00000000 T esp_audio_enc_get_avail_type
+00000000 T esp_audio_enc_get_ops
+00000000 T esp_audio_enc_register
+00000000 T esp_audio_enc_unregister
+00000000 T esp_audio_enc_unregister_all
+         U esp_log_timestamp
+         U esp_log_write
+00000000 t get_avail_type
+         U media_lib_free
+         U media_lib_module_calloc
+
+esp_audio_codec_version.c.obj:
+00000000 T esp_audio_codec_get_version
+
+esp_audio_dec.c.obj:
+00000000 T esp_audio_codec_get_name
+00000000 T esp_audio_dec_close
+00000000 T esp_audio_dec_get_info
+         U esp_audio_dec_get_ops
+00000000 T esp_audio_dec_open
+00000000 T esp_audio_dec_process
+         U esp_log_timestamp
+         U esp_log_write
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+
+esp_audio_enc.c.obj:
+00000000 r __func__$0
+00000000 r __func__$1
+00000000 r __func__$2
+00000000 T esp_audio_enc_close
+00000000 T esp_audio_enc_get_frame_size
+00000000 T esp_audio_enc_get_info
+         U esp_audio_enc_get_ops
+00000000 T esp_audio_enc_open
+00000000 T esp_audio_enc_process
+         U esp_log_timestamp
+         U esp_log_write
+         U media_lib_free
+         U media_lib_module_calloc
+
+add.cpp.obj:
+00000000 T add_16
+
+az_lsp.cpp.obj:
+00000000 T Az_lsp
+00000000 T _Z14Chebps_WrappersPssPl
+00000000 t _ZL6ChebpssPssPl$isra$0
+         U div_s
+         U grid
+         U norm_s
+
+bitno_tab.cpp.obj:
+00000000 r _ZL11bitno_MR795
+00000000 R bitno
+00000000 R bitno_MR102
+00000000 R bitno_MR122
+00000000 R bitno_MR475
+00000000 R bitno_MR515
+00000000 R bitno_MR59
+00000000 R bitno_MR67
+00000000 R bitno_MR74
+00000000 R bitno_MRDTX
+00000000 R prmno
+00000000 R prmnofsf
+
+bitreorder_tab.cpp.obj:
+00000000 R numCompressedBytes
+00000000 R numOfBits
+00000000 R reorderBits
+00000000 R reorderBits_MR102
+00000000 R reorderBits_MR122
+00000000 R reorderBits_MR475
+00000000 R reorderBits_MR515
+00000000 R reorderBits_MR59
+00000000 R reorderBits_MR67
+00000000 R reorderBits_MR74
+00000000 R reorderBits_MR795
+
+c2_9pf_tab.cpp.obj:
+00000000 R startPos
+
+div_s.cpp.obj:
+00000000 T div_s
+
+extract_h.cpp.obj:
+00000000 T _Z21extract_h_OpenCoreAmrl
+
+extract_l.cpp.obj:
+00000000 T _Z9extract_ll
+
+gains_tbl.cpp.obj:
+00000000 R qua_gain_code
+00000000 R qua_gain_pitch
+
+gc_pred.cpp.obj:
+00000000 t L_add
+00000000 r _ZL10pred_MR122
+00000000 r _ZL4pred
+         U add_16
+         U amr_Log2
+         U amr_Log2_norm
+00000000 T gc_pred
+00000000 T gc_pred_average_limited
+00000000 T gc_pred_reset
+00000000 T gc_pred_update
+         U norm_l
+         U pv_round
+
+get_const_tbls.cpp.obj:
+         U bitno
+         U dgray
+         U dico1_lsf_3
+         U dico1_lsf_5
+         U dico2_lsf_3
+         U dico2_lsf_5
+         U dico3_lsf_3
+         U dico3_lsf_5
+         U dico4_lsf_5
+         U dico5_lsf_5
+00000000 T get_const_tbls
+         U gray
+         U lsp_init_data
+         U mean_lsf_3
+         U mean_lsf_5
+         U mr515_3_lsf
+         U mr795_1_lsf
+         U numCompressedBytes
+         U numOfBits
+         U past_rq_init
+         U ph_imp_low
+         U ph_imp_low_MR795
+         U ph_imp_mid
+         U ph_imp_mid_MR795
+         U pred_fac_3
+         U prmno
+         U qua_gain_code
+         U qua_gain_pitch
+         U reorderBits
+         U startPos
+         U table_gain_highrates
+         U table_gain_lowrates
+         U window_160_80
+         U window_200_40
+         U window_232_8
+
+gmed_n.cpp.obj:
+00000000 T gmed_n
+         U memcpy
+
+gray_tbl.cpp.obj:
+00000000 R dgray
+00000000 R gray
+
+grid_tbl.cpp.obj:
+00000000 R grid
+
+int_lpc.cpp.obj:
+00000000 T Int_lpc_1and3
+00000000 T Int_lpc_1and3_2
+00000000 T Int_lpc_1to3
+00000000 T Int_lpc_1to3_2
+         U Lsp_Az
+
+inv_sqrt.cpp.obj:
+00000000 T Inv_sqrt
+         U inv_sqrt_tbl
+         U norm_l
+
+inv_sqrt_tbl.cpp.obj:
+00000000 R inv_sqrt_tbl
+
+l_deposit_h.cpp.obj:
+00000000 T _Z11L_deposit_hs
+
+l_deposit_l.cpp.obj:
+00000000 T _Z11L_deposit_ls
+
+l_shr_r.cpp.obj:
+00000000 T L_shr_r
+
+log2.cpp.obj:
+00000000 T amr_Log2
+         U amr_Log2_norm
+         U norm_l
+
+log2_norm.cpp.obj:
+00000000 T amr_Log2_norm
+         U log2_tbl
+
+log2_tbl.cpp.obj:
+00000000 R log2_tbl
+
+lsfwt.cpp.obj:
+00000000 T Lsf_wt
+
+lsp.cpp.obj:
+         U Az_lsp
+         U Int_lpc_1and3
+         U Int_lpc_1and3_2
+         U Int_lpc_1to3
+         U Int_lpc_1to3_2
+         U Q_plsf_3
+         U Q_plsf_5
+         U Q_plsf_exit
+         U Q_plsf_init
+         U Q_plsf_reset
+00000000 T lsp
+00000000 T lsp_exit
+00000000 T lsp_init
+         U lsp_init_data
+00000000 T lsp_reset
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+
+lsp_az.cpp.obj:
+00000000 T Lsp_Az
+00000000 t _ZL11Get_lsp_polPsPlS0_$isra$0
+
+lsp_lsf.cpp.obj:
+00000000 T Lsf_lsp
+00000000 T Lsp_lsf
+         U slope
+         U table
+
+lsp_lsf_tbl.cpp.obj:
+00000000 R slope
+00000000 R table
+
+lsp_tab.cpp.obj:
+00000000 R lsp_init_data
+
+mult_r.cpp.obj:
+00000000 T mult_r
+
+negate.cpp.obj:
+00000000 T negate
+
+norm_l.cpp.obj:
+00000000 T norm_l
+
+norm_s.cpp.obj:
+00000000 T norm_s
+
+overflow_tbl.cpp.obj:
+
+ph_disp_tab.cpp.obj:
+00000000 R ph_imp_low
+00000000 R ph_imp_low_MR795
+00000000 R ph_imp_mid
+00000000 R ph_imp_mid_MR795
+
+pow2.cpp.obj:
+         U L_shr_r
+00000000 T Pow2_OpenCoreAmr
+         U pow2_tbl
+
+pow2_tbl.cpp.obj:
+00000000 R pow2_tbl
+
+pred_lt.cpp.obj:
+00000000 T Pred_lt_3or6
+00000000 r _ZL15inter_6_pred_lt
+
+q_plsf.cpp.obj:
+00000000 T Q_plsf_exit
+00000000 T Q_plsf_init
+00000000 T Q_plsf_reset
+         U media_lib_free
+         U media_lib_module_calloc
+
+q_plsf_3.cpp.obj:
+         U Lsf_lsp
+         U Lsf_wt
+         U Lsp_lsf
+00000000 T Q_plsf_3
+         U Reorder_lsf
+00000000 T _Z15Test_Vq_subvec3PsPKsS_slPl
+00000000 T _Z15Test_Vq_subvec4PsPKsS_sPl
+00000000 t _ZL10Vq_subvec3PsPKsS_slPl$isra$0
+00000000 t _ZL10Vq_subvec4PsPKsS_sPl$isra$0
+         U dico1_lsf_3
+         U dico2_lsf_3
+         U dico3_lsf_3
+         U mean_lsf_3
+         U memcpy
+         U mr515_3_lsf
+         U mr795_1_lsf
+         U past_rq_init
+         U pred_fac_3
+
+q_plsf_3_tbl.cpp.obj:
+00000000 R dico1_lsf_3
+00000000 R dico2_lsf_3
+00000000 R dico3_lsf_3
+00000000 R mean_lsf_3
+00000000 R mr515_3_lsf
+00000000 R mr795_1_lsf
+00000000 R past_rq_init
+00000000 R pred_fac_3
+
+q_plsf_5.cpp.obj:
+         U Lsf_lsp
+         U Lsf_wt
+         U Lsp_lsf
+00000000 T Q_plsf_5
+         U Reorder_lsf
+00000000 t _ZL9Vq_subvecPsS_PKsS_S_sPl$isra$0
+         U dico1_lsf_5
+         U dico2_lsf_5
+         U dico3_lsf_5
+         U dico4_lsf_5
+         U dico5_lsf_5
+         U mean_lsf_5
+
+q_plsf_5_tbl.cpp.obj:
+00000000 R dico1_lsf_5
+00000000 R dico2_lsf_5
+00000000 R dico3_lsf_5
+00000000 R dico4_lsf_5
+00000000 R dico5_lsf_5
+00000000 R mean_lsf_5
+
+qua_gain_tbl.cpp.obj:
+00000000 R table_gain_highrates
+00000000 R table_gain_lowrates
+
+reorder.cpp.obj:
+00000000 T Reorder_lsf
+
+residu.cpp.obj:
+00000000 T Residu_OpenCoreAmr
+
+round.cpp.obj:
+00000000 T pv_round
+
+set_zero.cpp.obj:
+00000000 T Set_zero_OpenCoreAmr
+         U memset
+
+shr.cpp.obj:
+00000000 T shr
+
+shr_r.cpp.obj:
+         U shr
+00000000 T shr_r
+
+sqrt_l.cpp.obj:
+         U norm_l
+00000000 T sqrt_l_exp
+         U sqrt_l_tbl
+
+sqrt_l_tbl.cpp.obj:
+00000000 R sqrt_l_tbl
+
+sub.cpp.obj:
+00000000 T sub
+
+syn_filt.cpp.obj:
+00000000 T Syn_filt_OpenCoreAmr
+         U memcpy
+
+weight_a.cpp.obj:
+00000000 T Weight_Ai
+
+window_tab.cpp.obj:
+00000000 R window_160_80
+00000000 R window_200_40
+00000000 R window_232_8
+
+a_refl.cpp.obj:
+00000000 T A_Refl
+         U L_shr_r
+         U div_s
+         U memcpy
+         U norm_l
+         U pv_round
+
+agc.cpp.obj:
+         U Inv_sqrt
+00000000 t L_mac
+00000000 t L_shl$isra$0
+00000000 T _Z18energy_new_WrapperPssPl
+00000000 T _Z18energy_old_WrapperPssPl
+00000000 t _ZL10energy_newPssPl
+00000000 T agc
+00000000 T agc2
+00000000 T agc_reset
+         U div_s
+         U norm_l
+         U pv_round
+
+amrdecode.cpp.obj:
+00000000 T AMRDecode
+         U GSMFrameDecode
+         U If2DecBytesPerFrame
+         U WmfDecBytesPerFrame
+         U if2_to_ets
+         U memcpy
+         U wmf_to_ets
+
+b_cn_cod.cpp.obj:
+         U add_16
+00000000 T build_CN_code
+00000000 T build_CN_param
+00000000 T pseudonoise
+
+bgnscd.cpp.obj:
+00000000 T Bgn_scd
+00000000 T Bgn_scd_reset
+         U gmed_n
+         U memmove
+         U memset
+
+c_g_aver.cpp.obj:
+00000000 T Cb_gain_average
+00000000 T Cb_gain_average_reset
+00000000 t L_mac
+         U add_16
+         U div_s
+         U memmove
+         U memset
+         U norm_s
+         U pv_round
+00000000 t shl$isra$0
+         U shr
+         U sub
+
+d1035pf.cpp.obj:
+00000000 T dec_10i40_35bits
+
+d2_11pf.cpp.obj:
+00000000 T decode_2i40_11bits
+
+d2_9pf.cpp.obj:
+00000000 T decode_2i40_9bits
+
+d3_14pf.cpp.obj:
+00000000 T decode_3i40_14bits
+
+d4_17pf.cpp.obj:
+00000000 T decode_4i40_17bits
+
+d8_31pf.cpp.obj:
+00000000 t _ZL12decompress10sssssPsPl
+         U add_16
+00000000 T dec_8i40_31bits
+         U memcpy
+00000000 t shl$part$0$constprop$0
+
+d_gain_c.cpp.obj:
+         U Pow2_OpenCoreAmr
+00000000 T d_gain_code
+         U gc_pred
+         U gc_pred_update
+         U sub
+
+d_gain_p.cpp.obj:
+00000000 T d_gain_pitch
+
+d_plsf.cpp.obj:
+00000000 T D_plsf_reset
+         U memmove
+
+d_plsf_3.cpp.obj:
+00000000 T D_plsf_3
+00000000 T Init_D_plsf_3
+         U Lsf_lsp
+         U Reorder_lsf
+         U add_16
+         U memcpy
+         U memmove
+         U sub
+
+d_plsf_5.cpp.obj:
+00000000 T D_plsf_5
+         U Lsf_lsp
+         U Reorder_lsf
+         U add_16
+         U memcpy
+00000000 t shl$part$0$constprop$0
+         U sub
+
+dec_amr.cpp.obj:
+         U Bgn_scd
+         U Bgn_scd_reset
+         U Cb_gain_average
+         U Cb_gain_average_reset
+         U D_plsf_3
+         U D_plsf_5
+         U D_plsf_reset
+         U Dec_gain
+         U Dec_lag3
+         U Dec_lag6
+00000000 T Decoder_amr
+00000000 T Decoder_amr_init
+00000000 T Decoder_amr_reset
+         U Ex_ctrl
+         U Int_lpc_1and3
+         U Int_lpc_1to3
+         U Int_lsf
+         U Lsf_lsp
+         U Pred_lt_3or6
+         U Syn_filt_OpenCoreAmr
+         U add_16
+         U agc2
+         U build_CN_param
+         U d_gain_code
+         U d_gain_pitch
+         U dec_10i40_35bits
+         U dec_8i40_31bits
+         U decode_2i40_11bits
+         U decode_2i40_9bits
+         U decode_3i40_14bits
+         U decode_4i40_17bits
+         U dtx_dec
+         U dtx_dec_activity_update
+         U dtx_dec_reset
+         U ec_gain_code
+         U ec_gain_code_reset
+         U ec_gain_code_update
+         U ec_gain_pitch
+         U ec_gain_pitch_reset
+         U ec_gain_pitch_update
+         U gc_pred_reset
+         U get_const_tbls
+         U lsp_avg
+         U lsp_avg_reset
+         U memcpy
+         U memmove
+         U memset
+         U ph_disp
+         U ph_disp_lock
+         U ph_disp_release
+         U ph_disp_reset
+         U pv_round
+         U rx_dtx_handler
+         U sqrt_l_exp
+
+dec_gain.cpp.obj:
+00000000 T Dec_gain
+         U Pow2_OpenCoreAmr
+         U add_16
+         U amr_Log2
+         U gc_pred
+         U gc_pred_update
+         U pv_round
+         U shr_r
+         U table_gain_MR475
+
+dec_input_format_tab.cpp.obj:
+00000000 R If2DecBytesPerFrame
+00000000 R WmfDecBytesPerFrame
+
+dec_lag3.cpp.obj:
+00000000 T Dec_lag3
+         U sub
+
+dec_lag6.cpp.obj:
+00000000 T Dec_lag6
+
+dtx_dec.cpp.obj:
+         U A_Refl
+         U D_plsf_3
+         U Init_D_plsf_3
+00000000 t L_add
+         U Lsf_lsp
+         U Lsp_Az
+         U Lsp_lsf
+         U Pow2_OpenCoreAmr
+         U Reorder_lsf
+         U Syn_filt_OpenCoreAmr
+00000000 r _ZL17dtx_log_en_adjust
+00000000 r _ZL19lsf_hist_mean_scale
+         U add_16
+         U amr_Log2
+         U build_CN_code
+         U div_s
+00000000 T dtx_dec
+00000000 T dtx_dec_activity_update
+00000000 T dtx_dec_reset
+         U memcpy
+         U memmove
+         U memset
+         U pseudonoise
+00000000 T rx_dtx_handler
+         U shr
+         U sub
+
+ec_gains.cpp.obj:
+00000000 r _ZZ12ec_gain_codeE5cdown
+00000000 r _ZZ13ec_gain_pitchE5pdown
+00000000 T ec_gain_code
+00000000 T ec_gain_code_reset
+00000000 T ec_gain_code_update
+00000000 T ec_gain_pitch
+00000000 T ec_gain_pitch_reset
+00000000 T ec_gain_pitch_update
+         U gc_pred_average_limited
+         U gc_pred_update
+         U gmed_n
+         U sub
+
+ex_ctrl.cpp.obj:
+00000000 T Ex_ctrl
+         U div_s
+         U gmed_n
+         U norm_s
+         U sub
+
+if2_to_ets.cpp.obj:
+00000000 T if2_to_ets
+
+int_lsf.cpp.obj:
+00000000 T Int_lsf
+         U add_16
+
+lsp_avg.cpp.obj:
+00000000 T lsp_avg
+00000000 T lsp_avg_reset
+         U memmove
+         U pv_round
+
+ph_disp.cpp.obj:
+         U add_16
+00000000 T ph_disp
+00000000 T ph_disp_lock
+00000000 T ph_disp_release
+00000000 T ph_disp_reset
+         U pv_round
+
+post_pro.cpp.obj:
+00000000 T Post_Process
+00000000 T Post_Process_reset
+         U pv_round
+
+preemph.cpp.obj:
+00000000 T preemphasis
+00000000 T preemphasis_reset
+         U sub
+
+pstfilt.cpp.obj:
+00000000 T Post_Filter
+00000000 T Post_Filter_reset
+         U Residu_OpenCoreAmr
+         U Syn_filt_OpenCoreAmr
+         U Weight_Ai
+00000000 r _ZL12gamma3_MR122
+00000000 r _ZL12gamma4_MR122
+00000000 r _ZL6gamma3
+00000000 r _ZL6gamma4
+         U agc
+         U agc_reset
+         U div_s
+         U memcpy
+         U memmove
+         U memset
+         U preemphasis
+         U preemphasis_reset
+
+pvgsmamrdecoder.cpp.obj:
+
+qgain475_tab.cpp.obj:
+00000000 R table_gain_MR475
+
+sp_dec.cpp.obj:
+         U Decoder_amr
+         U Decoder_amr_init
+         U Decoder_amr_reset
+00000000 T GSMDecodeFrameExit
+00000000 T GSMFrameDecode
+00000000 T GSMInitDecode
+         U Post_Filter
+         U Post_Filter_reset
+         U Post_Process
+         U Post_Process_reset
+00000000 T Speech_Decode_Frame_reset
+00000000 T _Z8Bits2prm4ModePsS0_P13CommonAmrTbls
+         U media_lib_free
+         U media_lib_module_calloc
+
+wmf_to_ets.cpp.obj:
+00000000 T wmf_to_ets
+
+amrencode.cpp.obj:
+00000000 T AMREncode
+00000000 T AMREncodeExit
+00000000 T AMREncodeInit
+00000000 T AMREncodeReset
+         U GSMEncodeFrame
+         U GSMEncodeFrameExit
+         U GSMInitEncode
+         U If2EncBytesPerFrame
+         U Speech_Encode_Frame_reset
+         U WmfEncBytesPerFrame
+         U ets_to_ietf
+         U ets_to_if2
+         U ets_to_wmf
+         U memcpy
+         U sid_sync
+         U sid_sync_exit
+         U sid_sync_init
+         U sid_sync_reset
+
+autocorr.cpp.obj:
+00000000 T Autocorr_OpenCoreAmr
+         U norm_l
+
+c1035pf.cpp.obj:
+00000000 T _Z3q_pPssPKs
+00000000 T code_10i40_35bits
+         U cor_h
+         U cor_h_x_OpenCoreAmr
+         U memset
+         U search_10and8i40
+         U set_sign12k2
+
+c2_11pf.cpp.obj:
+00000000 r _ZL9startPos1
+00000000 r _ZL9startPos2
+         U add_16
+00000000 T code_2i40_11bits
+         U cor_h
+         U cor_h_x_OpenCoreAmr
+         U pv_round
+         U set_sign
+
+c2_9pf.cpp.obj:
+00000000 T Test_build_code
+00000000 T Test_search_2i40
+00000000 r _ZL10trackTable
+         U add_16
+00000000 t build_code
+00000000 T code_2i40_9bits
+         U cor_h
+         U cor_h_x_OpenCoreAmr
+         U pv_round
+00000000 t search_2i40$isra$0
+         U set_sign
+
+c3_14pf.cpp.obj:
+00000000 t L_mac
+         U add_16
+00000000 T code_3i40_14bits
+         U cor_h
+         U cor_h_x_OpenCoreAmr
+         U pv_round
+         U set_sign
+
+c4_17pf.cpp.obj:
+00000000 t L_mac
+         U add_16
+00000000 T code_4i40_17bits
+         U cor_h
+         U cor_h_x_OpenCoreAmr
+         U pv_round
+         U set_sign
+
+c8_31pf.cpp.obj:
+00000000 t L_mac
+00000000 t _ZL10compress10sssPl$isra$0
+00000000 T code_8i40_31bits
+         U cor_h
+         U cor_h_x2
+         U memcpy
+         U pv_round
+         U search_10and8i40
+         U set_sign12k2
+
+calc_cor.cpp.obj:
+00000000 T comp_corr
+
+calc_en.cpp.obj:
+         U L_Comp_OpenCoreAmr
+00000000 t L_mac
+00000000 t L_shl$isra$0
+         U amr_Log2
+00000000 T calc_filt_energies
+00000000 T calc_target_energy
+00000000 T calc_unfilt_energies
+         U div_s
+         U norm_l
+         U pv_round
+         U shr
+         U sub
+
+cbsearch.cpp.obj:
+         U add_16
+00000000 T cbsearch
+         U code_10i40_35bits
+         U code_2i40_11bits
+         U code_2i40_9bits
+         U code_3i40_14bits
+         U code_4i40_17bits
+         U code_8i40_31bits
+
+cl_ltp.cpp.obj:
+         U Convolve_OpenCoreAmr
+         U G_pitch_OpenCoreAmr
+         U Pitch_fr
+         U Pitch_fr_exit
+         U Pitch_fr_init
+         U Pitch_fr_reset
+         U Pred_lt_3or6
+         U check_gp_clipping
+00000000 T cl_ltp
+00000000 T cl_ltp_exit
+00000000 T cl_ltp_init
+00000000 T cl_ltp_reset
+         U media_lib_free
+         U media_lib_module_calloc
+         U q_gain_pitch
+
+cod_amr.cpp.obj:
+         U Convolve_OpenCoreAmr
+         U Pred_lt_3or6
+00000000 r _ZL11gamma1_12k2
+00000000 r _ZL6gamma1
+00000000 r _ZL6gamma2
+         U cbsearch
+         U check_lsp
+         U cl_ltp
+         U cl_ltp_exit
+         U cl_ltp_init
+         U cl_ltp_reset
+00000000 T cod_amr
+00000000 T cod_amr_exit
+00000000 T cod_amr_first
+00000000 T cod_amr_init
+00000000 T cod_amr_reset
+         U dtx_buffer_OpenCoreAmr
+         U dtx_enc_OpenCoreAmr
+         U dtx_enc_exit_OpenCoreAmr
+         U dtx_enc_init_OpenCoreAmr
+         U dtx_enc_reset_OpenCoreAmr
+         U gainQuant
+         U gainQuant_exit
+         U gainQuant_init
+         U gainQuant_reset
+         U get_const_tbls
+         U lpc
+         U lpc_exit
+         U lpc_init
+         U lpc_reset
+         U lsp
+         U lsp_exit
+         U lsp_init
+         U lsp_reset
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+         U memset
+         U ol_ltp
+         U p_ol_wgh_exit
+         U p_ol_wgh_init
+         U p_ol_wgh_reset
+         U pre_big
+         U subframePostProc
+         U subframePreProc
+         U ton_stab_exit
+         U ton_stab_init
+         U ton_stab_reset
+         U tx_dtx_handler_OpenCoreAmr
+         U update_gp_clipping
+         U vad1
+         U vad1_exit
+         U vad1_init
+         U vad1_reset
+         U vad_pitch_detection
+
+convolve.cpp.obj:
+00000000 T Convolve_OpenCoreAmr
+
+cor_h.cpp.obj:
+         U Inv_sqrt
+00000000 T cor_h
+
+cor_h_x.cpp.obj:
+00000000 T cor_h_x_OpenCoreAmr
+         U norm_l
+
+cor_h_x2.cpp.obj:
+         U L_abs_OpenCoreAmr
+00000000 T cor_h_x2
+         U norm_l
+         U pv_round
+
+corrwght_tab.cpp.obj:
+00000000 R corrweight
+
+div_32.cpp.obj:
+00000000 T Div_32_OpenCoreAmr
+00000000 t Mpy_32_16
+         U div_s
+
+dtx_enc.cpp.obj:
+         U Lsf_lsp
+         U Lsp_lsf
+         U Q_plsf_3
+         U Reorder_lsf
+         U add_16
+         U amr_Log2
+00000000 T dtx_buffer_OpenCoreAmr
+00000000 T dtx_enc_OpenCoreAmr
+00000000 T dtx_enc_exit_OpenCoreAmr
+00000000 T dtx_enc_init_OpenCoreAmr
+00000000 T dtx_enc_reset_OpenCoreAmr
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+         U memset
+         U sub
+00000000 T tx_dtx_handler_OpenCoreAmr
+
+enc_lag3.cpp.obj:
+00000000 T Enc_lag3
+
+enc_lag6.cpp.obj:
+00000000 T Enc_lag6
+
+enc_output_format_tab.cpp.obj:
+00000000 R If2EncBytesPerFrame
+00000000 R WmfEncBytesPerFrame
+
+ets_to_if2.cpp.obj:
+00000000 T ets_to_if2
+
+ets_to_wmf.cpp.obj:
+00000000 T ets_to_ietf
+00000000 T ets_to_wmf
+
+g_adapt.cpp.obj:
+00000000 T gain_adapt
+00000000 T gain_adapt_exit
+00000000 T gain_adapt_init
+00000000 T gain_adapt_reset
+         U gmed_n
+         U media_lib_free
+         U media_lib_module_calloc
+         U shr
+         U shr_r
+
+g_code.cpp.obj:
+00000000 T G_code
+         U div_s
+         U norm_l
+
+g_pitch.cpp.obj:
+00000000 T G_pitch_OpenCoreAmr
+         U div_s
+         U norm_l
+         U pv_round
+         U shr
+
+gain_q.cpp.obj:
+         U G_code
+         U MR475_gain_quant
+         U MR475_update_unq_pred
+         U MR795_gain_quant
+         U Qua_gain
+         U calc_filt_energies
+         U calc_target_energy
+00000000 T gainQuant
+00000000 T gainQuant_exit
+00000000 T gainQuant_init
+00000000 T gainQuant_reset
+         U gain_adapt_exit
+         U gain_adapt_init
+         U gain_adapt_reset
+         U gc_pred
+         U gc_pred_reset
+         U gc_pred_update
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+         U memset
+         U q_gain_code
+
+hp_max.cpp.obj:
+         U L_abs_OpenCoreAmr
+00000000 t L_shl$part$0
+00000000 t L_sub
+         U div_s
+00000000 T hp_max
+         U norm_l
+         U shr
+
+inter_36.cpp.obj:
+00000000 T Interpol_3or6
+         U inter_6
+
+inter_36_tab.cpp.obj:
+00000000 R inter_6
+
+l_abs.cpp.obj:
+00000000 T L_abs_OpenCoreAmr
+
+l_comp.cpp.obj:
+00000000 T L_Comp_OpenCoreAmr
+
+l_extract.cpp.obj:
+00000000 T L_Extract
+
+l_negate.cpp.obj:
+00000000 T L_negate
+
+lag_wind.cpp.obj:
+00000000 T Lag_window_OpenCoreAmr
+         U lag_h
+         U lag_l
+
+lag_wind_tab.cpp.obj:
+00000000 R lag_h
+00000000 R lag_l
+
+levinson.cpp.obj:
+         U Div_32_OpenCoreAmr
+         U L_abs_OpenCoreAmr
+         U L_negate
+00000000 T Levinson_OpenCoreAmr
+00000000 T Levinson_exit
+00000000 T Levinson_init
+00000000 T Levinson_reset
+00000000 t Mpy_32$isra$0
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+         U memset
+         U norm_l
+         U pv_round
+
+lflg_upd.cpp.obj:
+00000000 T LTP_flag_update
+         U L_Extract
+
+lpc.cpp.obj:
+         U Autocorr_OpenCoreAmr
+         U Lag_window_OpenCoreAmr
+         U Levinson_OpenCoreAmr
+         U Levinson_exit
+         U Levinson_init
+         U Levinson_reset
+00000000 T lpc
+00000000 T lpc_exit
+00000000 T lpc_init
+00000000 T lpc_reset
+         U media_lib_free
+         U media_lib_module_calloc
+
+ol_ltp.cpp.obj:
+         U Pitch_ol
+         U Pitch_ol_wgh
+00000000 T ol_ltp
+
+p_ol_wgh.cpp.obj:
+         U L_Extract
+00000000 t L_mac
+00000000 t L_sub
+00000000 t Mpy_32_16
+00000000 T Pitch_ol_wgh
+         U comp_corr
+         U corrweight
+         U gmed_n
+         U hp_max
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+00000000 T p_ol_wgh_exit
+00000000 T p_ol_wgh_init
+00000000 T p_ol_wgh_reset
+         U pv_round
+         U shr
+         U sub
+         U vad_complex_detection_update
+         U vad_tone_detection
+         U vad_tone_detection_update
+
+pitch_fr.cpp.obj:
+         U Convolve_OpenCoreAmr
+         U Enc_lag3
+         U Enc_lag6
+         U Interpol_3or6
+         U Inv_sqrt
+00000000 T Pitch_fr
+00000000 T Pitch_fr_exit
+00000000 T Pitch_fr_init
+00000000 T Pitch_fr_reset
+00000000 t _ZL10searchFracPsS_sS_sPl
+00000000 r _ZL13mode_dep_parm
+         U media_lib_free
+         U media_lib_module_calloc
+
+pitch_ol.cpp.obj:
+         U Inv_sqrt
+00000000 T Pitch_ol
+00000000 T _Z15Lag_max_wrapperP9vadState1PlPssssssS2_lS1_
+00000000 t _ZL7Lag_maxP9vadState1PlPssssssS2_lS1_
+         U comp_corr
+         U hp_max
+         U memcpy
+         U vad_complex_detection_update
+         U vad_tone_detection
+         U vad_tone_detection_update
+
+pre_big.cpp.obj:
+         U Residu_OpenCoreAmr
+         U Syn_filt_OpenCoreAmr
+         U Weight_Ai
+00000000 T pre_big
+
+pre_proc.cpp.obj:
+00000000 T Pre_Process
+00000000 T Pre_Process_exit
+00000000 T Pre_Process_init
+00000000 T Pre_Process_reset
+         U media_lib_free
+         U media_lib_module_calloc
+
+prm2bits.cpp.obj:
+00000000 T Prm2bits
+
+q_gain_c.cpp.obj:
+         U Pow2_OpenCoreAmr
+00000000 T q_gain_code
+
+q_gain_p.cpp.obj:
+00000000 T q_gain_pitch
+         U sub
+
+qgain475.cpp.obj:
+00000000 t L_shr$isra$0
+00000000 T MR475_gain_quant
+00000000 T MR475_update_unq_pred
+00000000 t Mpy_32_16
+         U Pow2_OpenCoreAmr
+00000000 r _ZL16table_gain_MR475
+00000000 t _ZL25MR475_quant_store_resultsP12gc_predStatePKsssPsS3_Pl
+         U amr_Log2
+         U div_s
+         U gc_pred
+         U gc_pred_update
+         U pv_round
+         U shr_r
+
+qgain795.cpp.obj:
+         U L_Extract
+00000000 t L_mac
+00000000 t L_shr$isra$0
+00000000 T MR795_gain_quant
+00000000 t Mac_32
+00000000 t Mac_32_16
+00000000 t Mpy_32_16
+         U Pow2_OpenCoreAmr
+         U add_16
+         U calc_unfilt_energies
+         U gain_adapt
+         U pv_round
+         U q_gain_pitch
+         U shr
+         U sqrt_l_exp
+         U sub
+
+qua_gain.cpp.obj:
+         U L_Extract
+00000000 t L_add
+00000000 t Mpy_32_16
+         U Pow2_OpenCoreAmr
+00000000 T Qua_gain
+         U add_16
+
+s10_8pf.cpp.obj:
+         U memcpy
+         U memmove
+00000000 T search_10and8i40
+
+set_sign.cpp.obj:
+         U Inv_sqrt
+         U pv_round
+00000000 T set_sign
+00000000 T set_sign12k2
+
+sid_sync.cpp.obj:
+         U media_lib_free
+         U media_lib_module_calloc
+00000000 T sid_sync
+00000000 T sid_sync_exit
+00000000 T sid_sync_init
+00000000 T sid_sync_reset
+00000000 T sid_sync_set_handover_debt
+
+sp_enc.cpp.obj:
+00000000 T GSMEncodeFrame
+00000000 T GSMEncodeFrameExit
+00000000 T GSMInitEncode
+         U Pre_Process
+         U Pre_Process_exit
+         U Pre_Process_init
+         U Pre_Process_reset
+         U Prm2bits
+00000000 T Speech_Encode_Frame_First
+00000000 T Speech_Encode_Frame_reset
+         U cod_amr
+         U cod_amr_exit
+         U cod_amr_first
+         U cod_amr_init
+         U cod_amr_reset
+         U media_lib_free
+         U media_lib_module_calloc
+
+spreproc.cpp.obj:
+         U Residu_OpenCoreAmr
+         U Syn_filt_OpenCoreAmr
+         U Weight_Ai
+         U memcpy
+00000000 T subframePreProc
+
+spstproc.cpp.obj:
+         U Syn_filt_OpenCoreAmr
+00000000 T subframePostProc
+
+ton_stab.cpp.obj:
+         U add_16
+00000000 T check_gp_clipping
+00000000 T check_lsp
+         U media_lib_free
+         U media_lib_module_calloc
+         U memmove
+         U memset
+         U shr
+00000000 T ton_stab_exit
+00000000 T ton_stab_init
+00000000 T ton_stab_reset
+00000000 T update_gp_clipping
+
+vad1.cpp.obj:
+00000000 t L_mac
+00000000 t L_shl$isra$0
+00000000 t L_sub
+00000000 t _ZL11filter_bankP9vadState1PsS1_Pl
+00000000 t _ZL17level_calculationPsS_sssssPl
+00000000 t _ZL7filter3PsS_S_Pl
+00000000 t _ZL7filter5PsS_S_Pl
+         U add_16
+         U div_s
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+         U mult_r
+         U norm_s
+         U pv_round
+00000000 t shl$isra$0
+         U shr
+         U sub
+00000000 T vad1
+00000000 T vad1_exit
+00000000 T vad1_init
+00000000 T vad1_reset
+00000000 T vad_complex_detection_update
+00000000 T vad_pitch_detection
+00000000 T vad_tone_detection
+00000000 T vad_tone_detection_update
+
+agc2_amr_wb.cpp.obj:
+00000000 T agc2_amr_wb
+         U div_16by16
+         U normalize_amr_wb
+         U one_ov_sqrt
+
+band_pass_6k_7k.cpp.obj:
+00000000 r _ZL9fir_6k_7k
+00000000 T band_pass_6k_7k
+00000000 T band_pass_6k_7k_init
+         U memcpy
+         U memset
+
+dec_acelp_2p_in_64.cpp.obj:
+00000000 T dec_acelp_2p_in_64
+         U memset
+
+dec_acelp_4p_in_64.cpp.obj:
+00000000 T add_pulses
+         U dec_1p_N1
+         U dec_2p_2N1
+         U dec_3p_3N1
+         U dec_4p_4N
+         U dec_5p_5N
+         U dec_6p_6N_2
+00000000 T dec_acelp_4p_in_64
+         U memset
+
+dec_alg_codebook.cpp.obj:
+00000000 t _ZL9shl_int16ss
+00000000 T dec_1p_N1
+00000000 T dec_2p_2N1
+00000000 T dec_3p_3N1
+00000000 T dec_4p_4N
+00000000 T dec_4p_4N1
+00000000 T dec_5p_5N
+00000000 T dec_6p_6N_2
+
+dec_gain2_amr_wb.cpp.obj:
+         U Dot_product12_OpenCoreAmr
+00000000 r _ZL12cdown_usable
+00000000 r _ZL12pdown_usable
+00000000 r _ZL14cdown_unusable
+00000000 r _ZL14pdown_unusable
+00000000 t _ZL9shl_int32ls
+         U amrwb_log_2
+00000000 T dec_gain2_amr_wb
+00000000 T dec_gain2_amr_wb_init
+         U int32_to_dpf
+00000000 t mac_16by16_to_int32
+         U median5_OpenCoreAmr
+         U memmove
+         U memset
+00000000 t mult_int16
+         U one_ov_sqrt_norm
+         U power_of_2
+         U t_qua_gain6b
+         U t_qua_gain7b
+
+deemphasis_32.cpp.obj:
+00000000 t _ZL9shl_int32ls
+00000000 T deemphasis_32
+
+dtx_decoder_amr_wb.cpp.obj:
+00000000 T CN_dithering
+         U Disf_ns_OpenCoreAmr
+         U Dot_product12_OpenCoreAmr
+         U Serial_parm
+         U Serial_parm_1bit
+00000000 t _ZL9shl_int16ss
+00000000 t add_int16
+00000000 t add_int32
+         U amrwb_log_2
+00000000 T aver_isf_history
+00000000 T dithering_control
+         U div_16by16
+00000000 T dtx_dec_amr_wb
+00000000 T dtx_dec_amr_wb_activity_update
+00000000 T dtx_dec_amr_wb_reset
+00000000 T find_frame_indices
+00000000 t mac_16by16_to_int32
+         U memcpy
+         U memmove
+00000000 t mult_int16
+         U mult_int16_r
+         U noise_gen_amrwb
+         U normalize_amr_wb
+         U one_ov_sqrt_norm
+         U power_of_2
+00000000 T rx_amr_wb_dtx_handler
+
+get_amr_wb_bits.cpp.obj:
+00000000 T Serial_parm
+00000000 T Serial_parm_1bit
+
+highpass_400hz_at_12k8.cpp.obj:
+00000000 T highpass_400Hz_at_12k8
+00000000 T highpass_400Hz_at_12k8_init
+         U memset
+
+highpass_50hz_at_12k8.cpp.obj:
+00000000 T highpass_50Hz_at_12k8
+00000000 T highpass_50Hz_at_12k8_init
+         U memset
+
+homing_amr_wb_dec.cpp.obj:
+         U Serial_parm
+00000000 r _ZL17AMR_WB_COMPRESSED
+00000000 r _ZL7dfh_M7k
+00000000 r _ZL7dfh_M9k
+00000000 r _ZL8dfh_M12k
+00000000 r _ZL8dfh_M14k
+00000000 r _ZL8dfh_M16k
+00000000 r _ZL8dfh_M18k
+00000000 r _ZL8dfh_M20k
+00000000 r _ZL8dfh_M23k
+00000000 r _ZL8dfh_M24k
+00000000 r _ZL8prmnofsf
+00000000 t _ZL9shl_int16ss
+00000000 T dhf_test
+         U memcpy
+00000000 T pvDecoder_AmrWb_homing_frame_test
+00000000 T pvDecoder_AmrWb_homing_frame_test_first
+
+interpolate_isp.cpp.obj:
+         U Isp_Az_OpenCoreAmr
+00000000 T interpolate_isp
+
+isf_extrapolation.cpp.obj:
+         U Isf_isp_OpenCoreAmr
+00000000 t _ZL9shl_int16ss
+00000000 t add_int32
+         U div_16by16
+         U int32_to_dpf
+00000000 T isf_extrapolation
+         U mpy_dpf_32
+         U normalize_amr_wb
+00000000 t sub_int16
+
+isp_az.cpp.obj:
+00000000 T Get_isp_pol
+00000000 T Get_isp_pol_16kHz
+00000000 T Isp_Az_OpenCoreAmr
+00000000 t _ZL9shl_int32ls$constprop$0
+00000000 t add_int32
+         U normalize_amr_wb
+         U shr_rnd
+
+isp_isf.cpp.obj:
+00000000 T Isf_isp_OpenCoreAmr
+00000000 r _ZL5table
+
+lagconceal.cpp.obj:
+00000000 T Init_Lagconc
+00000000 T _Z14insertion_sortPss
+00000000 T _Z6insertPsss
+00000000 t add_int16
+00000000 T lagconceal
+         U memcpy
+00000000 t mult_int16
+         U noise_gen_amrwb
+
+low_pass_filt_7k.cpp.obj:
+00000000 r _ZL6fir_7k
+00000000 T low_pass_filt_7k
+00000000 T low_pass_filt_7k_init
+         U memcpy
+         U memset
+
+median5.cpp.obj:
+00000000 T median5_OpenCoreAmr
+
+mime_io.cpp.obj:
+         U memcpy
+         U memset
+00000000 T mime_unsorting
+00000000 R packed_size
+00000000 R sort_1265
+00000000 R sort_1425
+00000000 R sort_1585
+00000000 R sort_1825
+00000000 R sort_1985
+00000000 R sort_2305
+00000000 R sort_2385
+00000000 R sort_660
+00000000 R sort_885
+00000000 R sort_SID
+00000000 R toc_byte
+00000000 R unpacked_size
+00000000 R unused_size
+
+noise_gen_amrwb.cpp.obj:
+00000000 T noise_gen_amrwb
+
+normalize_amr_wb.cpp.obj:
+00000000 T normalize_amr_wb
+
+oversamp_12k8_to_16k.cpp.obj:
+00000000 T AmrWbInterpol
+00000000 T AmrWbUp_samp
+00000000 r _ZL6fir_up
+         U memcpy
+         U memset
+00000000 T oversamp_12k8_to_16k
+00000000 T oversamp_12k8_to_16k_init
+
+phase_dispersion.cpp.obj:
+00000000 r _ZL10ph_imp_low
+00000000 r _ZL10ph_imp_mid
+         U memmove
+         U memset
+         U mult_int16_r
+00000000 T phase_dispersion
+
+pit_shrp.cpp.obj:
+00000000 T amr_Pit_shrp
+
+pred_lt4.cpp.obj:
+00000000 T Pred_lt4_OpenCoreAmr
+00000000 r _ZL8inter4_2
+
+preemph_amrwb_dec.cpp.obj:
+00000000 T preemph_amrwb_dec
+
+pvamrwb_math_op.cpp.obj:
+00000000 T Dot_product12_OpenCoreAmr
+00000000 T Lg2_normalized
+00000000 r _ZL10table_pow2
+00000000 r _ZL11table_isqrt
+00000000 r _ZL15Log2_norm_table
+00000000 T amrwb_log_2
+00000000 T div_16by16
+00000000 T int32_to_dpf
+00000000 t mac_16by16_to_int32
+00000000 T mpy_dpf_32
+00000000 T mult_int16_r
+         U normalize_amr_wb
+00000000 T one_ov_sqrt
+00000000 T one_ov_sqrt_norm
+00000000 T power_of_2
+00000000 T shr_rnd
+
+pvamrwbdecoder.cpp.obj:
+         U Dpisf_2s_36b_OpenCoreAmr
+         U Dpisf_2s_46b_OpenCoreAmr
+         U Init_Lagconc
+         U Isf_isp_OpenCoreAmr
+         U Isp_Az_OpenCoreAmr
+         U Pred_lt4_OpenCoreAmr
+         U Serial_parm
+         U Serial_parm_1bit
+00000000 r _ZL13interpol_frac
+00000000 r _ZL17AMR_WB_COMPRESSED
+00000000 r _ZL8isf_init
+00000000 r _ZL8isp_init
+00000000 t _ZL9shl_int16ss
+00000000 t _ZL9shl_int32ls
+00000000 t add_int16
+         U agc2_amr_wb
+         U amr_Pit_shrp
+         U amr_voice_factor
+00000000 t amr_wb_round
+         U band_pass_6k_7k_init
+         U dec_acelp_2p_in_64
+         U dec_acelp_4p_in_64
+         U dec_gain2_amr_wb
+         U dec_gain2_amr_wb_init
+         U dtx_dec_amr_wb
+         U dtx_dec_amr_wb_activity_update
+         U dtx_dec_amr_wb_reset
+         U highpass_400Hz_at_12k8_init
+         U highpass_50Hz_at_12k8_init
+         U interpolate_isp
+         U lagconceal
+         U low_pass_filt_7k_init
+00000000 t mac_16by16_to_int32
+         U memcpy
+         U memset
+00000000 t msu_16by16_from_int32
+         U noise_gen_amrwb
+         U normalize_amr_wb
+         U oversamp_12k8_to_16k_init
+         U phase_dispersion
+         U preemph_amrwb_dec
+00000000 T pvDecoder_AmrWb
+00000000 T pvDecoder_AmrWbMemRequirements
+00000000 T pvDecoder_AmrWb_Init
+00000000 T pvDecoder_AmrWb_Reset
+         U rx_amr_wb_dtx_handler
+         U scale_signal
+00000000 t sub_int16
+         U synthesis_amr_wb
+
+q_gain2_tab.cpp.obj:
+00000000 R t_qua_gain6b
+00000000 R t_qua_gain7b
+
+qisf_ns.cpp.obj:
+00000000 T Disf_ns_OpenCoreAmr
+         U Reorder_isf_OpenCoreAmr
+         U dico1_isf_noise
+         U dico2_isf_noise
+         U dico3_isf_noise
+         U dico4_isf_noise
+         U dico5_isf_noise
+         U mean_isf_noise
+
+qisf_ns_tab.cpp.obj:
+00000000 R dico1_isf_noise
+00000000 R dico2_isf_noise
+00000000 R dico3_isf_noise
+00000000 R dico4_isf_noise
+00000000 R dico5_isf_noise
+00000000 R mean_isf_noise
+
+qpisf_2s.cpp.obj:
+00000000 T Dpisf_2s_36b_OpenCoreAmr
+00000000 T Dpisf_2s_46b_OpenCoreAmr
+00000000 T Reorder_isf_OpenCoreAmr
+00000000 t add_int16
+         U dico1_isf
+         U dico21_isf
+         U dico21_isf_36b
+         U dico22_isf
+         U dico22_isf_36b
+         U dico23_isf
+         U dico23_isf_36b
+         U dico24_isf
+         U dico25_isf
+         U dico2_isf
+         U mean_isf
+00000000 t mult_int16
+
+qpisf_2s_tab.cpp.obj:
+00000000 R dico1_isf
+00000000 R dico21_isf
+00000000 R dico21_isf_36b
+00000000 R dico22_isf
+00000000 R dico22_isf_36b
+00000000 R dico23_isf
+00000000 R dico23_isf_36b
+00000000 R dico24_isf
+00000000 R dico25_isf
+00000000 R dico2_isf
+00000000 R mean_isf
+
+scale_signal.cpp.obj:
+00000000 T scale_signal
+
+synthesis_amr_wb.cpp.obj:
+         U Dot_product12_OpenCoreAmr
+         U Isp_Az_OpenCoreAmr
+         U Syn_filt_32_OpenCoreAmr
+00000000 r _ZL7HP_gain
+00000000 t add_int16
+         U band_pass_6k_7k
+         U deemphasis_32
+         U div_16by16
+         U highpass_400Hz_at_12k8
+         U highpass_50Hz_at_12k8
+         U isf_extrapolation
+         U low_pass_filt_7k
+00000000 t mac_16by16_to_int32
+         U memcpy
+00000000 t mult_int16
+         U noise_gen_amrwb
+         U normalize_amr_wb
+         U one_ov_sqrt_norm
+         U oversamp_12k8_to_16k
+00000000 T synthesis_amr_wb
+         U wb_syn_filt
+         U weight_amrwb_lpc
+
+voice_factor.cpp.obj:
+         U Dot_product12_OpenCoreAmr
+00000000 T amr_voice_factor
+         U div_16by16
+         U normalize_amr_wb
+
+wb_syn_filt.cpp.obj:
+00000000 T Syn_filt_32_OpenCoreAmr
+00000000 t _ZL9shl_int32ls
+         U memcpy
+00000000 T wb_syn_filt
+
+weight_amrwb_lpc.cpp.obj:
+00000000 T weight_amrwb_lpc
+
+wrapper.cpp.obj:
+00000000 T D_IF_decode
+00000000 T D_IF_exit
+00000000 T D_IF_init
+         U media_lib_free
+         U media_lib_module_calloc
+         U mime_unsorting
+         U pvDecoder_AmrWb
+         U pvDecoder_AmrWbMemRequirements
+         U pvDecoder_AmrWb_Init
+         U pvDecoder_AmrWb_Reset
+         U pvDecoder_AmrWb_homing_frame_test
+         U pvDecoder_AmrWb_homing_frame_test_first
+
+cmnMemory.c.obj:
+00000000 T cmnMemAlloc
+00000000 T cmnMemCheck
+00000000 T cmnMemCompare
+00000000 T cmnMemCopy
+00000000 T cmnMemFree
+00000000 T cmnMemMove
+00000000 T cmnMemSet
+         U media_lib_free
+         U media_lib_module_malloc
+         U memcmp
+         U memcpy
+         U memmove
+         U memset
+
+wavreader.c.obj:
+
+bands.c.obj:
+         U alg_quant
+         U alg_unquant
+00000000 T anti_collapse
+00000000 r bit_deinterleave_table$0
+00000000 r bit_interleave_table$1
+00000000 T bitexact_cos
+00000000 T bitexact_log2tan
+00000000 t celt_exp2
+00000000 t celt_exp2_frac
+00000000 t celt_inner_prod_asm
+00000000 T celt_lcg_rand
+         U celt_rcp
+         U celt_rsqrt_norm
+         U celt_sqrt
+00000000 T compute_band_energies
+00000000 t compute_theta
+00000000 t deinterleave_hadamard
+00000000 T denormalise_bands
+         U dsps_dotprod_s16_ae32
+         U eMeans
+         U ec_dec_bit_logp
+         U ec_dec_bits
+         U ec_dec_uint
+         U ec_dec_update
+         U ec_decode
+         U ec_enc_bit_logp
+         U ec_enc_bits
+         U ec_enc_uint
+         U ec_encode
+         U ec_tell_frac
+         U esp_log_timestamp
+         U esp_log_write
+00000000 r exp2_table8$2
+00000000 T haar1
+00000000 T hysteresis_decision
+00000000 t intensity_stereo$isra$0
+00000000 t interleave_hadamard
+         U isqrt32
+         U memcpy
+         U memset
+00000000 T normalise_bands
+00000000 r ordery_table
+00000000 T quant_all_bands
+00000000 t quant_band
+00000000 t quant_band_n1$isra$0
+00000000 t quant_band_stereo
+00000000 t quant_partition
+         U renormalise_vector
+00000000 T spreading_decision
+         U stereo_itheta
+
+celt.c.obj:
+00000000 t MULT16_32_Q15
+00000000 T comb_filter
+00000000 r error_strings$0
+00000000 r gains$1
+00000000 T init_caps
+         U memmove
+00000000 T opus_get_version_string
+00000000 T opus_strerror
+00000000 T resampling_factor
+00000000 R tf_select_table
+
+celt_decoder.c.obj:
+00000000 t MULT16_32_Q15
+         U _celt_autocorr
+         U _celt_lpc
+         U anti_collapse
+00000000 t celt_decode_lost
+00000000 T celt_decode_with_ec
+00000000 T celt_decoder_get_size
+00000000 T celt_decoder_init
+         U celt_fir_c
+         U celt_iir
+         U celt_lcg_rand
+00000000 t celt_plc_pitch_search
+         U celt_sqrt
+00000000 t celt_synthesis
+         U clt_mdct_backward_c
+         U comb_filter
+         U compute_allocation
+00000000 t deemphasis
+         U denormalise_bands
+         U ec_dec_bit_logp
+         U ec_dec_bits
+         U ec_dec_icdf
+         U ec_dec_init
+         U ec_dec_uint
+00000000 t ec_tell
+         U ec_tell_frac
+         U frac_div32
+         U init_caps
+         U memcpy
+         U memmove
+         U memset
+00000000 T opus_custom_decoder_ctl
+00000000 t opus_custom_decoder_get_size
+         U opus_custom_mode_create
+         U pitch_downsample
+         U pitch_search
+         U quant_all_bands
+         U renormalise_vector
+         U resampling_factor
+00000000 r spread_icdf
+00000000 r tapset_icdf
+         U tf_select_table
+00000000 r trim_icdf
+         U unquant_coarse_energy
+         U unquant_energy_finalise
+         U unquant_fine_energy
+
+celt_encoder.c.obj:
+00000000 t MULT16_32_Q15
+         U amp2Log2
+00000000 T celt_encode_with_ec
+00000000 T celt_encoder_get_size
+00000000 T celt_encoder_init
+00000000 t celt_inner_prod_asm
+00000000 t celt_log2
+00000000 t celt_maxabs16
+00000000 T celt_preemphasis
+         U celt_rcp
+         U celt_sqrt
+         U clt_mdct_forward_c
+         U comb_filter
+         U compute_allocation
+         U compute_band_energies
+00000000 t compute_mdcts
+         U dsps_dotprod_s16_ae32
+00000000 t dynalloc_analysis$isra$0
+         U eMeans
+         U ec_enc_bit_logp
+         U ec_enc_bits
+         U ec_enc_done
+         U ec_enc_icdf
+         U ec_enc_init
+         U ec_enc_shrink
+         U ec_enc_uint
+00000000 t ec_tell
+         U ec_tell_frac
+         U esp_log_timestamp
+         U esp_log_write
+         U haar1
+         U hysteresis_decision
+         U init_caps
+00000000 r intensity_histeresis$2
+00000000 r intensity_thresholds$3
+00000000 r inv_table$1
+00000000 t l1_metric
+         U memcpy
+         U memmove
+         U memset
+         U normalise_bands
+00000000 T opus_custom_encoder_ctl
+00000000 t opus_custom_encoder_get_size
+         U opus_custom_mode_create
+         U pitch_downsample
+         U pitch_search
+         U quant_all_bands
+         U quant_coarse_energy
+         U quant_energy_finalise
+         U quant_fine_energy
+         U remove_doubling
+         U resampling_factor
+00000000 t run_prefilter$constprop$0
+00000000 r spread_icdf
+         U spreading_decision
+00000000 r tapset_icdf
+00000000 t tf_analysis
+         U tf_select_table
+00000000 t transient_analysis$constprop$0
+00000000 r trim_icdf
+
+celt_lpc.c.obj:
+00000000 T _celt_autocorr
+00000000 T _celt_lpc
+00000000 T celt_fir_c
+00000000 T celt_iir
+         U celt_pitch_xcorr_c
+         U frac_div32
+         U memcpy
+         U memset
+00000000 t xcorr_kernel_c
+
+cwrs.c.obj:
+00000000 r CELT_PVQ_U_DATA
+00000000 r CELT_PVQ_U_ROW
+00000000 T decode_pulses
+         U ec_dec_uint
+         U ec_enc_uint
+00000000 T encode_pulses
+
+entcode.c.obj:
+00000000 r correction$0
+00000000 T ec_tell_frac
+
+entdec.c.obj:
+00000000 T ec_dec_bit_logp
+00000000 T ec_dec_bits
+00000000 T ec_dec_icdf
+00000000 T ec_dec_init
+00000000 t ec_dec_normalize
+00000000 T ec_dec_uint
+00000000 T ec_dec_update
+00000000 T ec_decode
+00000000 T ec_decode_bin
+
+entenc.c.obj:
+00000000 T ec_enc_bit_logp
+00000000 T ec_enc_bits
+00000000 t ec_enc_carry_out$part$0
+00000000 T ec_enc_done
+00000000 T ec_enc_icdf
+00000000 T ec_enc_init
+00000000 t ec_enc_normalize
+00000000 T ec_enc_patch_initial_bits
+00000000 T ec_enc_shrink
+00000000 T ec_enc_uint
+00000000 T ec_encode
+00000000 T ec_encode_bin
+         U memmove
+         U memset
+
+kiss_fft.c.obj:
+00000000 t MULT16_32_Q15
+00000000 T opus_fft_c
+00000000 T opus_fft_impl
+00000000 T opus_ifft_c
+
+laplace.c.obj:
+         U ec_dec_update
+         U ec_decode_bin
+         U ec_encode_bin
+00000000 T ec_laplace_decode
+00000000 T ec_laplace_encode
+
+mathops.c.obj:
+00000000 t _celt_cos_pi_2
+00000000 T celt_cos_norm
+00000000 T celt_rcp
+00000000 T celt_rsqrt_norm
+00000000 T celt_sqrt
+00000000 T frac_div32
+00000000 T isqrt32
+
+mdct.c.obj:
+00000000 t MULT16_32_Q15
+00000000 T clt_mdct_backward_c
+00000000 T clt_mdct_forward_c
+         U opus_fft_impl
+
+modes.c.obj:
+00000000 r band_allocation
+00000000 r cache_bits50
+00000000 r cache_caps50
+00000000 r cache_index50
+00000000 r eband5ms
+00000000 r fft_bitrev120
+00000000 r fft_bitrev240
+00000000 r fft_bitrev480
+00000000 r fft_bitrev60
+00000000 r fft_state48000_960_0
+00000000 r fft_state48000_960_1
+00000000 r fft_state48000_960_2
+00000000 r fft_state48000_960_3
+00000000 r fft_twiddles48000_960
+00000000 r logN400
+00000000 r mdct_twiddles960
+00000000 r mode48000_960_120
+00000000 T opus_custom_mode_create
+00000000 r window120
+
+pitch.c.obj:
+00000000 t MULT16_32_Q15
+         U _celt_autocorr
+         U _celt_lpc
+00000000 t celt_inner_prod_asm
+00000000 T celt_pitch_xcorr_c
+         U celt_rsqrt_norm
+00000000 t compute_pitch_gain
+         U dsps_dotprod_s16_ae32
+00000000 t dual_inner_prod_asm
+         U esp_log_timestamp
+         U esp_log_write
+00000000 t find_best_pitch
+         U frac_div32
+00000000 T pitch_downsample
+00000000 T pitch_search
+00000000 T remove_doubling
+00000000 r second_check
+
+quant_bands.c.obj:
+00000000 T amp2Log2
+00000000 r beta_coef
+00000000 R eMeans
+00000000 r e_prob_model
+         U ec_dec_bit_logp
+         U ec_dec_bits
+         U ec_dec_icdf
+         U ec_enc_bit_logp
+         U ec_enc_bits
+         U ec_enc_icdf
+         U ec_laplace_decode
+         U ec_laplace_encode
+         U ec_tell_frac
+         U memcpy
+00000000 r pred_coef
+00000000 T quant_coarse_energy
+00000000 t quant_coarse_energy_impl
+00000000 T quant_energy_finalise
+00000000 T quant_fine_energy
+00000000 r small_energy_icdf
+00000000 T unquant_coarse_energy
+00000000 T unquant_energy_finalise
+00000000 T unquant_fine_energy
+
+rate.c.obj:
+00000000 r LOG2_FRAC_TABLE
+00000000 T compute_allocation
+         U ec_dec_bit_logp
+         U ec_dec_uint
+         U ec_enc_bit_logp
+         U ec_enc_uint
+
+vq.c.obj:
+00000000 r SPREAD_FACTOR$0
+00000000 T alg_quant
+00000000 T alg_unquant
+00000000 t celt_atan01
+         U celt_cos_norm
+00000000 t celt_inner_prod_asm
+         U celt_rcp
+         U celt_rsqrt_norm
+         U celt_sqrt
+         U decode_pulses
+         U dsps_dotprod_s16_ae32
+         U encode_pulses
+         U esp_log_timestamp
+         U esp_log_write
+00000000 T exp_rotation
+00000000 t exp_rotation1
+00000000 t extract_collapse_mask
+         U memset
+00000000 t normalise_residual
+00000000 T op_pvq_search_c
+00000000 T renormalise_vector
+00000000 T stereo_itheta
+
+LTP_analysis_filter_FIX.c.obj:
+00000000 T silk_LTP_analysis_filter_FIX
+
+LTP_scale_ctrl_FIX.c.obj:
+         U silk_LTPScales_table_Q14
+00000000 T silk_LTP_scale_ctrl_FIX
+
+apply_sine_window_FIX.c.obj:
+00000000 r freq_table_Q16
+00000000 T silk_apply_sine_window
+
+autocorr_FIX.c.obj:
+         U _celt_autocorr
+00000000 T silk_autocorr
+
+burg_modified_FIX.c.obj:
+         U __ashrdi3
+         U celt_pitch_xcorr_c
+         U memcpy
+         U memset
+00000000 t silk_DIV32_varQ
+00000000 T silk_burg_modified_c
+         U silk_inner_prod16_aligned_64_c
+         U silk_inner_prod_aligned
+
+corrMatrix_FIX.c.obj:
+00000000 T silk_corrMatrix_FIX
+00000000 T silk_corrVector_FIX
+         U silk_inner_prod_aligned
+         U silk_sum_sqr_shift
+
+encode_frame_FIX.c.obj:
+         U memcpy
+         U memmove
+         U memset
+         U silk_LP_variable_cutoff
+         U silk_NSQ_c
+         U silk_NSQ_del_dec_c
+         U silk_VAD_GetSA_Q8_c
+00000000 T silk_encode_do_VAD_FIX
+00000000 T silk_encode_frame_FIX
+         U silk_encode_indices
+         U silk_encode_pulses
+         U silk_find_pitch_lags_FIX
+         U silk_find_pred_coefs_FIX
+         U silk_gains_ID
+         U silk_gains_dequant
+         U silk_gains_quant
+         U silk_log2lin
+         U silk_noise_shape_analysis_FIX
+         U silk_process_gains_FIX
+
+find_LPC_FIX.c.obj:
+         U silk_A2NLSF
+         U silk_LPC_analysis_filter
+         U silk_NLSF2A
+         U silk_burg_modified_c
+00000000 T silk_find_LPC_FIX
+         U silk_interpolate
+         U silk_sum_sqr_shift
+
+find_LTP_FIX.c.obj:
+         U __divdi3
+         U silk_corrMatrix_FIX
+         U silk_corrVector_FIX
+00000000 T silk_find_LTP_FIX
+         U silk_sum_sqr_shift
+
+find_pitch_lags_FIX.c.obj:
+         U memcpy
+         U memset
+         U silk_LPC_analysis_filter
+         U silk_apply_sine_window
+         U silk_autocorr
+         U silk_bwexpander
+00000000 T silk_find_pitch_lags_FIX
+         U silk_k2a
+         U silk_pitch_analysis_core
+         U silk_schur
+
+find_pred_coefs_FIX.c.obj:
+         U memcpy
+         U memset
+00000000 t silk_DIV32_varQ$constprop$0
+         U silk_LTP_analysis_filter_FIX
+         U silk_LTP_scale_ctrl_FIX
+         U silk_find_LPC_FIX
+         U silk_find_LTP_FIX
+00000000 T silk_find_pred_coefs_FIX
+         U silk_log2lin
+         U silk_process_NLSFs
+         U silk_quant_LTP_gains
+         U silk_residual_energy_FIX
+         U silk_scale_copy_vector16
+
+k2a_FIX.c.obj:
+00000000 T silk_k2a
+
+k2a_Q16_FIX.c.obj:
+00000000 T silk_k2a_Q16
+
+noise_shape_analysis_FIX.c.obj:
+         U memcpy
+00000000 t silk_DIV32_varQ
+00000000 t silk_INVERSE32_varQ
+         U silk_LPC_fit
+00000000 t silk_SQRT_APPROX$part$0
+         U silk_apply_sine_window
+         U silk_autocorr
+         U silk_bwexpander_32
+         U silk_k2a_Q16
+         U silk_lin2log
+         U silk_log2lin
+00000000 T silk_noise_shape_analysis_FIX
+         U silk_schur64
+         U silk_sigm_Q15
+         U silk_sum_sqr_shift
+         U silk_warped_autocorrelation_FIX_c
+
+pitch_analysis_core_FIX.c.obj:
+         U celt_pitch_xcorr_c
+         U memcpy
+         U memset
+         U silk_CB_lags_stage2
+         U silk_CB_lags_stage2_10_ms
+         U silk_CB_lags_stage3
+         U silk_CB_lags_stage3_10_ms
+00000000 t silk_DIV32_varQ$constprop$0
+         U silk_Lag_range_stage3
+         U silk_Lag_range_stage3_10_ms
+00000000 t silk_P_Ana_calc_corr_st3
+00000000 t silk_P_Ana_calc_energy_st3
+         U silk_inner_prod_aligned
+         U silk_insertion_sort_decreasing_int16
+         U silk_lin2log
+         U silk_nb_cbk_searchs_stage3
+00000000 T silk_pitch_analysis_core
+         U silk_resampler_down2
+         U silk_resampler_down2_3
+         U silk_sum_sqr_shift
+
+process_gains_FIX.c.obj:
+         U memcpy
+         U silk_Quantization_Offsets_Q10
+00000000 t silk_SQRT_APPROX$part$0
+         U silk_gains_quant
+         U silk_log2lin
+00000000 T silk_process_gains_FIX
+         U silk_sigm_Q15
+
+regularize_correlations_FIX.c.obj:
+00000000 T silk_regularize_correlations_FIX
+
+residual_energy16_FIX.c.obj:
+00000000 T silk_residual_energy16_covar_FIX
+
+residual_energy_FIX.c.obj:
+         U silk_LPC_analysis_filter
+00000000 T silk_residual_energy_FIX
+         U silk_sum_sqr_shift
+
+schur64_FIX.c.obj:
+         U memset
+00000000 T silk_schur64
+
+schur_FIX.c.obj:
+         U memset
+00000000 T silk_schur
+
+vector_ops_FIX.c.obj:
+         U dsps_dotprod_s16_ae32
+         U esp_log_timestamp
+         U esp_log_write
+00000000 T silk_inner_prod16_aligned_64_c
+00000000 T silk_inner_prod_aligned
+00000000 T silk_scale_copy_vector16
+00000000 T silk_scale_vector32_Q26_lshift_18
+
+warped_autocorrelation_FIX.c.obj:
+         U __ashldi3
+         U __ashrdi3
+00000000 T silk_warped_autocorrelation_FIX_c
+
+A2NLSF.c.obj:
+00000000 T silk_A2NLSF
+00000000 t silk_A2NLSF_eval_poly
+00000000 t silk_A2NLSF_init
+00000000 t silk_A2NLSF_trans_poly
+         U silk_LSFCosTab_FIX_Q12
+         U silk_bwexpander_32
+
+CNG.c.obj:
+         U memcpy
+         U memmove
+         U memset
+00000000 T silk_CNG
+00000000 T silk_CNG_Reset
+         U silk_NLSF2A
+00000000 t silk_SQRT_APPROX
+
+HP_variable_cutoff.c.obj:
+00000000 T silk_HP_variable_cutoff
+         U silk_lin2log
+
+LPC_analysis_filter.c.obj:
+         U memset
+00000000 T silk_LPC_analysis_filter
+
+LPC_fit.c.obj:
+00000000 T silk_LPC_fit
+         U silk_bwexpander_32
+
+LPC_inv_pred_gain.c.obj:
+         U __ashrdi3
+00000000 T silk_LPC_inverse_pred_gain_c
+
+LP_variable_cutoff.c.obj:
+         U memcpy
+00000000 T silk_LP_variable_cutoff
+         U silk_Transition_LP_A_Q28
+         U silk_Transition_LP_B_Q28
+         U silk_biquad_alt_stride1
+
+NLSF2A.c.obj:
+00000000 r ordering10$0
+00000000 r ordering16$1
+         U silk_LPC_fit
+         U silk_LPC_inverse_pred_gain_c
+         U silk_LSFCosTab_FIX_Q12
+00000000 T silk_NLSF2A
+00000000 t silk_NLSF2A_find_poly
+         U silk_bwexpander_32
+
+NLSF_VQ.c.obj:
+00000000 T silk_NLSF_VQ
+
+NLSF_VQ_weights_laroia.c.obj:
+00000000 T silk_NLSF_VQ_weights_laroia
+
+NLSF_decode.c.obj:
+00000000 T silk_NLSF_decode
+         U silk_NLSF_stabilize
+         U silk_NLSF_unpack
+
+NLSF_del_dec_quant.c.obj:
+         U memcpy
+00000000 T silk_NLSF_del_dec_quant
+
+NLSF_encode.c.obj:
+         U memcpy
+         U silk_NLSF_VQ
+         U silk_NLSF_decode
+         U silk_NLSF_del_dec_quant
+00000000 T silk_NLSF_encode
+         U silk_NLSF_stabilize
+         U silk_NLSF_unpack
+         U silk_insertion_sort_increasing
+         U silk_lin2log
+
+NLSF_stabilize.c.obj:
+00000000 T silk_NLSF_stabilize
+         U silk_insertion_sort_increasing_all_values_int16
+
+NLSF_unpack.c.obj:
+00000000 T silk_NLSF_unpack
+
+NSQ.c.obj:
+         U memcpy
+         U memmove
+         U silk_LPC_analysis_filter
+00000000 T silk_NSQ_c
+         U silk_Quantization_Offsets_Q10
+
+NSQ_del_dec.c.obj:
+         U memcpy
+         U memmove
+         U memset
+         U silk_LPC_analysis_filter
+00000000 T silk_NSQ_del_dec_c
+         U silk_Quantization_Offsets_Q10
+00000000 t silk_noise_shape_quantizer_del_dec$isra$0
+
+PLC.c.obj:
+00000000 r HARM_ATT_Q15
+00000000 r PLC_RAND_ATTENUATE_UV_Q15
+00000000 r PLC_RAND_ATTENUATE_V_Q15
+         U memcpy
+         U memset
+         U silk_LPC_analysis_filter
+         U silk_LPC_inverse_pred_gain_c
+00000000 T silk_PLC
+00000000 T silk_PLC_Reset
+00000000 t silk_PLC_conceal
+00000000 t silk_PLC_energy
+00000000 T silk_PLC_glue_frames
+         U silk_bwexpander
+         U silk_sum_sqr_shift
+
+VAD.c.obj:
+         U memset
+00000000 t silk_SQRT_APPROX
+00000000 T silk_VAD_GetSA_Q8_c
+00000000 T silk_VAD_Init
+         U silk_ana_filt_bank_1
+         U silk_lin2log
+         U silk_sigm_Q15
+00000000 r tiltWeights
+
+VQ_WMat_EC.c.obj:
+00000000 T silk_VQ_WMat_EC_c
+         U silk_lin2log
+
+ana_filt_bank_1.c.obj:
+00000000 T silk_ana_filt_bank_1
+
+biquad_alt.c.obj:
+00000000 T silk_biquad_alt_stride1
+00000000 T silk_biquad_alt_stride2_c
+
+bwexpander.c.obj:
+00000000 T silk_bwexpander
+
+bwexpander_32.c.obj:
+00000000 T silk_bwexpander_32
+
+check_control_input.c.obj:
+00000000 T check_control_input
+
+code_signs.c.obj:
+         U ec_dec_icdf
+         U ec_enc_icdf
+00000000 T silk_decode_signs
+00000000 T silk_encode_signs
+         U silk_sign_iCDF
+
+control_SNR.c.obj:
+         U silk_SNR_table_Q1
+         U silk_TargetRate_table_MB
+         U silk_TargetRate_table_NB
+         U silk_TargetRate_table_WB
+00000000 T silk_control_SNR
+
+control_audio_bandwidth.c.obj:
+         U memset
+00000000 T silk_control_audio_bandwidth
+
+control_codec.c.obj:
+         U memset
+         U silk_NLSF_CB_NB_MB
+         U silk_NLSF_CB_WB
+         U silk_control_audio_bandwidth
+00000000 T silk_control_encoder
+         U silk_pitch_contour_10_ms_NB_iCDF
+         U silk_pitch_contour_10_ms_iCDF
+         U silk_pitch_contour_NB_iCDF
+         U silk_pitch_contour_iCDF
+         U silk_resampler
+         U silk_resampler_init
+00000000 t silk_setup_resamplers
+         U silk_uniform4_iCDF
+         U silk_uniform6_iCDF
+         U silk_uniform8_iCDF
+
+debug.c.obj:
+
+dec_API.c.obj:
+         U ec_dec_bit_logp
+         U ec_dec_icdf
+         U memcpy
+         U memset
+00000000 T silk_Decode
+00000000 T silk_Get_Decoder_Size
+00000000 T silk_InitDecoder
+         U silk_LBRR_flags_iCDF_ptr
+         U silk_decode_frame
+         U silk_decode_indices
+         U silk_decode_pulses
+         U silk_decoder_set_fs
+         U silk_init_decoder
+         U silk_resampler
+         U silk_stereo_MS_to_LR
+         U silk_stereo_decode_mid_only
+         U silk_stereo_decode_pred
+
+decode_core.c.obj:
+         U memcpy
+         U memset
+         U silk_LPC_analysis_filter
+         U silk_Quantization_Offsets_Q10
+00000000 T silk_decode_core
+
+decode_frame.c.obj:
+         U memcpy
+         U memmove
+         U silk_CNG
+         U silk_PLC
+         U silk_PLC_glue_frames
+         U silk_decode_core
+00000000 T silk_decode_frame
+         U silk_decode_indices
+         U silk_decode_parameters
+         U silk_decode_pulses
+
+decode_indices.c.obj:
+         U ec_dec_icdf
+         U silk_LTP_gain_iCDF_ptrs
+         U silk_LTP_per_index_iCDF
+         U silk_LTPscale_iCDF
+         U silk_NLSF_EXT_iCDF
+         U silk_NLSF_interpolation_factor_iCDF
+         U silk_NLSF_unpack
+00000000 T silk_decode_indices
+         U silk_delta_gain_iCDF
+         U silk_gain_iCDF
+         U silk_pitch_delta_iCDF
+         U silk_pitch_lag_iCDF
+         U silk_type_offset_VAD_iCDF
+         U silk_type_offset_no_VAD_iCDF
+         U silk_uniform4_iCDF
+         U silk_uniform8_iCDF
+
+decode_parameters.c.obj:
+         U memcpy
+         U memset
+         U silk_LTPScales_table_Q14
+         U silk_LTP_vq_ptrs_Q7
+         U silk_NLSF2A
+         U silk_NLSF_decode
+         U silk_bwexpander
+00000000 T silk_decode_parameters
+         U silk_decode_pitch
+         U silk_gains_dequant
+
+decode_pitch.c.obj:
+         U silk_CB_lags_stage2
+         U silk_CB_lags_stage2_10_ms
+         U silk_CB_lags_stage3
+         U silk_CB_lags_stage3_10_ms
+00000000 T silk_decode_pitch
+
+decode_pulses.c.obj:
+         U ec_dec_icdf
+         U memset
+00000000 T silk_decode_pulses
+         U silk_decode_signs
+         U silk_lsb_iCDF
+         U silk_pulses_per_block_iCDF
+         U silk_rate_levels_iCDF
+         U silk_shell_decoder
+
+decoder_set_fs.c.obj:
+         U memset
+         U silk_NLSF_CB_NB_MB
+         U silk_NLSF_CB_WB
+00000000 T silk_decoder_set_fs
+         U silk_pitch_contour_10_ms_NB_iCDF
+         U silk_pitch_contour_10_ms_iCDF
+         U silk_pitch_contour_NB_iCDF
+         U silk_pitch_contour_iCDF
+         U silk_resampler_init
+         U silk_uniform4_iCDF
+         U silk_uniform6_iCDF
+         U silk_uniform8_iCDF
+
+enc_API.c.obj:
+         U check_control_input
+         U ec_enc_icdf
+         U ec_enc_patch_initial_bits
+         U memcpy
+         U memset
+00000000 T silk_Encode
+00000000 T silk_Get_Encoder_Size
+         U silk_HP_variable_cutoff
+00000000 T silk_InitEncoder
+         U silk_LBRR_flags_iCDF_ptr
+         U silk_Quantization_Offsets_Q10
+         U silk_control_SNR
+         U silk_control_encoder
+         U silk_encode_do_VAD_FIX
+         U silk_encode_frame_FIX
+         U silk_encode_indices
+         U silk_encode_pulses
+         U silk_init_encoder
+         U silk_resampler
+         U silk_stereo_LR_to_MS
+         U silk_stereo_encode_mid_only
+         U silk_stereo_encode_pred
+
+encode_indices.c.obj:
+         U ec_enc_icdf
+         U silk_LTP_gain_iCDF_ptrs
+         U silk_LTP_per_index_iCDF
+         U silk_LTPscale_iCDF
+         U silk_NLSF_EXT_iCDF
+         U silk_NLSF_interpolation_factor_iCDF
+         U silk_NLSF_unpack
+         U silk_delta_gain_iCDF
+00000000 T silk_encode_indices
+         U silk_gain_iCDF
+         U silk_pitch_delta_iCDF
+         U silk_pitch_lag_iCDF
+         U silk_type_offset_VAD_iCDF
+         U silk_type_offset_no_VAD_iCDF
+         U silk_uniform4_iCDF
+         U silk_uniform8_iCDF
+
+encode_pulses.c.obj:
+00000000 t combine_and_check
+         U ec_enc_icdf
+         U memset
+00000000 T silk_encode_pulses
+         U silk_encode_signs
+         U silk_lsb_iCDF
+         U silk_max_pulses_table
+         U silk_pulses_per_block_BITS_Q5
+         U silk_pulses_per_block_iCDF
+         U silk_rate_levels_BITS_Q5
+         U silk_rate_levels_iCDF
+         U silk_shell_encoder
+
+gain_quant.c.obj:
+00000000 T silk_gains_ID
+00000000 T silk_gains_dequant
+00000000 T silk_gains_quant
+         U silk_lin2log
+         U silk_log2lin
+
+init_decoder.c.obj:
+         U memset
+         U silk_CNG_Reset
+         U silk_PLC_Reset
+00000000 T silk_init_decoder
+
+init_encoder.c.obj:
+         U memset
+         U silk_VAD_Init
+00000000 T silk_init_encoder
+         U silk_lin2log
+
+inner_prod_aligned.c.obj:
+00000000 T silk_inner_prod_aligned_scale
+
+interpolate.c.obj:
+00000000 T silk_interpolate
+
+lin2log.c.obj:
+00000000 T silk_lin2log
+
+log2lin.c.obj:
+00000000 T silk_log2lin
+
+pitch_est_tables.c.obj:
+00000000 R silk_CB_lags_stage2
+00000000 R silk_CB_lags_stage2_10_ms
+00000000 R silk_CB_lags_stage3
+00000000 R silk_CB_lags_stage3_10_ms
+00000000 R silk_Lag_range_stage3
+00000000 R silk_Lag_range_stage3_10_ms
+00000000 R silk_nb_cbk_searchs_stage3
+
+process_NLSFs.c.obj:
+         U memcpy
+         U silk_NLSF2A
+         U silk_NLSF_VQ_weights_laroia
+         U silk_NLSF_encode
+         U silk_interpolate
+00000000 T silk_process_NLSFs
+
+quant_LTP_gains.c.obj:
+         U memcpy
+         U silk_LTP_gain_BITS_Q5_ptrs
+         U silk_LTP_vq_gain_ptrs_Q7
+         U silk_LTP_vq_ptrs_Q7
+         U silk_LTP_vq_sizes
+         U silk_VQ_WMat_EC_c
+         U silk_lin2log
+         U silk_log2lin
+00000000 T silk_quant_LTP_gains
+
+resampler.c.obj:
+00000000 r delay_matrix_dec
+00000000 r delay_matrix_enc
+         U memcpy
+         U memset
+         U silk_Resampler_1_2_COEFS
+         U silk_Resampler_1_3_COEFS
+         U silk_Resampler_1_4_COEFS
+         U silk_Resampler_1_6_COEFS
+         U silk_Resampler_2_3_COEFS
+         U silk_Resampler_3_4_COEFS
+00000000 T silk_resampler
+00000000 T silk_resampler_init
+         U silk_resampler_private_IIR_FIR
+         U silk_resampler_private_down_FIR
+         U silk_resampler_private_up2_HQ_wrapper
+
+resampler_down2.c.obj:
+00000000 T silk_resampler_down2
+
+resampler_down2_3.c.obj:
+         U memcpy
+         U silk_Resampler_2_3_COEFS_LQ
+00000000 T silk_resampler_down2_3
+         U silk_resampler_private_AR2
+
+resampler_private_AR2.c.obj:
+00000000 T silk_resampler_private_AR2
+
+resampler_private_IIR_FIR.c.obj:
+         U memcpy
+         U silk_resampler_frac_FIR_12
+00000000 T silk_resampler_private_IIR_FIR
+         U silk_resampler_private_up2_HQ
+
+resampler_private_down_FIR.c.obj:
+         U memcpy
+         U silk_resampler_private_AR2
+00000000 T silk_resampler_private_down_FIR
+
+resampler_private_up2_HQ.c.obj:
+00000000 T silk_resampler_private_up2_HQ
+00000000 T silk_resampler_private_up2_HQ_wrapper
+
+resampler_rom.c.obj:
+00000000 R silk_Resampler_1_2_COEFS
+00000000 R silk_Resampler_1_3_COEFS
+00000000 R silk_Resampler_1_4_COEFS
+00000000 R silk_Resampler_1_6_COEFS
+00000000 R silk_Resampler_2_3_COEFS
+00000000 R silk_Resampler_2_3_COEFS_LQ
+00000000 R silk_Resampler_3_4_COEFS
+00000000 R silk_resampler_frac_FIR_12
+
+shell_coder.c.obj:
+00000000 t combine_pulses
+00000000 t decode_split
+         U ec_dec_icdf
+         U ec_enc_icdf
+00000000 t encode_split
+         U silk_shell_code_table0
+         U silk_shell_code_table1
+         U silk_shell_code_table2
+         U silk_shell_code_table3
+         U silk_shell_code_table_offsets
+00000000 T silk_shell_decoder
+00000000 T silk_shell_encoder
+
+sigm_Q15.c.obj:
+00000000 r sigm_LUT_neg_Q15
+00000000 r sigm_LUT_pos_Q15
+00000000 r sigm_LUT_slope_Q10
+00000000 T silk_sigm_Q15
+
+sort.c.obj:
+00000000 T silk_insertion_sort_decreasing_int16
+00000000 T silk_insertion_sort_increasing
+00000000 T silk_insertion_sort_increasing_all_values_int16
+
+stereo_LR_to_MS.c.obj:
+         U memcpy
+00000000 t silk_DIV32_varQ
+00000000 T silk_stereo_LR_to_MS
+         U silk_stereo_find_predictor
+         U silk_stereo_quant_pred
+
+stereo_MS_to_LR.c.obj:
+         U memcpy
+00000000 T silk_stereo_MS_to_LR
+
+stereo_decode_pred.c.obj:
+         U ec_dec_icdf
+00000000 T silk_stereo_decode_mid_only
+00000000 T silk_stereo_decode_pred
+         U silk_stereo_only_code_mid_iCDF
+         U silk_stereo_pred_joint_iCDF
+         U silk_stereo_pred_quant_Q13
+         U silk_uniform3_iCDF
+         U silk_uniform5_iCDF
+
+stereo_encode_pred.c.obj:
+         U ec_enc_icdf
+00000000 T silk_stereo_encode_mid_only
+00000000 T silk_stereo_encode_pred
+         U silk_stereo_only_code_mid_iCDF
+         U silk_stereo_pred_joint_iCDF
+         U silk_uniform3_iCDF
+         U silk_uniform5_iCDF
+
+stereo_find_predictor.c.obj:
+00000000 t silk_DIV32_varQ
+00000000 t silk_SQRT_APPROX$part$0
+         U silk_inner_prod_aligned_scale
+00000000 T silk_stereo_find_predictor
+         U silk_sum_sqr_shift
+
+stereo_quant_pred.c.obj:
+         U silk_stereo_pred_quant_Q13
+00000000 T silk_stereo_quant_pred
+
+sum_sqr_shift.c.obj:
+00000000 T silk_sum_sqr_shift
+
+table_LSF_cos.c.obj:
+00000000 R silk_LSFCosTab_FIX_Q12
+
+tables_LTP.c.obj:
+00000000 r silk_LTP_gain_BITS_Q5_0
+00000000 r silk_LTP_gain_BITS_Q5_1
+00000000 r silk_LTP_gain_BITS_Q5_2
+00000000 R silk_LTP_gain_BITS_Q5_ptrs
+00000000 r silk_LTP_gain_iCDF_0
+00000000 r silk_LTP_gain_iCDF_1
+00000000 r silk_LTP_gain_iCDF_2
+00000000 R silk_LTP_gain_iCDF_ptrs
+00000000 r silk_LTP_gain_vq_0
+00000000 r silk_LTP_gain_vq_0_gain
+00000000 r silk_LTP_gain_vq_1
+00000000 r silk_LTP_gain_vq_1_gain
+00000000 r silk_LTP_gain_vq_2
+00000000 r silk_LTP_gain_vq_2_gain
+00000000 R silk_LTP_per_index_iCDF
+00000000 R silk_LTP_vq_gain_ptrs_Q7
+00000000 R silk_LTP_vq_ptrs_Q7
+00000000 R silk_LTP_vq_sizes
+
+tables_NLSF_CB_NB_MB.c.obj:
+00000000 r silk_NLSF_CB1_NB_MB_Q8
+00000000 r silk_NLSF_CB1_Wght_Q9
+00000000 r silk_NLSF_CB1_iCDF_NB_MB
+00000000 r silk_NLSF_CB2_BITS_NB_MB_Q5
+00000000 r silk_NLSF_CB2_SELECT_NB_MB
+00000000 r silk_NLSF_CB2_iCDF_NB_MB
+00000000 R silk_NLSF_CB_NB_MB
+00000000 r silk_NLSF_DELTA_MIN_NB_MB_Q15
+00000000 r silk_NLSF_PRED_NB_MB_Q8
+
+tables_NLSF_CB_WB.c.obj:
+00000000 r silk_NLSF_CB1_WB_Q8
+00000000 r silk_NLSF_CB1_WB_Wght_Q9
+00000000 r silk_NLSF_CB1_iCDF_WB
+00000000 r silk_NLSF_CB2_BITS_WB_Q5
+00000000 r silk_NLSF_CB2_SELECT_WB
+00000000 r silk_NLSF_CB2_iCDF_WB
+00000000 R silk_NLSF_CB_WB
+00000000 r silk_NLSF_DELTA_MIN_WB_Q15
+00000000 r silk_NLSF_PRED_WB_Q8
+
+tables_gain.c.obj:
+00000000 R silk_delta_gain_iCDF
+00000000 R silk_gain_iCDF
+
+tables_other.c.obj:
+00000000 r silk_LBRR_flags_2_iCDF
+00000000 r silk_LBRR_flags_3_iCDF
+00000000 R silk_LBRR_flags_iCDF_ptr
+00000000 R silk_LTPScales_table_Q14
+00000000 R silk_LTPscale_iCDF
+00000000 R silk_NLSF_EXT_iCDF
+00000000 R silk_NLSF_interpolation_factor_iCDF
+00000000 R silk_Quantization_Offsets_Q10
+00000000 R silk_SNR_table_Q1
+00000000 R silk_TargetRate_table_MB
+00000000 R silk_TargetRate_table_NB
+00000000 R silk_TargetRate_table_WB
+00000000 R silk_Transition_LP_A_Q28
+00000000 R silk_Transition_LP_B_Q28
+00000000 R silk_lsb_iCDF
+00000000 R silk_stereo_only_code_mid_iCDF
+00000000 R silk_stereo_pred_joint_iCDF
+00000000 R silk_stereo_pred_quant_Q13
+00000000 R silk_type_offset_VAD_iCDF
+00000000 R silk_type_offset_no_VAD_iCDF
+00000000 R silk_uniform3_iCDF
+00000000 R silk_uniform4_iCDF
+00000000 R silk_uniform5_iCDF
+00000000 R silk_uniform6_iCDF
+00000000 R silk_uniform8_iCDF
+
+tables_pitch_lag.c.obj:
+00000000 R silk_pitch_contour_10_ms_NB_iCDF
+00000000 R silk_pitch_contour_10_ms_iCDF
+00000000 R silk_pitch_contour_NB_iCDF
+00000000 R silk_pitch_contour_iCDF
+00000000 R silk_pitch_delta_iCDF
+00000000 R silk_pitch_lag_iCDF
+
+tables_pulses_per_block.c.obj:
+00000000 R silk_max_pulses_table
+00000000 R silk_pulses_per_block_BITS_Q5
+00000000 R silk_pulses_per_block_iCDF
+00000000 R silk_rate_levels_BITS_Q5
+00000000 R silk_rate_levels_iCDF
+00000000 R silk_shell_code_table0
+00000000 R silk_shell_code_table1
+00000000 R silk_shell_code_table2
+00000000 R silk_shell_code_table3
+00000000 R silk_shell_code_table_offsets
+00000000 R silk_sign_iCDF
+
+esp_aac_dec.c.obj:
+         U PVMP4AudioDecodeFrame
+         U PVMP4AudioDecoderDeInit
+         U PVMP4AudioDecoderGetMemRequirements
+         U PVMP4AudioDecoderInitLibrary
+00000000 r dec_lib$0
+00000000 T esp_aac_dec_close
+00000000 T esp_aac_dec_decode
+00000000 T esp_aac_dec_open
+00000000 T esp_aac_dec_register
+         U esp_audio_dec_register
+         U esp_log_timestamp
+         U esp_log_write
+         U media_lib_free
+         U media_lib_module_calloc
+         U media_lib_module_malloc
+         U memcpy
+00000000 r sample_rates$1
+
+esp_aac_enc.c.obj:
+         U __udivdi3
+00000000 r enc_lib$0
+00000000 T esp_aac_enc_close
+00000000 T esp_aac_enc_get_frame_size
+00000000 T esp_aac_enc_get_info
+00000000 T esp_aac_enc_open
+00000000 T esp_aac_enc_process
+00000000 T esp_aac_enc_register
+         U esp_audio_enc_register
+         U esp_log_timestamp
+         U esp_log_write
+         U media_lib_free
+         U media_lib_module_calloc
+00000000 r samplerate_table
+         U voGetAACEncAPI
+         U voaacMemAlloc
+         U voaacMemCheck
+         U voaacMemCopy
+         U voaacMemFree
+         U voaacMemSet
+
+aac_oper_32b.c.obj:
+00000000 t aac_round16
+00000000 r pow2Table
+00000000 T voAACEnc_aac_div_32
+00000000 T voAACEnc_aac_ilog4
+00000000 T voAACEnc_aac_pow2_xy
+00000000 T voAACEnc_aac_rsqrt
+
+aac_rom.c.obj:
+00000000 R BandwithCoefTab
+00000000 R LongWindowKBD
+00000000 R ShortWindowSine
+00000000 R bitrevTab
+00000000 R cossintab
+00000000 R formfac_sqrttable
+00000000 R huff_ctab1
+00000000 R huff_ctab10
+00000000 R huff_ctab11
+00000000 R huff_ctab2
+00000000 R huff_ctab3
+00000000 R huff_ctab4
+00000000 R huff_ctab5
+00000000 R huff_ctab6
+00000000 R huff_ctab7
+00000000 R huff_ctab8
+00000000 R huff_ctab9
+00000000 R huff_ctabscf
+00000000 R huff_ltab11
+00000000 R huff_ltab1_2
+00000000 R huff_ltab3_4
+00000000 R huff_ltab5_6
+00000000 R huff_ltab7_8
+00000000 R huff_ltab9_10
+00000000 R huff_ltabscf
+00000000 R invSBF
+00000000 R mTab_3_4
+00000000 R mTab_4_3
+00000000 R m_log2_table
+00000000 R pow2tominusNover16
+00000000 R quantBorders
+00000000 R quantRecon
+00000000 R rates
+00000000 R sampRateTab
+00000000 R sfBandTabLong
+00000000 R sfBandTabLongOffset
+00000000 R sfBandTabShort
+00000000 R sfBandTabShortOffset
+00000000 R sfBandTotalLong
+00000000 R sfBandTotalShort
+00000000 R sideInfoTabLong
+00000000 R sideInfoTabShort
+00000000 R specExpMantTableComb_enc
+00000000 R specExpTableComb_enc
+00000000 R tnsCoeff3
+00000000 R tnsCoeff3Borders
+00000000 R tnsCoeff4
+00000000 R tnsCoeff4Borders
+00000000 R twidTab512
+00000000 R twidTab64
+
+aacenc.c.obj:
+         U AacEncClose
+         U AacEncEncode
+         U AacEncOpen
+         U AacInitDefaultConfig
+         U BandwithCoefTab
+         U PsyNew
+         U PsyOutNew
+         U QCNew
+         U QCOutNew
+         U aac_enc_mem_free
+         U aac_enc_mem_malloc
+         U rates
+         U sampRateTab
+00000000 T voAACEncGetOutputData
+00000000 T voAACEncGetParam
+00000000 T voAACEncInit
+00000000 T voAACEncSetInputData
+00000000 T voAACEncSetParam
+00000000 T voAACEncUninit
+00000000 T voGetAACEncAPI
+
+aacenc_core.c.obj:
+00000000 T AacEncClose
+00000000 T AacEncEncode
+00000000 T AacEncOpen
+00000000 T AacInitDefaultConfig
+         U AdjustBitrate
+         U CreateBitBuffer
+         U DeleteBitBuffer
+         U FinalizeBitConsumption
+         U GetBitsAvail
+         U InitElementInfo
+         U PsyDelete
+         U PsyOutDelete
+         U QCDelete
+         U QCInit
+         U QCMain
+         U QCOutDelete
+         U psyMain
+         U psyMainInit
+         U updateBitres
+         U voAACEnc_WriteBitstream
+
+adj_thr.c.obj:
+00000000 T AdjThrInit
+00000000 T AdjThrUpdate
+00000000 T AdjustThresholds
+00000000 t aac_add_l
+00000000 T bits2pe
+         U calcSfbPe
+         U memset
+         U prepareSfbPe
+00000000 t reduceThresholds
+         U voAACEnc_aac_div_32
+         U voAACEnc_aac_ilog4
+00000000 t voAACEnc_aac_mpy_l_ls
+         U voAACEnc_aac_pow2_xy
+         U voAACEnc_aac_rsqrt
+
+band_nrg.c.obj:
+00000000 T CalcBandEnergy
+00000000 T CalcBandEnergyMS
+00000000 t aac_add_l
+
+bit_cnt.c.obj:
+         U WriteBits
+00000000 T bitCount
+00000000 T bitCountScalefactorDelta
+00000000 T codeScalefactorDelta
+00000000 T codeValues
+00000000 t count11
+00000000 t count1_2_3_4_5_6_7_8_9_10_11
+00000000 t count3_4_5_6_7_8_9_10_11
+00000000 t count5_6_7_8_9_10_11
+00000000 t count7_8_9_10_11
+00000000 t count9_10_11
+00000000 t countEsc
+00000000 r countFuncTable
+         U huff_ctab1
+         U huff_ctab10
+         U huff_ctab11
+         U huff_ctab2
+         U huff_ctab3
+         U huff_ctab4
+         U huff_ctab5
+         U huff_ctab6
+         U huff_ctab7
+         U huff_ctab8
+         U huff_ctab9
+         U huff_ctabscf
+         U huff_ltab11
+         U huff_ltab1_2
+         U huff_ltab3_4
+         U huff_ltab5_6
+         U huff_ltab7_8
+         U huff_ltab9_10
+         U huff_ltabscf
+
+bitbuffer.c.obj:
+00000000 T CopyBitBuf
+00000000 T CreateBitBuffer
+00000000 T DeleteBitBuffer
+00000000 T GetBitsAvail
+00000000 T ResetBitBuf
+00000000 T WriteBits
+         U memcpy
+
+bitenc.c.obj:
+         U GetBitsAvail
+         U WriteBits
+         U codeScalefactorDelta
+         U codeValues
+00000000 t encodeIcsInfo
+         U memcpy
+00000000 r rmask$0
+00000000 T voAACEnc_WriteBitstream
+00000000 t writeIndividualChannelStream
+
+block_switch.c.obj:
+00000000 T BlockSwitching
+00000000 T InitBlockSwitching
+00000000 T SyncBlockSwitching
+         U aac_calc_window_energy
+         U memcpy
+         U memset
+00000000 d suggestedGroupingTable
+00000000 r synchronizedBlockTypeTable
+
+channel_map.c.obj:
+00000000 T InitElementBits
+00000000 T InitElementInfo
+
+cmnMemory.c.obj:
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcmp
+         U memcpy
+         U memmove
+         U memset
+00000000 T voaacMemAlloc
+00000000 T voaacMemCheck
+00000000 T voaacMemCompare
+00000000 T voaacMemCopy
+00000000 T voaacMemFree
+00000000 T voaacMemMove
+00000000 T voaacMemSet
+
+dyn_bits.c.obj:
+00000000 t CalcMergeGain
+         U bitCount
+         U bitCountScalefactorDelta
+00000000 T dynBitCount
+00000000 t mergeBitLookUp
+         U sideInfoTabLong
+         U sideInfoTabShort
+
+grp_data.c.obj:
+00000000 t aac_add_l
+00000000 T groupShortData
+
+interface.c.obj:
+00000000 T BuildInterface
+
+line_pe.c.obj:
+00000000 T calcSfbPe
+00000000 T prepareSfbPe
+         U voAACEnc_aac_ilog4
+
+memalign.c.obj:
+00000000 T aac_enc_mem_free
+00000000 T aac_enc_mem_malloc
+
+ms_stereo.c.obj:
+00000000 T MsStereoProcessing
+         U voAACEnc_aac_div_32
+
+pre_echo_control.c.obj:
+00000000 T InitPreEchoControl
+00000000 T PreEchoControl
+
+psy_configuration.c.obj:
+00000000 r BARC_THR_QUIET
+00000000 T InitPsyConfigurationLong
+00000000 T InitPsyConfigurationShort
+00000000 t aac_round16
+00000000 t atan_1000
+         U bits2pe
+00000000 t initBarcValues
+00000000 t initMinSnr
+00000000 t initSpreading
+00000000 t initThrQuiet
+         U sfBandTabLong
+         U sfBandTabLongOffset
+         U sfBandTabShort
+         U sfBandTabShortOffset
+         U sfBandTotalLong
+         U sfBandTotalShort
+00000000 T voAACEnc_GetSRIndex
+         U voAACEnc_aac_div_32
+         U voAACEnc_aac_pow2_xy
+
+psy_main.c.obj:
+         U ApplyTnsMultTableToRatios
+         U BlockSwitching
+         U BuildInterface
+         U CalcBandEnergy
+         U CalcBandEnergyMS
+         U InitBlockSwitching
+         U InitPreEchoControl
+         U InitPsyConfigurationLong
+         U InitPsyConfigurationShort
+         U InitTnsConfigurationLong
+         U InitTnsConfigurationShort
+         U MsStereoProcessing
+         U PreEchoControl
+00000000 T PsyDelete
+00000000 T PsyNew
+00000000 T PsyOutDelete
+00000000 T PsyOutNew
+         U SpreadingMax
+         U SyncBlockSwitching
+         U TnsDetect
+         U TnsEncode
+         U TnsSync
+         U Transform_Real
+         U aac_enc_mem_free
+         U aac_enc_mem_malloc
+00000000 r blockType2windowShape
+         U groupShortData
+         U memcpy
+         U memset
+00000000 T psyMain
+00000000 T psyMainInit
+
+qc_main.c.obj:
+         U AdjThrInit
+         U AdjThrUpdate
+00000000 T AdjustBitrate
+         U AdjustThresholds
+         U CalcFormFactorChannel
+         U EstimateScaleFactorsChannel
+00000000 T FinalizeBitConsumption
+         U InitElementBits
+00000000 T QCDelete
+00000000 T QCInit
+00000000 T QCMain
+00000000 T QCNew
+00000000 T QCOutDelete
+00000000 T QCOutNew
+         U QuantizeSpectrum
+         U aac_enc_mem_free
+         U aac_enc_mem_malloc
+         U countStaticBitdemand
+         U dynBitCount
+00000000 T updateBitres
+
+quantize.c.obj:
+00000000 T QuantizeSpectrum
+         U __ashldi3
+00000000 t aac_shl_l
+00000000 t aac_shr_l
+00000000 T calcSfbDist
+00000000 t iquantizeLines$constprop$0
+         U mTab_3_4
+         U mTab_4_3
+         U pow2tominusNover16
+         U quantBorders
+         U quantRecon
+00000000 t quantizeSingleLine
+         U specExpMantTableComb_enc
+         U specExpTableComb_enc
+
+sf_estim.c.obj:
+00000000 T CalcFormFactorChannel
+00000000 T EstimateScaleFactorsChannel
+00000000 t aac_add_l
+         U bitCountScalefactorDelta
+         U calcSfbDist
+         U formfac_sqrttable
+         U invSBF
+         U memcpy
+         U memset
+         U voAACEnc_aac_ilog4
+         U voAACEnc_aac_rsqrt
+
+spreading.c.obj:
+00000000 T SpreadingMax
+
+stat_bits.c.obj:
+00000000 T countStaticBitdemand
+00000000 t tnsCount
+
+tns.c.obj:
+0000001a r .LC9
+00000000 t AnalysisFilterLattice
+00000000 T ApplyTnsMultTableToRatios
+00000000 t CalcTnsFilter$isra$0
+00000000 t FreqToBandWithRounding
+00000000 t Index2Parcor
+00000000 T InitTnsConfigurationLong
+00000000 T InitTnsConfigurationShort
+00000000 t Parcor2Index
+00000000 T TnsDetect
+00000000 T TnsEncode
+00000000 T TnsSync
+         U __assert_func
+00000000 r __func__$0
+00000000 t aac_add_l
+         U aac_auto_correlation
+         U memcpy
+         U memmove
+         U memset
+         U tnsCoeff3
+         U tnsCoeff3Borders
+         U tnsCoeff4
+         U tnsCoeff4Borders
+00000000 r tnsMaxBandsLongMainLow
+00000000 r tnsMaxBandsShortMainLow
+00000000 r tnsMinBandNumberLong
+00000000 r tnsMinBandNumberShort
+         U voAACEnc_aac_div_32
+         U voAACEnc_aac_rsqrt
+
+transform.c.obj:
+         U LongWindowKBD
+00000000 T Mdct_Long
+00000000 T Mdct_Short
+00000000 t PostMDCT
+00000000 t PreMDCT
+         U ShortWindowSine
+00000000 t Shuffle
+00000000 T Transform_Real
+         U aac_fft_radix4
+         U aac_mdct_post_add_window
+         U aac_mdct_pre_add_window
+         U aac_pre_radix4
+         U aac_pre_radix8
+         U aac_shift_mdct_delay_buffer
+00000000 T add_long_window
+00000000 T add_short_window
+00000000 T add_start_window
+00000000 T add_stop_window
+         U bitrevTab
+         U cossintab
+00000000 t getScalefactorOfShortVectorStride
+         U twidTab512
+         U twidTab64
+
+analysis_sub_band.c.obj:
+00000000 T analysis_sub_band
+00000000 T analysis_sub_band_LC
+         U dst_32
+00000000 R exp_1_5_phi
+         U idct_32
+         U mdct_32
+         U mdst_32
+         U memcpy
+         U memset
+00000000 t shft_lft_1
+
+apply_ms_synt.c.obj:
+00000000 T apply_ms_synt
+         U ms_synt
+
+apply_tns.c.obj:
+00000000 T apply_tns
+         U tns_ar_filter
+         U tns_inv_filter
+
+buf_getbits.c.obj:
+00000000 T buf_get_1bit
+00000000 T buf_getbits
+
+byte_align.c.obj:
+00000000 T byte_align
+
+calc_auto_corr.c.obj:
+         U __ashldi3
+         U __ashrdi3
+00000000 T calc_auto_corr
+00000000 T calc_auto_corr_LC
+         U memset
+         U pv_normalize
+
+calc_gsfb_table.c.obj:
+00000000 T calc_gsfb_table
+         U memset
+
+calc_sbr_anafilterbank.c.obj:
+         U analysis_sub_band
+         U analysis_sub_band_LC
+00000000 T calc_sbr_anafilterbank
+00000000 T calc_sbr_anafilterbank_LC
+         U calc_sbr_anafilterbank_LC_core_opt
+         U sbrDecoderFilterbankCoefficients_an_filt
+00000000 R sbrDecoderFilterbankCoefficients_an_filt_LC_opt
+
+calc_sbr_envelope.c.obj:
+         U __ashldi3
+00000000 T calc_sbr_envelope
+00000000 T energy_estimation
+00000000 T energy_estimation_LC
+00000000 T envelope_application
+00000000 T envelope_application_LC
+         U limGains
+         U memcpy
+         U memmove
+         U memset
+00000000 R pow2
+         U pv_div
+         U pv_normalize
+         U pv_sqrt
+         U rP_LCx
+         U rPxx
+         U sbr_aliasing_reduction
+         U sbr_create_limiter_bands
+         U smoothLengths
+
+check_crc.c.obj:
+00000000 T check_crc
+
+dct16.c.obj:
+00000000 R dec16_win
+
+dct64.c.obj:
+00000000 R CosTable_48
+         U dct_16_opt
+00000000 T dct_64
+         U dec16_win
+00000000 T pv_merge_in_place_N32
+00000000 T pv_split
+00000000 T pv_split_z
+
+decode_huff_cw_binary.c.obj:
+         U __bswapsi2
+00000000 T decode_huff_cw_tab1
+00000000 T decode_huff_cw_tab10
+00000000 T decode_huff_cw_tab11
+00000000 T decode_huff_cw_tab2
+00000000 T decode_huff_cw_tab3
+00000000 T decode_huff_cw_tab4
+00000000 T decode_huff_cw_tab5
+00000000 T decode_huff_cw_tab6
+00000000 T decode_huff_cw_tab7
+00000000 T decode_huff_cw_tab8
+00000000 T decode_huff_cw_tab9
+00000000 T decode_huff_scl
+00000000 t get17_n_lessbits
+         U huff_tab1
+         U huff_tab10
+         U huff_tab11
+         U huff_tab2
+         U huff_tab3
+         U huff_tab4
+         U huff_tab5
+         U huff_tab6
+         U huff_tab7
+         U huff_tab8
+         U huff_tab9
+         U huff_tab_scl
+
+decode_noise_floorlevels.c.obj:
+00000000 T decode_noise_floorlevels
+
+deinterleave.c.obj:
+00000000 T deinterleave
+         U memcpy
+
+digit_reversal_tables.c.obj:
+00000000 T digit_reversal_swapping
+00000000 R digit_reverse_256
+00000000 R digit_reverse_64
+00000000 R digit_reverse_swap_256
+
+dst16.c.obj:
+00000000 R CosTable_8
+00000000 T dst_16
+         U dst_8
+
+dst32.c.obj:
+00000000 R CosTable_16
+         U dst_16
+00000000 T dst_32
+
+dst8.c.obj:
+00000000 T dst_8
+
+esc_iquant_scaling.c.obj:
+00000000 T esc_iquant_scaling
+         U inverseQuantTable
+         U memset
+
+extractframeinfo.c.obj:
+00000000 R T_16_ov_bs_num_env_tbl
+00000000 R bs_pointer_bits_tbl
+         U buf_getbits
+00000000 T extractFrameInfo
+         U memcpy
+
+fft_rx4_long.c.obj:
+         U W_256rx4
+00000000 T fft_rx4_long
+
+fft_rx4_short.c.obj:
+         U W_64rx4
+00000000 T fft_rx4_short
+         U pv_normalize
+
+fft_rx4_tables_fxp.c.obj:
+00000000 R W_256rx4
+00000000 R W_64rx4
+00000000 R w_512rx2
+
+find_adts_syncword.c.obj:
+         U __bswapsi2
+00000000 T find_adts_syncword
+00000000 t getbits
+
+fwd_long_complex_rot.c.obj:
+         U exp_rotation_N_2048
+00000000 T fwd_long_complex_rot
+         U pv_normalize
+
+fwd_short_complex_rot.c.obj:
+         U digit_reverse_64
+         U exp_rotation_N_256
+00000000 T fwd_short_complex_rot
+         U pv_normalize
+
+gen_rand_vector.c.obj:
+00000000 T gen_rand_vector
+00000000 R inv_sqrt_coeff
+00000000 R scale_mod_4
+
+get_adif_header.c.obj:
+         U __bswapsi2
+00000000 t get17_n_lessbits$constprop$0
+00000000 t get1bits
+00000000 t get9_n_lessbits
+00000000 T get_adif_header
+         U get_prog_config
+00000000 t getbits
+
+get_adts_header.c.obj:
+         U __bswapsi2
+         U find_adts_syncword
+00000000 T get_adts_header
+00000000 t getbits
+         U set_mc_info
+
+get_audio_specific_config.c.obj:
+
+get_dse.c.obj:
+         U byte_align
+00000000 t get9_n_lessbits
+00000000 T get_dse
+
+get_ele_list.c.obj:
+00000000 T get_ele_list
+
+get_ga_specific_config.c.obj:
+
+get_ics_info.c.obj:
+00000000 t get9_n_lessbits
+00000000 T get_ics_info
+         U getgroup
+
+get_prog_config.c.obj:
+         U byte_align
+00000000 t get1bits
+00000000 t get9_n_lessbits
+         U get_ele_list
+00000000 T get_prog_config
+         U memcpy
+         U set_mc_info
+
+get_pulse_data.c.obj:
+00000000 t get9_n_lessbits
+00000000 T get_pulse_data
+
+get_sbr_bitstream.c.obj:
+00000000 t get9_n_lessbits
+00000000 T get_sbr_bitstream
+
+get_sbr_startfreq.c.obj:
+00000000 T get_sbr_startfreq
+00000000 R v_offset
+
+get_sbr_stopfreq.c.obj:
+00000000 T get_sbr_stopfreq
+00000000 R sbr_stopfreq_tbl
+
+get_tns.c.obj:
+00000000 t get1bits
+00000000 t get9_n_lessbits
+00000000 T get_tns
+         U tns_decode_coef
+00000000 R tns_max_bands_tbl_long_wndw
+00000000 R tns_max_bands_tbl_short_wndw
+
+getfill.c.obj:
+00000000 t get9_n_lessbits
+00000000 T getfill
+
+getgroup.c.obj:
+00000000 T getgroup
+
+getics.c.obj:
+         U calc_gsfb_table
+00000000 t get1bits
+         U get_ics_info
+         U get_pulse_data
+         U get_tns
+00000000 T getics
+         U huffcb
+         U hufffac
+         U huffspec_fxp
+         U memset
+
+getmask.c.obj:
+         U __bswapsi2
+00000000 T getmask
+         U memset
+
+hcbtables_binary.c.obj:
+00000000 R hcbbook_binary
+00000000 R huff_tab1
+00000000 R huff_tab10
+00000000 R huff_tab11
+00000000 R huff_tab2
+00000000 R huff_tab3
+00000000 R huff_tab4
+00000000 R huff_tab5
+00000000 R huff_tab6
+00000000 R huff_tab7
+00000000 R huff_tab8
+00000000 R huff_tab9
+00000000 R huff_tab_scl
+
+huffcb.c.obj:
+00000000 t get9_n_lessbits
+00000000 T huffcb
+
+huffdecode.c.obj:
+         U get_ics_info
+         U getics
+         U getmask
+00000000 T huffdecode
+         U memcpy
+
+hufffac.c.obj:
+         U decode_huff_scl
+00000000 T hufffac
+         U memset
+
+huffspec_fxp.c.obj:
+         U decode_huff_cw_tab1
+         U decode_huff_cw_tab10
+         U decode_huff_cw_tab11
+         U decode_huff_cw_tab2
+         U decode_huff_cw_tab3
+         U decode_huff_cw_tab4
+         U decode_huff_cw_tab5
+         U decode_huff_cw_tab6
+         U decode_huff_cw_tab7
+         U decode_huff_cw_tab8
+         U decode_huff_cw_tab9
+         U deinterleave
+         U esc_iquant_scaling
+00000000 R exptable
+         U hcbbook_binary
+00000000 T huffspec_fxp
+         U inverseQuantTable
+         U memset
+         U pulse_nc
+         U pv_normalize
+         U unpack_idx
+         U unpack_idx_esc
+         U unpack_idx_sgn
+
+idct16.c.obj:
+00000000 R CosTable_8i
+00000000 T idct_16
+         U idct_8
+
+idct32.c.obj:
+         U CosTable_16
+         U idct_16
+00000000 T idct_32
+
+idct8.c.obj:
+00000000 T idct_8
+
+imdct_fxp.c.obj:
+         U exp_rotation_N_2048
+         U exp_rotation_N_256
+         U fft_rx4_short
+00000000 T imdct_fxp
+         U inv_long_complex_rot
+         U inv_short_complex_rot
+         U memcpy
+         U mix_radix_fft
+         U pv_normalize
+
+infoinit.c.obj:
+00000000 T infoinit
+         U samp_rate_info
+         U sfb_16_1024
+         U sfb_16_128
+         U sfb_24_1024
+         U sfb_24_128
+         U sfb_32_1024
+         U sfb_48_1024
+         U sfb_48_128
+         U sfb_64_1024
+         U sfb_64_128
+         U sfb_8_1024
+         U sfb_8_128
+         U sfb_96_1024
+
+init_sbr_dec.c.obj:
+00000000 T init_sbr_dec
+         U memset
+
+intensity_right.c.obj:
+00000000 R intensity_factor
+00000000 T intensity_right
+
+inv_long_complex_rot.c.obj:
+         U exp_rotation_N_2048
+00000000 T inv_long_complex_rot
+         U memcpy
+         U pv_normalize
+
+inv_short_complex_rot.c.obj:
+         U digit_reverse_64
+         U exp_rotation_N_256
+00000000 T inv_short_complex_rot
+         U pv_normalize
+
+iquant_table.c.obj:
+00000000 R inverseQuantTable
+
+long_term_prediction.c.obj:
+00000000 R codebook
+00000000 T long_term_prediction
+         U memset
+         U pv_normalize
+
+long_term_synthesis.c.obj:
+00000000 T long_term_synthesis
+
+lt_decode.c.obj:
+00000000 t get1bits
+00000000 t get9_n_lessbits
+00000000 T lt_decode
+         U memset
+
+mdct_fxp.c.obj:
+         U exp_rotation_N_2048
+         U exp_rotation_N_256
+         U fft_rx4_short
+         U fwd_long_complex_rot
+         U fwd_short_complex_rot
+00000000 T mdct_fxp
+         U mix_radix_fft
+
+mdct_tables_fxp.c.obj:
+00000000 R exp_rotation_N_2048
+00000000 R exp_rotation_N_256
+
+mdst.c.obj:
+00000000 R CosTable_32
+         U dct_16_opt
+00000000 T dct_32
+         U dec16_win
+         U dst_32
+00000000 T mdct_32
+00000000 T mdst_32
+         U pv_merge_in_place_N32
+         U pv_split
+
+mix_radix_fft.c.obj:
+         U digit_reversal_swapping
+         U fft_rx4_long
+00000000 T mix_radix_fft
+         U pv_normalize
+         U w_512rx2
+
+ms_synt.c.obj:
+         U memcpy
+00000000 T ms_synt
+
+pns_corr.c.obj:
+00000000 R hcb2_scale_mod_4
+00000000 T pns_corr
+
+pns_intensity_right.c.obj:
+         U gen_rand_vector
+         U intensity_right
+         U pns_corr
+00000000 T pns_intensity_right
+
+pns_left.c.obj:
+         U gen_rand_vector
+00000000 T pns_left
+
+ps_all_pass_filter_coeff.c.obj:
+00000000 R aFractDelayPhaseFactor
+00000000 R aFractDelayPhaseFactorSubQmf
+00000000 R aRevLinkDecaySerCoeff
+00000000 R aaFractDelayPhaseFactorSerQmf
+00000000 R aaFractDelayPhaseFactorSerSubQmf
+00000000 R bins2groupMap
+00000000 R groupBorders
+
+ps_all_pass_fract_delay_filter.c.obj:
+         U aRevLinkDecaySerCoeff
+00000000 T ps_all_pass_fract_delay_filter_type_I
+00000000 T ps_all_pass_fract_delay_filter_type_II
+
+ps_allocate_decoder.c.obj:
+00000000 R aRevLinkDelaySer
+00000000 T ps_allocate_decoder
+         U ps_hybrid_filter_bank_allocation
+
+ps_applied.c.obj:
+00000000 T ps_applied
+         U ps_decorrelate
+         U ps_hybrid_analysis
+         U ps_hybrid_synthesis
+         U ps_stereo_processing
+
+ps_bstr_decoding.c.obj:
+00000000 R aFixNoEnvDecode
+00000000 R aNoIccBins
+00000000 R aNoIidBins
+         U differential_Decoding
+         U map34IndexTo20
+         U memcpy
+         U memmove
+         U memset
+00000000 T ps_bstr_decoding
+
+ps_channel_filtering.c.obj:
+00000000 T eight_ch_filtering
+         U ps_fft_rx8
+00000000 T two_ch_filtering
+
+ps_decode_bs_utils.c.obj:
+00000000 T GetNrBitsAvailable
+00000000 T differential_Decoding
+00000000 T limitMinMax
+00000000 T map34IndexTo20
+         U memset
+
+ps_decorrelate.c.obj:
+         U aFractDelayPhaseFactor
+         U aFractDelayPhaseFactorSubQmf
+         U aaFractDelayPhaseFactorSerQmf
+         U aaFractDelayPhaseFactorSerSubQmf
+         U bins2groupMap
+         U groupBorders
+         U ps_all_pass_fract_delay_filter_type_I
+         U ps_all_pass_fract_delay_filter_type_II
+00000000 T ps_decorrelate
+         U ps_pwr_transient_detection
+
+ps_fft_rx8.c.obj:
+00000000 T ps_fft_rx8
+
+ps_hybrid_analysis.c.obj:
+         U eight_ch_filtering
+         U memmove
+00000000 T ps_hybrid_analysis
+         U two_ch_filtering
+
+ps_hybrid_filter_bank_allocation.c.obj:
+00000000 T ps_hybrid_filter_bank_allocation
+
+ps_hybrid_synthesis.c.obj:
+00000000 T ps_hybrid_synthesis
+
+ps_init_stereo_mixing.c.obj:
+         U bins2groupMap
+00000000 R cos_alphas
+00000000 T ps_init_stereo_mixing
+         U pv_cosine
+         U pv_sine
+00000000 R scaleFactors
+00000000 R scaleFactorsFine
+00000000 R scaled_alphas
+00000000 R sin_alphas
+
+ps_pwr_transient_detection.c.obj:
+         U groupBorders
+00000000 T ps_pwr_transient_detection
+         U pv_div
+
+ps_read_data.c.obj:
+         U GetNrBitsAvailable
+00000000 R aBookPsIccFreqDecode_googleaac
+00000000 R aBookPsIccTimeDecode_googleaac
+00000000 R aBookPsIidFineFreqDecode_googleaac
+00000000 R aBookPsIidFineTimeDecode_googleaac
+00000000 R aBookPsIidFreqDecode_googleaac
+00000000 R aBookPsIidTimeDecode_googleaac
+         U aFixNoEnvDecode
+         U aNoIccBins
+         U aNoIidBins
+         U buf_get_1bit
+         U buf_getbits
+00000000 T ps_read_data
+         U sbr_decode_huff_cw
+
+ps_stereo_processing.c.obj:
+         U groupBorders
+00000000 T ps_stereo_processing
+
+pulse_nc.c.obj:
+00000000 T pulse_nc
+
+pv_div.c.obj:
+00000000 T pv_div
+         U pv_normalize
+
+pv_log2.c.obj:
+00000000 R log_table
+00000000 T pv_log2
+
+pv_normalize.c.obj:
+00000000 T pv_normalize
+
+pv_pow2.c.obj:
+00000000 R pow2_table
+00000000 T pv_pow2
+
+pv_sine.c.obj:
+00000000 T pv_cosine
+00000000 T pv_sine
+00000000 R sin_table
+
+pv_split_LC_opt.S.obj:
+00000000 T pv_split_LC_opt
+
+pv_sqrt.c.obj:
+00000000 T pv_sqrt
+00000000 R sqrt_table
+
+pvmp4audiodecoderconfig.c.obj:
+
+pvmp4audiodecoderframe.c.obj:
+00000000 T PVMP4AudioDecodeFrame
+         U __bswapsi2
+         U apply_ms_synt
+         U apply_tns
+         U byte_align
+         U get_adif_header
+         U get_adts_header
+         U get_dse
+         U get_prog_config
+         U get_sbr_bitstream
+         U getfill
+         U huffdecode
+         U long_term_prediction
+         U long_term_synthesis
+         U media_lib_module_calloc
+         U pns_intensity_right
+         U pns_left
+         U puts
+         U q_normalize
+         U samp_rate_info
+         U sbr_applied
+         U sbr_open
+         U trans4m_freq_2_time_fxp_1
+         U trans4m_freq_2_time_fxp_2
+         U trans4m_time_2_freq_fxp
+
+pvmp4audiodecodergetmemrequirements.c.obj:
+00000000 T PVMP4AudioDecoderGetMemRequirements
+
+pvmp4audiodecoderinitlibrary.c.obj:
+00000000 T PVMP4AudioDecoderDeInit
+00000000 T PVMP4AudioDecoderInitLibrary
+         U infoinit
+         U media_lib_free
+         U media_lib_module_calloc
+         U memset
+00000000 T raw_stream_parameter_setup
+         U set_mc_info
+
+pvmp4audiodecoderresetbuffer.c.obj:
+00000000 T PVMP4AudioDecoderResetBuffer
+         U memset
+
+pvmp4setaudioconfig.c.obj:
+
+q_normalize.c.obj:
+         U memset
+00000000 T q_normalize
+
+qmf_filterbank_coeff.c.obj:
+00000000 R sbrDecoderFilterbankCoefficients
+00000000 R sbrDecoderFilterbankCoefficients_an_filt
+00000000 R sbrDecoderFilterbankCoefficients_an_filt_LC
+00000000 R sbrDecoderFilterbankCoefficients_down_smpl
+
+sbr_aliasing_reduction.c.obj:
+         U memset
+         U pv_div
+         U pv_normalize
+         U pv_sqrt
+00000000 T sbr_aliasing_reduction
+
+sbr_applied.c.obj:
+         U decode_noise_floorlevels
+         U init_sbr_dec
+         U ps_allocate_decoder
+         U ps_bstr_decoding
+00000000 T sbr_applied
+         U sbr_dec
+         U sbr_decode_envelope
+         U sbr_envelope_unmapping
+         U sbr_read_data
+         U sbr_requantize_envelope_data
+
+sbr_code_book_envlevel.c.obj:
+00000000 R bookSbrEnvBalance10F
+00000000 R bookSbrEnvBalance10T
+00000000 R bookSbrEnvBalance11F
+00000000 R bookSbrEnvBalance11T
+00000000 R bookSbrEnvLevel10F
+00000000 R bookSbrEnvLevel10T
+00000000 R bookSbrEnvLevel11F
+00000000 R bookSbrEnvLevel11T
+00000000 R bookSbrNoiseBalance11T
+00000000 R bookSbrNoiseLevel11T
+
+sbr_crc_check.c.obj:
+00000000 R MAXCRCSTEP
+         U buf_getbits
+         U check_crc
+00000000 T sbr_crc_check
+
+sbr_create_limiter_bands.c.obj:
+         U memcpy
+         U pv_log2
+00000000 T sbr_create_limiter_bands
+         U shellsort
+
+sbr_dec.c.obj:
+         U calc_sbr_anafilterbank
+         U calc_sbr_anafilterbank_LC
+         U calc_sbr_envelope
+         U calc_sbr_synfilterbank
+         U calc_sbr_synfilterbank_LC
+         U memcpy
+         U memmove
+         U memset
+         U ps_applied
+         U ps_init_stereo_mixing
+00000000 T sbr_dec
+         U sbr_generate_high_freq
+00000000 t shft_lft_1
+
+sbr_decode_envelope.c.obj:
+00000000 T indexLow2High
+00000000 T mapLowResEnergyVal
+00000000 T sbr_decode_envelope
+
+sbr_decode_huff_cw.c.obj:
+         U buf_get_1bit
+00000000 T sbr_decode_huff_cw
+
+sbr_downsample_lo_res.c.obj:
+00000000 T sbr_downsample_lo_res
+
+sbr_envelope_calc_tbl.c.obj:
+00000000 R fir_table
+00000000 R limGains
+00000000 R rP_LCx
+00000000 R rPxx
+00000000 R smoothLengths
+
+sbr_envelope_unmapping.c.obj:
+00000000 R one_over_one_plus_sq_2_by_two_to_n
+00000000 R one_over_one_plus_two_to_n
+00000000 T sbr_envelope_unmapping
+
+sbr_extract_extended_data.c.obj:
+         U buf_get_1bit
+         U buf_getbits
+         U ps_read_data
+00000000 T sbr_extract_extended_data
+
+sbr_find_start_andstop_band.c.obj:
+         U get_sbr_startfreq
+         U get_sbr_stopfreq
+00000000 T sbr_find_start_andstop_band
+
+sbr_generate_high_freq.c.obj:
+         U calc_auto_corr
+         U calc_auto_corr_LC
+00000000 T high_freq_coeff
+00000000 T high_freq_coeff_LC
+00000000 T high_freq_generation
+00000000 T high_freq_generation_LC
+         U memmove
+         U memset
+         U pv_div
+00000000 T sbr_generate_high_freq
+         U sbr_inv_filt_levelemphasis
+
+sbr_get_additional_data.c.obj:
+         U buf_getbits
+00000000 T sbr_get_additional_data
+
+sbr_get_cpe.c.obj:
+         U buf_getbits
+         U extractFrameInfo
+         U memcpy
+         U memset
+         U sbr_extract_extended_data
+         U sbr_get_additional_data
+00000000 T sbr_get_cpe
+         U sbr_get_dir_control_data
+         U sbr_get_envelope
+         U sbr_get_noise_floor_data
+
+sbr_get_dir_control_data.c.obj:
+         U buf_getbits
+00000000 T sbr_get_dir_control_data
+
+sbr_get_envelope.c.obj:
+         U bookSbrEnvBalance10F
+         U bookSbrEnvBalance10T
+         U bookSbrEnvBalance11F
+         U bookSbrEnvBalance11T
+         U bookSbrEnvLevel10F
+         U bookSbrEnvLevel10T
+         U bookSbrEnvLevel11F
+         U bookSbrEnvLevel11T
+         U buf_getbits
+         U sbr_decode_huff_cw
+00000000 T sbr_get_envelope
+
+sbr_get_header_data.c.obj:
+         U buf_getbits
+         U memcpy
+         U memset
+00000000 T sbr_get_header_data
+
+sbr_get_noise_floor_data.c.obj:
+         U bookSbrEnvBalance11F
+         U bookSbrEnvLevel11F
+         U bookSbrNoiseBalance11T
+         U bookSbrNoiseLevel11T
+         U buf_getbits
+         U sbr_decode_huff_cw
+00000000 T sbr_get_noise_floor_data
+
+sbr_get_sce.c.obj:
+         U buf_getbits
+         U extractFrameInfo
+         U memset
+         U sbr_extract_extended_data
+         U sbr_get_additional_data
+         U sbr_get_dir_control_data
+         U sbr_get_envelope
+         U sbr_get_noise_floor_data
+00000000 T sbr_get_sce
+
+sbr_inv_filt_levelemphasis.c.obj:
+00000000 R InvFiltFactors
+00000000 T sbr_inv_filt_levelemphasis
+
+sbr_open.c.obj:
+00000000 R defaultHeader
+         U init_sbr_dec
+         U memcpy
+         U memset
+00000000 T sbr_open
+
+sbr_read_data.c.obj:
+         U buf_getbits
+         U memcpy
+         U sbr_crc_check
+         U sbr_get_cpe
+         U sbr_get_header_data
+         U sbr_get_sce
+00000000 T sbr_read_data
+         U sbr_reset_dec
+
+sbr_requantize_envelope_data.c.obj:
+00000000 T sbr_requantize_envelope_data
+
+sbr_reset_dec.c.obj:
+         U memmove
+         U pv_log2
+         U sbr_downsample_lo_res
+         U sbr_find_start_andstop_band
+00000000 T sbr_reset_dec
+         U sbr_update_freq_scale
+
+sbr_update_freq_scale.c.obj:
+00000000 T CalcBands
+00000000 T cumSum
+         U pv_log2
+         U pv_pow2
+00000000 T sbr_update_freq_scale
+         U shellsort
+
+set_mc_info.c.obj:
+         U infoinit
+00000000 T set_mc_info
+
+sfb.c.obj:
+00000000 R samp_rate_info
+00000000 R sfb_16_1024
+00000000 R sfb_16_128
+00000000 R sfb_24_1024
+00000000 R sfb_24_128
+00000000 R sfb_32_1024
+00000000 R sfb_48_1024
+00000000 R sfb_48_128
+00000000 R sfb_64_1024
+00000000 R sfb_64_128
+00000000 R sfb_8_1024
+00000000 R sfb_8_128
+00000000 R sfb_96_1024
+
+shellsort.c.obj:
+00000000 T shellsort
+
+synthesis_sub_band.c.obj:
+         U CosTable_48
+00000000 R CosTable_64
+         U dct_16_opt
+         U dct_32
+         U dct_64
+         U dec16_win
+00000000 R exp_m0_25_phi
+         U mdct_32
+         U pv_split_LC_opt
+00000000 T synthesis_sub_band
+00000000 T synthesis_sub_band_LC
+         U synthesis_sub_band_LC_core1_opt
+         U synthesis_sub_band_LC_core2_opt
+00000000 T synthesis_sub_band_LC_down_sampled
+00000000 T synthesis_sub_band_down_sampled
+
+tns_ar_filter.c.obj:
+00000000 T tns_ar_filter
+
+tns_decode_coef.c.obj:
+00000000 R neg_offset
+00000000 T tns_decode_coef
+00000000 R tns_table
+
+tns_inv_filter.c.obj:
+         U memset
+00000000 T tns_inv_filter
+
+trans4m_freq_2_time_fxp.c.obj:
+         U Long_Window_KBD_fxp
+         U Long_Window_sine_fxp
+         U Short_Window_KBD_fxp
+         U Short_Window_sine_fxp
+00000000 t fxp_mul_16_by_16bb
+         U imdct_fxp
+         U memset
+00000000 T trans4m_freq_2_time_fxp_1
+00000000 T trans4m_freq_2_time_fxp_2
+
+trans4m_time_2_freq_fxp.c.obj:
+         U Long_Window_KBD_fxp
+         U Long_Window_sine_fxp
+         U Short_Window_KBD_fxp
+         U Short_Window_sine_fxp
+         U mdct_fxp
+         U memset
+00000000 T trans4m_time_2_freq_fxp
+
+unpack_idx.c.obj:
+         U __bswapsi2
+00000000 R div_mod
+00000000 t get1bits
+00000000 t getbits
+00000000 T unpack_idx
+00000000 T unpack_idx_esc
+00000000 T unpack_idx_sgn
+
+window_tables_fxp.c.obj:
+00000000 R Long_Window_KBD_fxp
+00000000 R Long_Window_sine_fxp
+00000000 R Short_Window_KBD_fxp
+00000000 R Short_Window_sine_fxp
+
+esp_adpcm_dec.c.obj:
+         U IMAADPCMWAVDecoder_Create
+         U IMAADPCMWAVDecoder_DecodeBlock
+         U IMAADPCMWAVDecoder_Destroy
+00000000 r dec_lib$0
+00000000 T esp_adpcm_dec_close
+00000000 T esp_adpcm_dec_decode
+00000000 T esp_adpcm_dec_open
+00000000 T esp_adpcm_dec_register
+         U esp_audio_dec_register
+         U esp_log_timestamp
+         U esp_log_write
+         U media_lib_free
+         U media_lib_module_calloc
+
+esp_adpcm_enc.c.obj:
+         U IMAADPCMWAVEncoder_Create
+         U IMAADPCMWAVEncoder_Destroy
+         U IMAADPCMWAVEncoder_EncodeBlock
+         U IMAADPCMWAVEncoder_SetEncodeParameter
+         U __udivdi3
+00000000 r enc_lib$0
+00000000 T esp_adpcm_enc_close
+00000000 T esp_adpcm_enc_get_frame_size
+00000000 T esp_adpcm_enc_get_info
+00000000 T esp_adpcm_enc_open
+00000000 T esp_adpcm_enc_process
+00000000 T esp_adpcm_enc_register
+         U esp_audio_enc_register
+         U esp_log_timestamp
+         U esp_log_write
+         U media_lib_free
+         U media_lib_module_calloc
+
+ima_adpcm.c.obj:
+00000029 r .LC35
+00000000 t IMAADPCMCoreDecoder_DecodeSample
+00000000 t IMAADPCMCoreEncoder_EncodeSample
+00000000 T IMAADPCMWAVDecoder_CalculateWorkSize
+00000000 T IMAADPCMWAVDecoder_Create
+00000000 T IMAADPCMWAVDecoder_DecodeBlock
+00000000 T IMAADPCMWAVDecoder_DecodeHeader
+00000000 T IMAADPCMWAVDecoder_DecodeWhole
+00000000 T IMAADPCMWAVDecoder_Destroy
+00000000 T IMAADPCMWAVEncoder_CalculateWorkSize
+00000000 t IMAADPCMWAVEncoder_ConvertParameterToHeader
+00000000 T IMAADPCMWAVEncoder_Create
+00000000 T IMAADPCMWAVEncoder_Destroy
+00000000 T IMAADPCMWAVEncoder_EncodeBlock
+00000000 T IMAADPCMWAVEncoder_EncodeHeader
+00000000 T IMAADPCMWAVEncoder_EncodeWhole
+00000000 T IMAADPCMWAVEncoder_SetEncodeParameter
+00000000 r IMAADPCM_index_table
+00000000 r IMAADPCM_stepsize_table
+         U __assert_func
+00000000 r __func__$0
+00000000 r __func__$1
+         U __getreent
+         U fprintf
+         U fputs
+         U media_lib_free
+         U media_lib_module_malloc
+         U memcpy
+         U memset
+
+esp_pcm_enc.c.obj:
+         U __udivdi3
+00000000 r enc_lib$0
+         U esp_audio_enc_register
+         U esp_log_timestamp
+         U esp_log_write
+00000000 T esp_pcm_enc_close
+00000000 T esp_pcm_enc_get_frame_size
+00000000 T esp_pcm_enc_get_info
+00000000 T esp_pcm_enc_open
+00000000 T esp_pcm_enc_process
+00000000 T esp_pcm_enc_register
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+
+esp_alac_dec.cpp.obj:
+         U BitBufferInit
+         U _ZN11ALACDecoder4InitEPvm
+         U _ZN11ALACDecoder6DecodeEP9BitBufferPhmmPm
+         U _ZN11ALACDecoderC1Ev
+         U _ZN11ALACDecoderD1Ev
+00000000 r _ZZ21esp_alac_dec_registerE7dec_lib
+         U _ZdlPvj
+         U _Znwj
+00000000 T esp_alac_dec_close
+00000000 T esp_alac_dec_decode
+00000000 T esp_alac_dec_open
+00000000 T esp_alac_dec_register
+         U esp_audio_dec_register
+         U esp_log_timestamp
+         U esp_log_write
+         U media_lib_free
+         U media_lib_module_calloc
+
+esp_alac_enc.cpp.obj:
+         U _ZN11ALACEncoder14GetMagicCookieEPvPm
+         U _ZN11ALACEncoder17InitializeEncoderE22AudioFormatDescription
+         U _ZN11ALACEncoder18GetMagicCookieSizeEm
+         U _ZN11ALACEncoderC1Ev
+00000000 r _ZZ21esp_alac_enc_registerE7enc_lib
+         U _Znwj
+         U __divdf3
+         U __fixunsdfdi
+         U __fixunsdfsi
+         U __floatsidf
+         U __floatundidf
+00000000 T esp_alac_enc_close
+00000000 T esp_alac_enc_get_frame_size
+00000000 T esp_alac_enc_get_info
+00000000 T esp_alac_enc_open
+00000000 T esp_alac_enc_process
+00000000 T esp_alac_enc_register
+         U esp_audio_enc_register
+         U esp_log_timestamp
+         U esp_log_write
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+
+ALACBitUtilities.c.obj:
+00000000 T BitBufferAdvance
+00000000 T BitBufferByteAlign
+00000000 T BitBufferGetPosition
+00000000 T BitBufferInit
+00000000 T BitBufferPeek
+00000000 T BitBufferPeekOne
+00000000 T BitBufferRead
+00000000 T BitBufferReadOne
+00000000 T BitBufferReadSmall
+00000000 T BitBufferReset
+00000000 T BitBufferRewind
+00000000 T BitBufferUnpackBERSize
+00000000 T BitBufferWrite
+
+ALACDecoder.cpp.obj:
+         U BitBufferAdvance
+         U BitBufferByteAlign
+         U BitBufferRead
+         U BitBufferReadOne
+         U BitBufferReadSmall
+         U Swap16BtoN
+         U Swap32BtoN
+00000000 T _ZN11ALACDecoder11FillElementEP9BitBuffer
+00000000 T _ZN11ALACDecoder17DataStreamElementEP9BitBuffer
+00000000 T _ZN11ALACDecoder4InitEPvm
+00000000 T _ZN11ALACDecoder6DecodeEP9BitBufferPhmmPm
+00000000 T _ZN11ALACDecoderC1Ev
+00000000 T _ZN11ALACDecoderC2Ev
+00000000 T _ZN11ALACDecoderD1Ev
+00000000 T _ZN11ALACDecoderD2Ev
+         U copyPredictorTo20
+         U copyPredictorTo24
+         U copyPredictorTo24Shift
+         U copyPredictorTo32
+         U copyPredictorTo32Shift
+         U dyn_decomp
+         U media_lib_free
+         U media_lib_module_calloc
+         U memset
+         U set_ag_params
+         U unmix16
+         U unmix20
+         U unmix24
+         U unmix32
+         U unpc_block
+
+ALACEncoder.cpp.obj:
+         U BitBufferByteAlign
+         U BitBufferGetPosition
+         U BitBufferInit
+         U BitBufferWrite
+         U Swap16NtoB
+         U Swap32NtoB
+00000000 r _ZL12sChannelMaps
+00000000 r _ZL21ALACChannelLayoutTags
+00000000 T _ZN11ALACEncoder10EncodeMonoEP9BitBufferPvmmm
+00000000 T _ZN11ALACEncoder12EncodeStereoEP9BitBufferPvmmm
+00000000 T _ZN11ALACEncoder14GetMagicCookieEPvPm
+00000000 T _ZN11ALACEncoder15GetSourceFormatEPK22AudioFormatDescriptionPS0_
+00000000 T _ZN11ALACEncoder16EncodeStereoFastEP9BitBufferPvmmm
+00000000 T _ZN11ALACEncoder17InitializeEncoderE22AudioFormatDescription
+00000000 T _ZN11ALACEncoder18EncodeStereoEscapeEP9BitBufferPvmm
+00000000 T _ZN11ALACEncoder18GetMagicCookieSizeEm
+00000000 T _ZN11ALACEncoder6EncodeE22AudioFormatDescriptionS0_PhS1_Pl
+00000000 T _ZN11ALACEncoder6FinishEv
+00000000 T _ZN11ALACEncoder9GetConfigER18ALACSpecificConfig
+00000000 T _ZN11ALACEncoderC1Ev
+00000000 T _ZN11ALACEncoderC2Ev
+00000000 T _ZN11ALACEncoderD0Ev
+00000000 T _ZN11ALACEncoderD1Ev
+00000000 T _ZN11ALACEncoderD2Ev
+00000000 V _ZTV11ALACEncoder
+         U _ZdlPvj
+         U __fixunsdfsi
+         U copy20ToPredictor
+         U copy24ToPredictor
+         U dyn_comp
+         U init_coefs
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+         U mix16
+         U mix20
+         U mix24
+         U mix32
+         U pc_block
+         U printf
+         U set_ag_params
+         U set_standard_ag_params
+
+EndianPortable.c.obj:
+00000000 T Swap16
+00000000 T Swap16BtoN
+00000000 T Swap16NtoB
+00000000 T Swap24
+00000000 T Swap32
+00000000 T Swap32BtoN
+00000000 T Swap32NtoB
+00000000 T Swap64BtoN
+00000000 T Swap64NtoB
+00000000 T SwapFloat32BtoN
+00000000 T SwapFloat32NtoB
+00000000 T SwapFloat64BtoN
+00000000 T SwapFloat64NtoB
+         U __bswapdi2
+         U __bswapsi2
+
+ag_dec.c.obj:
+         U BitBufferAdvance
+         U __bswapsi2
+00000000 T dyn_decomp
+00000000 t lead
+         U memset
+00000000 T set_ag_params
+00000000 T set_standard_ag_params
+
+ag_enc.c.obj:
+         U BitBufferAdvance
+         U Swap32BtoN
+         U Swap32NtoB
+00000000 T dyn_comp
+
+dp_dec.c.obj:
+         U memcpy
+00000000 T unpc_block
+
+dp_enc.c.obj:
+00000000 T copy_coefs
+00000000 T init_coefs
+         U memcpy
+         U memset
+00000000 T pc_block
+
+matrix_dec.c.obj:
+00000000 T copyPredictorTo20
+00000000 T copyPredictorTo24
+00000000 T copyPredictorTo24Shift
+00000000 T copyPredictorTo32
+00000000 T copyPredictorTo32Shift
+00000000 T unmix16
+00000000 T unmix20
+00000000 T unmix24
+00000000 T unmix32
+
+matrix_enc.c.obj:
+00000000 T copy20ToPredictor
+00000000 T copy24ToPredictor
+00000000 T mix16
+00000000 T mix20
+00000000 T mix24
+00000000 T mix32
+
+esp_amrnb_dec.c.obj:
+         U AMRDecode
+         U GSMDecodeFrameExit
+         U GSMInitDecode
+00000000 r amrnb$1
+00000000 r dec_lib$0
+00000000 T esp_amrnb_dec_close
+00000000 T esp_amrnb_dec_decode
+00000000 T esp_amrnb_dec_open
+00000000 T esp_amrnb_dec_register
+         U esp_audio_dec_register
+         U esp_log_timestamp
+         U esp_log_write
+00000000 r sizes_nb$2
+
+esp_amrnb_enc.c.obj:
+         U AMREncode
+         U AMREncodeExit
+         U AMREncodeInit
+         U __udivdi3
+00000000 r enc_lib$0
+00000000 T esp_amrnb_enc_close
+00000000 T esp_amrnb_enc_get_frame_size
+00000000 T esp_amrnb_enc_get_info
+00000000 T esp_amrnb_enc_open
+00000000 T esp_amrnb_enc_process
+00000000 T esp_amrnb_enc_register
+         U esp_audio_enc_register
+         U esp_log_timestamp
+         U esp_log_write
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+
+esp_amrwb_dec.c.obj:
+         U D_IF_decode
+         U D_IF_exit
+         U D_IF_init
+00000000 r amrwb$1
+00000000 r dec_lib$0
+00000000 T esp_amrwb_dec_close
+00000000 T esp_amrwb_dec_decode
+00000000 T esp_amrwb_dec_open
+00000000 T esp_amrwb_dec_register
+         U esp_audio_dec_register
+         U esp_log_timestamp
+         U esp_log_write
+00000000 r sizes_wb$2
+
+esp_amrwb_enc.c.obj:
+         U __udivdi3
+         U cmnMemAlloc
+         U cmnMemCheck
+         U cmnMemCopy
+         U cmnMemFree
+         U cmnMemSet
+00000000 r enc_lib$0
+00000000 T esp_amrwb_enc_close
+00000000 T esp_amrwb_enc_get_frame_size
+00000000 T esp_amrwb_enc_get_info
+00000000 T esp_amrwb_enc_open
+00000000 T esp_amrwb_enc_process
+00000000 T esp_amrwb_enc_register
+         U esp_audio_enc_register
+         U esp_log_timestamp
+         U esp_log_write
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+         U voGetAMRWBEncAPI
+
+amrwb_enc_autocorr.c.obj:
+00000000 T Autocorr_VoAmr
+00000000 t norm_l
+00000000 R vo_window
+
+amrwb_enc_az_isp.c.obj:
+00000000 T Az_isp
+00000000 t Chebps2
+00000000 R vogrid
+
+amrwb_enc_bits.c.obj:
+00000000 T PackBits
+00000000 T Parm_serial
+00000000 r nb_of_bits
+00000000 r packed_size
+00000000 r sort_1265
+00000000 r sort_1425
+00000000 r sort_1585
+00000000 r sort_1825
+00000000 r sort_1985
+00000000 r sort_2305
+00000000 r sort_2385
+00000000 r sort_660
+00000000 r sort_885
+00000000 r sort_SID
+00000000 r sort_ptr
+00000000 r toc_byte
+00000000 r unpacked_size
+00000000 r unused_size
+
+amrwb_enc_c2t64fx.c.obj:
+00000000 T ACELP_2t64_fx
+         U Dot_product12_VoAmr
+         U Isqrt_n
+00000000 t L_shl
+
+amrwb_enc_c4t64fx.c.obj:
+00000000 T ACELP_4t64_fx
+         U Dot_product12_VoAmr
+         U Isqrt_n
+00000000 t L_shl
+00000000 T cor_h_vec_012
+00000000 T cor_h_vec_30
+         U memcpy
+         U quant_1p_N1
+         U quant_2p_2N1
+         U quant_3p_3N1
+         U quant_4p_4N
+         U quant_5p_5N
+         U quant_6p_6N_2
+00000000 T search_ixiy
+00000000 r tipos
+
+amrwb_enc_convolve.c.obj:
+00000000 T Convolve_VoAmr
+
+amrwb_enc_cor_h_x.c.obj:
+00000000 t L_shl
+00000000 T cor_h_x_VoAmr
+
+amrwb_enc_decim54.c.obj:
+         U Copy
+00000000 T Decim_12k8
+00000000 T Init_Decim_12k8
+         U Set_zero_VoAmr
+00000000 d fir_down1
+
+amrwb_enc_deemph.c.obj:
+00000000 T Deemph
+00000000 T Deemph2
+00000000 T Deemph_32
+00000000 t L_add
+
+amrwb_enc_dtx.c.obj:
+         U Copy
+         U Dot_product12_VoAmr
+         U Isqrt_n
+00000000 t L_add
+00000000 t L_sub
+         U Parm_serial
+         U Pow2_VoAmr
+         U Qisf_ns_VoAmr
+         U Random
+         U Set_zero_VoAmr
+         U __getreent
+00000000 t add
+         U amrwb_Log2
+         U amrwb_mem_free
+         U amrwb_mem_malloc
+00000000 T dtx_buffer_VoAmr
+00000000 T dtx_enc_VoAmr
+00000000 T dtx_enc_exit_VoAmr
+00000000 T dtx_enc_init_VoAmr
+00000000 T dtx_enc_reset_VoAmr
+00000000 r en_adjust
+         U fputs
+         U memcpy
+         U memmove
+00000000 t mult
+00000000 t norm_l
+00000000 t shl
+00000000 t sub
+00000000 T tx_dtx_handler_VoAmr
+
+amrwb_enc_g_pitch.c.obj:
+         U Dot_product12_VoAmr
+00000000 T G_pitch_VoAmr
+
+amrwb_enc_gpclip.c.obj:
+00000000 T Gp_clip
+00000000 T Gp_clip_test_gain_pit
+00000000 T Gp_clip_test_isf
+00000000 T Init_gp_clip
+
+amrwb_enc_homing.c.obj:
+00000000 T encoder_homing_frame_test
+
+amrwb_enc_hp400.c.obj:
+00000000 T HP400_12k8
+00000000 T Init_HP400_12k8
+         U Set_zero_VoAmr
+
+amrwb_enc_hp50.c.obj:
+00000000 T HP50_12k8
+00000000 T Init_HP50_12k8
+         U Set_zero_VoAmr
+
+amrwb_enc_hp6k.c.obj:
+         U Copy
+00000000 T Filt_6k_7k
+00000000 T Init_Filt_6k_7k
+         U Set_zero_VoAmr
+00000000 D fir_6k_7k
+
+amrwb_enc_hp_wsp.c.obj:
+00000000 T Hp_wsp
+00000000 T Init_Hp_wsp
+00000000 t L_shl
+         U Set_zero_VoAmr
+00000000 T scale_mem_Hp_wsp
+
+amrwb_enc_int_lpc.c.obj:
+00000000 T Int_isp
+         U Isp_Az_VoAmr
+
+amrwb_enc_isp_az.c.obj:
+00000000 t Get_isp_pol
+00000000 t Get_isp_pol_16kHz
+00000000 T Isp_Az_VoAmr
+         U Mpy_32_16
+         U VO_L_Extract
+
+amrwb_enc_isp_isf.c.obj:
+00000000 T Isf_isp_VoAmr
+00000000 T Isp_isf
+00000000 r slope
+00000000 r table
+
+amrwb_enc_lag_wind.c.obj:
+00000000 T Lag_window_VoAmr
+         U Mpy_32
+00000000 r volag_h
+00000000 r volag_l
+
+amrwb_enc_levinson.c.obj:
+         U Div_32_VoAmr
+00000000 T Init_Levinson
+00000000 T Levinson_VoAmr
+         U Mpy_32
+         U Set_zero_VoAmr
+         U VO_L_Extract
+         U memcpy
+00000000 t norm_l
+
+amrwb_enc_log2.c.obj:
+00000000 T amrwb_Log2
+00000000 T amrwb_Log2_norm
+00000000 r table
+
+amrwb_enc_lp_dec2.c.obj:
+00000000 T LP_Decim2
+         U memcpy
+
+amrwb_enc_math_op.c.obj:
+00000000 T Dot_product12_VoAmr
+00000000 T Isqrt
+00000000 T Isqrt_n
+00000000 T Pow2_VoAmr
+00000000 t norm_l
+00000000 r table_isqrt
+00000000 r table_pow2
+
+amrwb_enc_mem_align.c.obj:
+00000000 T amrwb_mem_free
+00000000 T amrwb_mem_malloc
+
+amrwb_enc_oper_32b.c.obj:
+00000000 T Div_32_VoAmr
+00000000 T L_Comp_VoAmr
+00000000 T Mpy_32
+00000000 T Mpy_32_16
+00000000 T VO_L_Extract
+
+amrwb_enc_p_med_ol.c.obj:
+         U Hp_wsp
+         U Isqrt_n
+00000000 T Med_olag
+         U Mpy_32_16
+00000000 T Pitch_med_ol
+00000000 r corrweight
+00000000 T median5_VoAmr
+00000000 t norm_l
+00000000 t voround
+
+amrwb_enc_pit_shrp.c.obj:
+00000000 T amrwb_Pit_shrp
+
+amrwb_enc_pitch_f4.c.obj:
+         U Convolve_VoAmr
+00000000 t Interpol_4
+         U Isqrt_n
+00000000 T Pitch_fr4
+00000000 d inter4_1
+00000000 t norm_l
+
+amrwb_enc_pred_lt4.c.obj:
+00000000 T Pred_lt4_VoAmr
+00000000 D inter4_2
+
+amrwb_enc_preemph.c.obj:
+00000000 T Preemph
+00000000 T Preemph2
+
+amrwb_enc_q_gain2.c.obj:
+         U Dot_product12_VoAmr
+00000000 T Init_Q_gain2
+         U Mpy_32_16
+         U Pow2_VoAmr
+00000000 T Q_gain2
+         U VO_L_Extract
+         U amrwb_Log2
+00000000 r t_qua_gain6b
+00000000 r t_qua_gain7b
+
+amrwb_enc_q_pulse.c.obj:
+00000000 t L_shl
+         U __getreent
+         U fputs
+00000000 T quant_1p_N1
+00000000 T quant_2p_2N1
+00000000 T quant_3p_3N1
+00000000 T quant_4p_4N
+00000000 T quant_4p_4N1
+00000000 T quant_5p_5N
+00000000 T quant_6p_6N_2
+
+amrwb_enc_qisf_ns.c.obj:
+00000000 T Disf_ns_VoAmr
+00000000 T Qisf_ns_VoAmr
+         U Reorder_isf_VoAmr
+         U Sub_VQ
+00000000 r dico1_isf_noise
+00000000 r dico2_isf_noise
+00000000 r dico3_isf_noise
+00000000 r dico4_isf_noise
+00000000 r dico5_isf_noise
+00000000 r mean_isf_noise
+
+amrwb_enc_qpisf_2s.c.obj:
+00000000 T Dpisf_2s_36b_VoAmr
+00000000 T Dpisf_2s_46b_VoAmr
+00000000 T Qpisf_2s_36b
+00000000 T Qpisf_2s_46b
+00000000 T Reorder_isf_VoAmr
+00000000 T Sub_VQ
+00000000 t VQ_stage1$constprop$0
+00000000 r dico1_isf
+00000000 r dico21_isf
+00000000 r dico21_isf_36b
+00000000 r dico22_isf
+00000000 r dico22_isf_36b
+00000000 r dico23_isf
+00000000 r dico23_isf_36b
+00000000 r dico24_isf
+00000000 r dico25_isf
+00000000 r dico2_isf
+00000000 r mean_isf
+         U memmove
+
+amrwb_enc_random.c.obj:
+00000000 T Random
+
+amrwb_enc_residu.c.obj:
+00000000 T Residu_VoAmr
+
+amrwb_enc_scale.c.obj:
+00000000 T Scale_sig
+
+amrwb_enc_stream.c.obj:
+00000000 T voAWB_FlushFrameBuffer
+00000000 T voAWB_InitFrameBuffer
+00000000 T voAWB_UpdateFrameBuffer
+
+amrwb_enc_syn_filt.c.obj:
+00000000 T Syn_filt_32_VoAmr
+00000000 T Syn_filt_VoAmr
+         U memcpy
+
+amrwb_enc_updt_tar.c.obj:
+00000000 T Updt_tar
+
+amrwb_enc_util.c.obj:
+00000000 T Copy
+00000000 T Set_zero_VoAmr
+         U memset
+
+amrwb_enc_voAMRWBEnc.c.obj:
+         U ACELP_2t64_fx
+         U ACELP_4t64_fx
+00000000 T AMR_Enc_Encode
+         U Autocorr_VoAmr
+         U Az_isp
+         U Convolve_VoAmr
+         U Copy
+         U Decim_12k8
+         U Deemph2
+         U Deemph_32
+         U Dot_product12_VoAmr
+         U Filt_6k_7k
+         U G_pitch_VoAmr
+         U Gp_clip_test_gain_pit
+         U Gp_clip_test_isf
+         U HP400_12k8
+         U HP50_12k8
+00000000 r HP_gain
+         U Init_Decim_12k8
+         U Init_Filt_6k_7k
+         U Init_HP400_12k8
+         U Init_HP50_12k8
+         U Init_Hp_wsp
+         U Init_Levinson
+         U Init_Q_gain2
+         U Init_gp_clip
+         U Int_isp
+         U Isf_isp_VoAmr
+         U Isp_Az_VoAmr
+         U Isp_isf
+         U Isqrt_n
+         U LP_Decim2
+00000000 t L_add$constprop$0
+00000000 t L_shl
+         U Lag_window_VoAmr
+         U Levinson_VoAmr
+         U Med_olag
+         U Mpy_32_16
+         U PackBits
+         U Parm_serial
+         U Pitch_fr4
+         U Pitch_med_ol
+         U Pred_lt4_VoAmr
+         U Preemph
+         U Preemph2
+         U Q_gain2
+         U Qpisf_2s_36b
+         U Qpisf_2s_46b
+         U Random
+00000000 T Reset_encoder
+         U Residu_VoAmr
+         U Scale_sig
+         U Set_zero_VoAmr
+         U Syn_filt_32_VoAmr
+         U Syn_filt_VoAmr
+         U Updt_tar
+         U VO_L_Extract
+         U Weight_a
+         U amrwb_Pit_shrp
+         U amrwb_mem_free
+         U amrwb_mem_malloc
+         U amrwb_voice_factor
+00000000 T coder
+         U cor_h_x_VoAmr
+00000000 t div_s
+         U dtx_buffer_VoAmr
+         U dtx_enc_VoAmr
+         U dtx_enc_exit_VoAmr
+         U dtx_enc_init_VoAmr
+         U dtx_enc_reset_VoAmr
+         U encoder_homing_frame_test
+00000000 d interpol_frac
+00000000 d isf_init
+00000000 d isp_init
+         U memcpy
+00000000 r nb_of_bits
+00000000 t norm_s
+         U scale_mem_Hp_wsp
+00000000 t shl$part$0
+00000000 t synthesis
+         U tx_dtx_handler_VoAmr
+00000000 T voAMRWB_GetOutputData
+00000000 T voAMRWB_GetParam
+00000000 T voAMRWB_Init
+00000000 T voAMRWB_SetInputData
+00000000 T voAMRWB_SetParam
+00000000 T voAMRWB_Uninit
+         U voAWB_InitFrameBuffer
+         U voAWB_UpdateFrameBuffer
+00000000 T voGetAMRWBEncAPI
+         U wb_vad
+         U wb_vad_exit
+         U wb_vad_init
+         U wb_vad_reset
+         U wb_vad_tone_detection
+
+amrwb_enc_voicefac.c.obj:
+         U Dot_product12_VoAmr
+00000000 T amrwb_voice_factor
+00000000 t div_s
+
+amrwb_enc_wb_vad.c.obj:
+00000000 t L_add
+00000000 t L_shl
+         U __getreent
+         U amrwb_mem_free
+         U amrwb_mem_malloc
+00000000 t div_s
+00000000 t filter3
+00000000 t filter5
+00000000 t filter_bank
+         U fputs
+00000000 t ilog2
+00000000 t level_calculation
+         U memcpy
+00000000 t norm_s
+00000000 T wb_vad
+00000000 T wb_vad_exit
+00000000 T wb_vad_init
+00000000 T wb_vad_reset
+00000000 T wb_vad_tone_detection
+
+amrwb_enc_weight_a.c.obj:
+00000000 T Weight_a
+
+esp_g711_dec.c.obj:
+00000000 r dec_lib$0
+00000000 r dec_lib$1
+         U esp_audio_dec_register
+00000000 T esp_g711_dec_close
+00000000 T esp_g711_dec_open
+00000000 T esp_g711a_dec_decode
+00000000 T esp_g711a_dec_register
+         U esp_g711a_decode
+00000000 T esp_g711u_dec_decode
+00000000 T esp_g711u_dec_register
+         U esp_g711u_decode
+         U esp_log_timestamp
+         U esp_log_write
+00000000 t g711_decode
+         U media_lib_free
+         U media_lib_module_calloc
+
+esp_g711_enc.c.obj:
+         U __udivdi3
+00000000 r enc_lib$0
+00000000 r enc_lib$1
+         U esp_audio_enc_register
+00000000 T esp_g711_enc_close
+00000000 T esp_g711_enc_get_frame_size
+00000000 T esp_g711_enc_get_info
+00000000 T esp_g711_enc_process
+00000000 T esp_g711a_enc_open
+00000000 T esp_g711a_enc_register
+         U esp_g711a_encode
+00000000 T esp_g711u_enc_open
+00000000 T esp_g711u_enc_register
+         U esp_g711u_encode
+         U esp_log_timestamp
+         U esp_log_write
+00000000 t g711_enc_open
+         U media_lib_free
+         U media_lib_module_calloc
+
+esp_g711.c.obj:
+00000000 T esp_g711a_decode
+00000000 T esp_g711a_encode
+00000000 T esp_g711u_decode
+00000000 T esp_g711u_encode
+00000000 d seg_aend
+00000000 d seg_uend
+00000000 T st_13linear2alaw
+00000000 T st_14linear2ulaw
+00000000 T st_alaw2linear16
+00000000 T st_ulaw2linear16
+
+esp_opus_dec.c.obj:
+00000000 r dec_lib$0
+         U esp_audio_dec_register
+         U esp_log_timestamp
+         U esp_log_write
+00000000 T esp_opus_dec_close
+00000000 T esp_opus_dec_decode
+00000000 T esp_opus_dec_open
+00000000 T esp_opus_dec_register
+         U opus_decode_native
+         U opus_decoder_create
+         U opus_decoder_destroy
+
+esp_opus_enc.c.obj:
+         U __udivdi3
+00000000 r enc_lib$0
+         U esp_audio_enc_register
+         U esp_log_timestamp
+         U esp_log_write
+00000000 T esp_opus_enc_close
+00000000 T esp_opus_enc_get_frame_size
+00000000 T esp_opus_enc_get_info
+00000000 T esp_opus_enc_open
+00000000 T esp_opus_enc_process
+00000000 T esp_opus_enc_register
+         U media_lib_free
+         U media_lib_module_calloc
+         U opus_encode
+         U opus_encoder_create
+         U opus_encoder_ctl
+         U opus_encoder_destroy
+
+analysis.c.obj:
+
+mlp.c.obj:
+         U __extendsfdf2
+         U __fixdfsi
+         U floor
+00000000 T mlp_process
+00000000 t tansig_approx
+00000000 r tansig_table
+
+mlp_data.c.obj:
+00000000 R net
+00000000 r topo
+00000000 r weights
+
+opus.c.obj:
+00000000 T encode_size
+00000000 T opus_packet_get_samples_per_frame
+00000000 T opus_packet_parse
+00000000 T opus_packet_parse_impl
+00000000 t parse_size
+
+opus_decoder.c.obj:
+         U celt_decode_with_ec
+         U celt_decoder_get_size
+         U celt_decoder_init
+         U ec_dec_bit_logp
+         U ec_dec_init
+         U ec_dec_uint
+         U media_lib_free
+         U media_lib_module_malloc
+         U memcpy
+         U memset
+         U opus_custom_decoder_ctl
+00000000 T opus_decode
+00000000 t opus_decode_frame
+00000000 T opus_decode_native
+00000000 T opus_decoder_create
+00000000 T opus_decoder_ctl
+00000000 T opus_decoder_destroy
+00000000 T opus_decoder_get_nb_samples
+00000000 T opus_decoder_get_size
+00000000 T opus_decoder_init
+00000000 T opus_packet_get_bandwidth
+00000000 T opus_packet_get_nb_channels
+00000000 T opus_packet_get_nb_frames
+00000000 T opus_packet_get_nb_samples
+         U opus_packet_get_samples_per_frame
+         U opus_packet_parse_impl
+         U silk_Decode
+         U silk_Get_Decoder_Size
+         U silk_InitDecoder
+00000000 t smooth_fade
+
+opus_encoder.c.obj:
+         U celt_encode_with_ec
+         U celt_encoder_get_size
+         U celt_encoder_init
+         U celt_sqrt
+00000000 t compute_equiv_rate
+00000000 t compute_redundancy_bytes
+00000000 t compute_silk_rate_for_hybrid
+00000000 T compute_stereo_width
+00000000 T downmix_int
+         U ec_enc_bit_logp
+         U ec_enc_done
+         U ec_enc_init
+         U ec_enc_shrink
+         U ec_enc_uint
+00000000 t encode_multiframe_packet
+00000000 r fec_thresholds
+         U frac_div32
+00000000 T frame_size_select
+00000000 t gain_fade
+00000000 t gen_toc
+         U media_lib_free
+         U media_lib_module_malloc
+         U memcpy
+         U memmove
+         U memset
+00000000 r mono_music_bandwidth_thresholds
+00000000 r mono_voice_bandwidth_thresholds
+         U opus_custom_encoder_ctl
+00000000 T opus_encode
+00000000 T opus_encode_native
+00000000 T opus_encoder_create
+00000000 T opus_encoder_ctl
+00000000 T opus_encoder_destroy
+00000000 T opus_encoder_get_size
+00000000 T opus_encoder_init
+         U opus_packet_pad
+         U opus_repacketizer_cat
+         U opus_repacketizer_init
+         U opus_repacketizer_out_range_impl
+00000000 r rate_table$0
+         U silk_Encode
+         U silk_Get_Encoder_Size
+         U silk_InitEncoder
+         U silk_biquad_alt_stride1
+         U silk_biquad_alt_stride2_c
+         U silk_lin2log
+         U silk_log2lin
+00000000 r stereo_music_bandwidth_thresholds
+00000000 r stereo_voice_bandwidth_thresholds
+00000000 t user_bitrate_to_bitrate
+
+opus_header.c.obj:
+
+opus_interface.c.obj:
+
+opus_multistream.c.obj:
+00000000 T get_left_channel
+00000000 T get_mono_channel
+00000000 T get_right_channel
+00000000 T validate_layout
+
+opus_multistream_decoder.c.obj:
+         U get_left_channel
+         U get_mono_channel
+         U get_right_channel
+         U media_lib_free
+         U media_lib_module_malloc
+00000000 t opus_copy_channel_out_short
+         U opus_decode_native
+         U opus_decoder_ctl
+         U opus_decoder_get_size
+         U opus_decoder_init
+00000000 T opus_multistream_decode
+00000000 t opus_multistream_decode_native$constprop$0
+00000000 T opus_multistream_decoder_create
+00000000 T opus_multistream_decoder_ctl
+00000000 T opus_multistream_decoder_destroy
+00000000 T opus_multistream_decoder_get_size
+00000000 T opus_multistream_decoder_init
+         U opus_packet_get_nb_samples
+         U opus_packet_parse_impl
+         U validate_layout
+
+opus_multistream_encoder.c.obj:
+         U __divdi3
+         U amp2Log2
+         U celt_preemphasis
+         U clt_mdct_forward_c
+         U compute_band_energies
+00000000 r diff_table$1
+         U downmix_int
+         U frame_size_select
+         U get_left_channel
+         U get_mono_channel
+         U get_right_channel
+00000000 t logSum
+         U media_lib_free
+         U media_lib_module_malloc
+         U memcpy
+         U memset
+00000000 t ms_get_preemph_mem
+00000000 t ms_get_window_mem
+00000000 t opus_copy_channel_in_short
+         U opus_encode_native
+         U opus_encoder_ctl
+         U opus_encoder_get_size
+         U opus_encoder_init
+00000000 T opus_multistream_encode
+00000000 t opus_multistream_encode_native$constprop$0
+00000000 T opus_multistream_encoder_create
+00000000 T opus_multistream_encoder_ctl
+00000000 T opus_multistream_encoder_destroy
+00000000 T opus_multistream_encoder_get_size
+00000000 T opus_multistream_encoder_init
+00000000 t opus_multistream_encoder_init_impl
+00000000 T opus_multistream_surround_encoder_create
+00000000 T opus_multistream_surround_encoder_get_size
+00000000 T opus_multistream_surround_encoder_init
+         U opus_repacketizer_cat
+         U opus_repacketizer_get_nb_frames
+         U opus_repacketizer_init
+         U opus_repacketizer_out_range_impl
+         U resampling_factor
+00000000 T surround_analysis
+         U validate_layout
+00000000 r vorbis_mappings
+
+repacketizer.c.obj:
+         U encode_size
+         U media_lib_free
+         U media_lib_module_malloc
+         U memmove
+         U memset
+00000000 T opus_multistream_packet_pad
+00000000 T opus_multistream_packet_unpad
+         U opus_packet_get_nb_frames
+         U opus_packet_get_samples_per_frame
+00000000 T opus_packet_pad
+         U opus_packet_parse_impl
+00000000 T opus_packet_unpad
+00000000 T opus_repacketizer_cat
+00000000 t opus_repacketizer_cat_impl
+00000000 T opus_repacketizer_create
+00000000 T opus_repacketizer_destroy
+00000000 T opus_repacketizer_get_nb_frames
+00000000 T opus_repacketizer_get_size
+00000000 T opus_repacketizer_init
+00000000 T opus_repacketizer_out
+00000000 T opus_repacketizer_out_range
+00000000 T opus_repacketizer_out_range_impl
+
+esp_flac_dec.c.obj:
+         U FLAC__crc16
+         U FLAC__stream_decoder_delete
+         U FLAC__stream_decoder_get_bits_per_sample
+         U FLAC__stream_decoder_get_channels
+         U FLAC__stream_decoder_get_sample_rate
+         U FLAC__stream_decoder_get_state
+         U FLAC__stream_decoder_init_stream
+         U FLAC__stream_decoder_new
+         U FLAC__stream_decoder_process_single
+         U FLAC__stream_decoder_reset
+00000000 r dec_lib$0
+         U esp_audio_dec_register
+00000000 T esp_flac_dec_close
+00000000 T esp_flac_dec_decode
+00000000 T esp_flac_dec_open
+00000000 T esp_flac_dec_register
+         U esp_log_timestamp
+         U esp_log_write
+00000000 t flac_decoder_eof_callback
+00000000 t flac_decoder_error_callback
+00000000 t flac_decoder_length_callback
+00000000 t flac_decoder_metadata_callback
+00000000 t flac_decoder_read_callback
+00000000 t flac_decoder_seek_callback
+00000000 t flac_decoder_tell_callback
+00000000 t flac_decoder_write_callback
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcmp
+         U memcpy
+
+bitmath.c.obj:
+00000000 T FLAC__bitmath_silog2
+
+bitreader.c.obj:
+00000000 T FLAC__bitreader_bits_left_for_byte_alignment
+00000000 T FLAC__bitreader_clear
+00000000 T FLAC__bitreader_delete
+00000000 T FLAC__bitreader_dump
+00000000 T FLAC__bitreader_free
+00000000 T FLAC__bitreader_get_input_bits_unconsumed
+00000000 T FLAC__bitreader_get_read_crc16
+00000000 T FLAC__bitreader_init
+00000000 T FLAC__bitreader_is_consumed_byte_aligned
+00000000 T FLAC__bitreader_new
+00000000 T FLAC__bitreader_read_byte_block_aligned_no_crc
+00000000 T FLAC__bitreader_read_raw_int32
+00000000 T FLAC__bitreader_read_raw_uint32
+00000000 T FLAC__bitreader_read_raw_uint64
+00000000 T FLAC__bitreader_read_rice_signed
+00000000 T FLAC__bitreader_read_rice_signed_block
+00000000 T FLAC__bitreader_read_uint32_little_endian
+00000000 T FLAC__bitreader_read_unary_unsigned
+00000000 T FLAC__bitreader_read_utf8_uint32
+00000000 T FLAC__bitreader_read_utf8_uint64
+00000000 T FLAC__bitreader_reset_read_crc16
+00000000 T FLAC__bitreader_skip_bits_no_crc
+00000000 T FLAC__bitreader_skip_byte_block_aligned_no_crc
+         U FLAC__crc16_table
+         U __bswapsi2
+00000000 T bitreader_read_from_client_
+00000000 t crc16_update_word_
+         U fprintf
+         U fputc
+         U fputs
+         U media_lib_free
+         U media_lib_module_calloc
+         U memmove
+
+bitwriter.c.obj:
+00000000 T FLAC__bitwriter_clear
+00000000 T FLAC__bitwriter_delete
+00000000 T FLAC__bitwriter_dump
+00000000 T FLAC__bitwriter_free
+00000000 T FLAC__bitwriter_get_buffer
+00000000 T FLAC__bitwriter_get_input_bits_unconsumed
+00000000 T FLAC__bitwriter_get_write_crc16
+00000000 T FLAC__bitwriter_get_write_crc8
+00000000 T FLAC__bitwriter_init
+00000000 T FLAC__bitwriter_is_byte_aligned
+00000000 T FLAC__bitwriter_new
+00000000 T FLAC__bitwriter_release_buffer
+00000000 T FLAC__bitwriter_rice_bits
+00000000 T FLAC__bitwriter_write_byte_block
+00000000 T FLAC__bitwriter_write_raw_int32
+00000000 T FLAC__bitwriter_write_raw_uint32
+00000000 T FLAC__bitwriter_write_raw_uint32_little_endian
+00000000 t FLAC__bitwriter_write_raw_uint32_nocheck
+00000000 T FLAC__bitwriter_write_raw_uint64
+00000000 T FLAC__bitwriter_write_rice_signed
+00000000 T FLAC__bitwriter_write_rice_signed_block
+00000000 T FLAC__bitwriter_write_unary_unsigned
+00000000 T FLAC__bitwriter_write_utf8_uint32
+00000000 T FLAC__bitwriter_write_utf8_uint64
+00000000 T FLAC__bitwriter_write_zeroes
+00000000 T FLAC__bitwriter_zero_pad_to_byte_boundary
+         U FLAC__crc16
+         U FLAC__crc8
+         U __bswapsi2
+00000000 t bitwriter_grow_
+         U fprintf
+         U fputc
+         U fputs
+         U media_lib_free
+         U media_lib_module_calloc
+         U media_lib_module_malloc
+         U media_lib_module_realloc
+
+cpu.c.obj:
+00000000 T FLAC__cpu_info
+         U memset
+
+crc.c.obj:
+00000000 T FLAC__crc16
+00000000 R FLAC__crc16_table
+00000000 T FLAC__crc8
+00000000 R FLAC__crc8_table
+00000000 T FLAC__crc8_update
+00000000 T FLAC__crc8_update_block
+
+fixed.c.obj:
+00000000 T FLAC__fixed_compute_best_predictor
+00000000 T FLAC__fixed_compute_best_predictor_wide
+00000000 T FLAC__fixed_compute_residual
+00000000 T FLAC__fixed_restore_signal
+         U __divdf3
+         U __floatundidf
+         U __floatunsidf
+         U __muldf3
+         U __truncdfsf2
+         U log
+         U memcpy
+
+fixed_intrin_sse2.c.obj:
+
+fixed_intrin_ssse3.c.obj:
+
+float.c.obj:
+
+format.c.obj:
+00000000 R FLAC__ChannelAssignmentString
+00000000 R FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_ESCAPE_PARAMETER
+00000000 R FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_PARAMETER_LEN
+00000000 R FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ESCAPE_PARAMETER
+00000000 R FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ORDER_LEN
+00000000 R FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_PARAMETER_LEN
+00000000 R FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_RAW_LEN
+00000000 R FLAC__ENTROPY_CODING_METHOD_TYPE_LEN
+00000000 R FLAC__EntropyCodingMethodTypeString
+00000000 R FLAC__FRAME_FOOTER_CRC_LEN
+00000000 R FLAC__FRAME_HEADER_BITS_PER_SAMPLE_LEN
+00000000 R FLAC__FRAME_HEADER_BLOCKING_STRATEGY_LEN
+00000000 R FLAC__FRAME_HEADER_BLOCK_SIZE_LEN
+00000000 R FLAC__FRAME_HEADER_CHANNEL_ASSIGNMENT_LEN
+00000000 R FLAC__FRAME_HEADER_CRC_LEN
+00000000 R FLAC__FRAME_HEADER_RESERVED_LEN
+00000000 R FLAC__FRAME_HEADER_SAMPLE_RATE_LEN
+00000000 R FLAC__FRAME_HEADER_SYNC
+00000000 R FLAC__FRAME_HEADER_SYNC_LEN
+00000000 R FLAC__FRAME_HEADER_ZERO_PAD_LEN
+00000000 R FLAC__FrameNumberTypeString
+00000000 R FLAC__MetadataTypeString
+00000000 R FLAC__STREAM_METADATA_APPLICATION_ID_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_INDEX_NUMBER_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_INDEX_OFFSET_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_INDEX_RESERVED_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_IS_CD_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_NUM_TRACKS_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_RESERVED_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_TRACK_ISRC_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_TRACK_NUMBER_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_TRACK_NUM_INDICES_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_TRACK_OFFSET_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_TRACK_PRE_EMPHASIS_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_TRACK_RESERVED_LEN
+00000000 R FLAC__STREAM_METADATA_CUESHEET_TRACK_TYPE_LEN
+00000000 R FLAC__STREAM_METADATA_IS_LAST_LEN
+00000000 R FLAC__STREAM_METADATA_LENGTH_LEN
+00000000 R FLAC__STREAM_METADATA_PICTURE_COLORS_LEN
+00000000 R FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN
+00000000 R FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN
+00000000 R FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN
+00000000 R FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN
+00000000 R FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN
+00000000 R FLAC__STREAM_METADATA_PICTURE_TYPE_LEN
+00000000 R FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN
+00000000 R FLAC__STREAM_METADATA_SEEKPOINT_FRAME_SAMPLES_LEN
+00000000 R FLAC__STREAM_METADATA_SEEKPOINT_PLACEHOLDER
+00000000 R FLAC__STREAM_METADATA_SEEKPOINT_SAMPLE_NUMBER_LEN
+00000000 R FLAC__STREAM_METADATA_SEEKPOINT_STREAM_OFFSET_LEN
+00000000 R FLAC__STREAM_METADATA_STREAMINFO_BITS_PER_SAMPLE_LEN
+00000000 R FLAC__STREAM_METADATA_STREAMINFO_CHANNELS_LEN
+00000000 R FLAC__STREAM_METADATA_STREAMINFO_MAX_BLOCK_SIZE_LEN
+00000000 R FLAC__STREAM_METADATA_STREAMINFO_MAX_FRAME_SIZE_LEN
+00000000 R FLAC__STREAM_METADATA_STREAMINFO_MD5SUM_LEN
+00000000 R FLAC__STREAM_METADATA_STREAMINFO_MIN_BLOCK_SIZE_LEN
+00000000 R FLAC__STREAM_METADATA_STREAMINFO_MIN_FRAME_SIZE_LEN
+00000000 R FLAC__STREAM_METADATA_STREAMINFO_SAMPLE_RATE_LEN
+00000000 R FLAC__STREAM_METADATA_STREAMINFO_TOTAL_SAMPLES_LEN
+00000000 R FLAC__STREAM_METADATA_TYPE_LEN
+00000000 R FLAC__STREAM_METADATA_VORBIS_COMMENT_ENTRY_LENGTH_LEN
+00000000 R FLAC__STREAM_METADATA_VORBIS_COMMENT_NUM_COMMENTS_LEN
+00000000 R FLAC__STREAM_SYNC
+00000000 R FLAC__STREAM_SYNC_LEN
+00000000 R FLAC__STREAM_SYNC_STRING
+00000000 R FLAC__SUBFRAME_LPC_QLP_COEFF_PRECISION_LEN
+00000000 R FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN
+00000000 R FLAC__SUBFRAME_TYPE_CONSTANT_BYTE_ALIGNED_MASK
+00000000 R FLAC__SUBFRAME_TYPE_FIXED_BYTE_ALIGNED_MASK
+00000000 R FLAC__SUBFRAME_TYPE_LEN
+00000000 R FLAC__SUBFRAME_TYPE_LPC_BYTE_ALIGNED_MASK
+00000000 R FLAC__SUBFRAME_TYPE_VERBATIM_BYTE_ALIGNED_MASK
+00000000 R FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN
+00000000 R FLAC__SUBFRAME_ZERO_PAD_LEN
+00000000 R FLAC__StreamMetadata_Picture_TypeString
+00000000 R FLAC__SubframeTypeString
+00000000 D FLAC__VENDOR_STRING
+00000000 D FLAC__VERSION_STRING
+00000000 T FLAC__format_blocksize_is_subset
+00000000 T FLAC__format_cuesheet_is_legal
+00000000 T FLAC__format_entropy_coding_method_partitioned_rice_contents_clear
+00000000 T FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size
+00000000 T FLAC__format_entropy_coding_method_partitioned_rice_contents_init
+00000000 T FLAC__format_get_max_rice_partition_order
+00000000 T FLAC__format_get_max_rice_partition_order_from_blocksize
+00000000 T FLAC__format_get_max_rice_partition_order_from_blocksize_limited_max_and_predictor_order
+00000000 T FLAC__format_picture_is_legal
+00000000 T FLAC__format_sample_rate_is_subset
+00000000 T FLAC__format_sample_rate_is_valid
+00000000 T FLAC__format_seektable_is_legal
+00000000 T FLAC__format_seektable_sort
+00000000 T FLAC__format_vorbiscomment_entry_is_legal
+00000000 T FLAC__format_vorbiscomment_entry_name_is_legal
+00000000 T FLAC__format_vorbiscomment_entry_value_is_legal
+         U __umoddi3
+         U media_lib_free
+         U media_lib_module_malloc
+         U memcpy
+         U memset
+         U qsort
+00000000 t safe_realloc_
+00000000 t seekpoint_compare_
+00000000 t utf8len_
+
+lpc.c.obj:
+         U FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN
+00000000 T FLAC__lpc_compute_autocorrelation
+00000000 T FLAC__lpc_compute_best_order
+00000000 T FLAC__lpc_compute_expected_bits_per_residual_sample
+00000000 T FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale
+00000000 T FLAC__lpc_compute_lp_coefficients
+00000000 T FLAC__lpc_compute_residual_from_qlp_coefficients
+00000000 T FLAC__lpc_compute_residual_from_qlp_coefficients_wide
+00000000 T FLAC__lpc_quantize_coefficients
+00000000 T FLAC__lpc_restore_signal
+00000000 T FLAC__lpc_restore_signal_wide
+00000000 T FLAC__lpc_window_data
+         U __adddf3
+         U __ashrdi3
+         U __divdf3
+         U __divsf3
+         U __eqdf2
+         U __extendsfdf2
+         U __floatsidf
+         U __floatunsidf
+         U __gedf2
+         U __getreent
+         U __gtdf2
+         U __ledf2
+         U __ltdf2
+         U __muldf3
+         U __subdf3
+         U __truncdfsf2
+         U fprintf
+         U frexp
+         U log
+         U lround
+         U memset
+
+lpc_intrin_avx2.c.obj:
+
+lpc_intrin_sse.c.obj:
+
+lpc_intrin_sse2.c.obj:
+
+lpc_intrin_sse41.c.obj:
+
+md5.c.obj:
+00000000 T FLAC__MD5Accumulate
+00000000 T FLAC__MD5Final
+00000000 T FLAC__MD5Init
+00000000 t FLAC__MD5Transform
+         U media_lib_free
+         U media_lib_module_malloc
+         U memcpy
+         U memset
+
+memory.c.obj:
+00000000 T FLAC__memory_alloc_aligned
+00000000 T FLAC__memory_alloc_aligned_int32_array
+00000000 T FLAC__memory_alloc_aligned_real_array
+00000000 T FLAC__memory_alloc_aligned_uint32_array
+00000000 T FLAC__memory_alloc_aligned_uint64_array
+00000000 T FLAC__memory_alloc_aligned_unsigned_array
+         U media_lib_free
+         U media_lib_module_malloc
+00000000 t safe_malloc_
+00000000 T safe_malloc_mul_2op_p
+
+metadata_iterators.c.obj:
+00000000 R FLAC__Metadata_ChainStatusString
+00000000 R FLAC__Metadata_SimpleIteratorStatusString
+         U FLAC__STREAM_METADATA_APPLICATION_ID_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_INDEX_NUMBER_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_INDEX_OFFSET_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_INDEX_RESERVED_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_IS_CD_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_NUM_TRACKS_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_RESERVED_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_ISRC_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_NUMBER_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_NUM_INDICES_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_OFFSET_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_PRE_EMPHASIS_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_RESERVED_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_TYPE_LEN
+         U FLAC__STREAM_METADATA_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_COLORS_LEN
+         U FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN
+         U FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_TYPE_LEN
+         U FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN
+         U FLAC__STREAM_METADATA_VORBIS_COMMENT_ENTRY_LENGTH_LEN
+         U FLAC__STREAM_METADATA_VORBIS_COMMENT_NUM_COMMENTS_LEN
+         U FLAC__STREAM_SYNC_STRING
+00000000 T FLAC__metadata_chain_check_if_tempfile_needed
+00000000 T FLAC__metadata_chain_delete
+00000000 T FLAC__metadata_chain_merge_padding
+00000000 T FLAC__metadata_chain_new
+00000000 T FLAC__metadata_chain_read_ogg_with_callbacks
+00000000 T FLAC__metadata_chain_read_with_callbacks
+00000000 T FLAC__metadata_chain_sort_padding
+00000000 T FLAC__metadata_chain_status
+00000000 T FLAC__metadata_chain_write_with_callbacks
+00000000 T FLAC__metadata_chain_write_with_callbacks_and_tempfile
+00000000 T FLAC__metadata_iterator_delete
+00000000 T FLAC__metadata_iterator_delete_block
+00000000 T FLAC__metadata_iterator_get_block
+00000000 T FLAC__metadata_iterator_get_block_type
+00000000 T FLAC__metadata_iterator_init
+00000000 T FLAC__metadata_iterator_insert_block_after
+00000000 T FLAC__metadata_iterator_insert_block_before
+00000000 T FLAC__metadata_iterator_new
+00000000 T FLAC__metadata_iterator_next
+00000000 T FLAC__metadata_iterator_prev
+00000000 T FLAC__metadata_iterator_set_block
+         U FLAC__metadata_object_clone
+         U FLAC__metadata_object_delete
+         U FLAC__metadata_object_delete_data
+         U FLAC__metadata_object_new
+00000000 T FLAC__metadata_simple_iterator_get_application_id
+00000000 T FLAC__metadata_simple_iterator_get_block
+00000000 T FLAC__metadata_simple_iterator_get_block_length
+00000000 T FLAC__metadata_simple_iterator_get_block_offset
+00000000 T FLAC__metadata_simple_iterator_get_block_type
+00000000 T FLAC__metadata_simple_iterator_is_last
+00000000 T FLAC__metadata_simple_iterator_is_writable
+00000000 T FLAC__metadata_simple_iterator_new
+00000000 T FLAC__metadata_simple_iterator_next
+00000000 T FLAC__metadata_simple_iterator_prev
+00000000 T FLAC__metadata_simple_iterator_status
+         U FLAC__stream_decoder_delete
+         U FLAC__stream_decoder_init_ogg_stream
+         U FLAC__stream_decoder_new
+         U FLAC__stream_decoder_process_until_end_of_metadata
+         U FLAC__stream_decoder_set_metadata_respond_all
+         U __errno
+00000000 t chain_append_node_
+00000000 t chain_calculate_length_$isra$0
+00000000 t chain_clear_
+00000000 t chain_prepare_for_write_
+00000000 t chain_read_ogg_error_cb_
+00000000 t chain_read_ogg_metadata_cb_
+00000000 t chain_read_ogg_read_cb_
+00000000 t chain_read_ogg_write_cb_
+00000000 t chain_remove_node_
+00000000 t copy_n_bytes_from_file_cb_
+00000000 t copy_remaining_bytes_from_file_cb_
+         U fread
+00000000 t fseek_wrapper_
+         U fseeko
+         U ftello
+00000000 t get_equivalent_status_
+         U media_lib_free
+         U media_lib_module_calloc
+         U media_lib_module_malloc
+         U memcmp
+         U memcpy
+         U memset
+00000000 t node_delete_
+00000000 t node_new_
+00000000 t pack_uint32_
+00000000 t read_metadata_block_data_cb_
+00000000 t read_metadata_block_data_cuesheet_cb_
+00000000 t read_metadata_block_data_picture_cstring_cb_
+00000000 t read_metadata_block_data_vorbis_comment_entry_cb_
+00000000 t read_metadata_block_header_
+00000000 t read_metadata_block_header_cb_
+         U safe_malloc_mul_2op_p
+         U strlen
+00000000 t unpack_uint32_
+00000000 t unpack_uint64_
+00000000 t write_metadata_block_data_cb_
+00000000 t write_metadata_block_data_cuesheet_cb_
+00000000 t write_metadata_block_data_padding_cb_$isra$0
+00000000 t write_metadata_block_header_cb_
+
+metadata_object.c.obj:
+         U FLAC__STREAM_METADATA_APPLICATION_ID_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_INDEX_NUMBER_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_INDEX_OFFSET_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_INDEX_RESERVED_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_IS_CD_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_NUM_TRACKS_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_RESERVED_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_ISRC_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_NUMBER_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_NUM_INDICES_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_OFFSET_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_PRE_EMPHASIS_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_RESERVED_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_TYPE_LEN
+         U FLAC__STREAM_METADATA_PICTURE_COLORS_LEN
+         U FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN
+         U FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_TYPE_LEN
+         U FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN
+         U FLAC__STREAM_METADATA_SEEKPOINT_PLACEHOLDER
+         U FLAC__STREAM_METADATA_VORBIS_COMMENT_ENTRY_LENGTH_LEN
+         U FLAC__STREAM_METADATA_VORBIS_COMMENT_NUM_COMMENTS_LEN
+         U FLAC__VENDOR_STRING
+         U FLAC__format_cuesheet_is_legal
+         U FLAC__format_picture_is_legal
+         U FLAC__format_seektable_is_legal
+         U FLAC__format_seektable_sort
+         U FLAC__format_vorbiscomment_entry_is_legal
+         U FLAC__format_vorbiscomment_entry_name_is_legal
+         U FLAC__format_vorbiscomment_entry_value_is_legal
+00000000 T FLAC__metadata_object_application_set_data
+00000000 T FLAC__metadata_object_clone
+00000000 T FLAC__metadata_object_cuesheet_calculate_cddb_id
+00000000 T FLAC__metadata_object_cuesheet_delete_track
+00000000 T FLAC__metadata_object_cuesheet_insert_blank_track
+00000000 T FLAC__metadata_object_cuesheet_insert_track
+00000000 T FLAC__metadata_object_cuesheet_is_legal
+00000000 T FLAC__metadata_object_cuesheet_resize_tracks
+00000000 T FLAC__metadata_object_cuesheet_set_track
+00000000 T FLAC__metadata_object_cuesheet_track_clone
+00000000 T FLAC__metadata_object_cuesheet_track_delete
+00000000 T FLAC__metadata_object_cuesheet_track_delete_data
+00000000 T FLAC__metadata_object_cuesheet_track_delete_index
+00000000 T FLAC__metadata_object_cuesheet_track_insert_blank_index
+00000000 T FLAC__metadata_object_cuesheet_track_insert_index
+00000000 T FLAC__metadata_object_cuesheet_track_new
+00000000 T FLAC__metadata_object_cuesheet_track_resize_indices
+00000000 T FLAC__metadata_object_delete
+00000000 T FLAC__metadata_object_delete_data
+00000000 T FLAC__metadata_object_is_equal
+00000000 T FLAC__metadata_object_new
+00000000 T FLAC__metadata_object_picture_is_legal
+00000000 T FLAC__metadata_object_picture_set_data
+00000000 T FLAC__metadata_object_picture_set_description
+00000000 T FLAC__metadata_object_picture_set_mime_type
+00000000 T FLAC__metadata_object_seektable_delete_point
+00000000 T FLAC__metadata_object_seektable_insert_point
+00000000 T FLAC__metadata_object_seektable_is_legal
+00000000 T FLAC__metadata_object_seektable_resize_points
+00000000 T FLAC__metadata_object_seektable_set_point
+00000000 T FLAC__metadata_object_seektable_template_append_placeholders
+00000000 T FLAC__metadata_object_seektable_template_append_point
+00000000 T FLAC__metadata_object_seektable_template_append_points
+00000000 T FLAC__metadata_object_seektable_template_append_spaced_points
+00000000 T FLAC__metadata_object_seektable_template_append_spaced_points_by_samples
+00000000 T FLAC__metadata_object_seektable_template_sort
+00000000 T FLAC__metadata_object_vorbiscomment_append_comment
+00000000 T FLAC__metadata_object_vorbiscomment_delete_comment
+00000000 T FLAC__metadata_object_vorbiscomment_entry_from_name_value_pair
+00000000 T FLAC__metadata_object_vorbiscomment_entry_matches
+00000000 T FLAC__metadata_object_vorbiscomment_entry_to_name_value_pair
+00000000 T FLAC__metadata_object_vorbiscomment_find_entry_from
+00000000 T FLAC__metadata_object_vorbiscomment_insert_comment
+00000000 T FLAC__metadata_object_vorbiscomment_remove_entries_matching
+00000000 T FLAC__metadata_object_vorbiscomment_remove_entry_matching
+00000000 T FLAC__metadata_object_vorbiscomment_replace_comment
+00000000 T FLAC__metadata_object_vorbiscomment_resize_comments
+00000000 T FLAC__metadata_object_vorbiscomment_set_comment
+00000000 T FLAC__metadata_object_vorbiscomment_set_vendor_string
+         U __udivdi3
+         U __umoddi3
+00000000 t copy_bytes_
+00000000 t copy_cstring_
+00000000 t copy_track_
+00000000 t copy_vcentry_
+00000000 t cuesheet_calculate_length_
+00000000 t cuesheet_track_array_delete_
+00000000 t get_index_01_offset_
+         U media_lib_free
+         U media_lib_module_calloc
+         U media_lib_module_malloc
+         U media_lib_module_realloc
+         U memchr
+         U memcmp
+         U memcpy
+         U memmove
+         U memset
+00000000 t safe_calloc_
+00000000 t safe_malloc_
+         U safe_malloc_mul_2op_p
+00000000 t safe_realloc_
+         U strcmp
+         U strdup
+         U strlen
+         U strncasecmp
+00000000 t vorbiscomment_calculate_length_
+00000000 t vorbiscomment_entry_array_delete_
+00000000 t vorbiscomment_find_entry_from_
+00000000 t vorbiscomment_set_entry_
+
+ogg_decoder_aspect.c.obj:
+
+ogg_encoder_aspect.c.obj:
+
+ogg_helper.c.obj:
+
+ogg_mapping.c.obj:
+
+stream_decoder.c.obj:
+00000000 B FLAC_API_SUPPORTS_OGG_FLAC
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_ESCAPE_PARAMETER
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_PARAMETER_LEN
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ESCAPE_PARAMETER
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ORDER_LEN
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_PARAMETER_LEN
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_RAW_LEN
+         U FLAC__ENTROPY_CODING_METHOD_TYPE_LEN
+         U FLAC__FRAME_FOOTER_CRC_LEN
+         U FLAC__MD5Accumulate
+         U FLAC__MD5Final
+         U FLAC__MD5Init
+         U FLAC__STREAM_METADATA_APPLICATION_ID_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_INDEX_NUMBER_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_INDEX_OFFSET_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_INDEX_RESERVED_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_IS_CD_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_NUM_TRACKS_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_RESERVED_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_ISRC_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_NUMBER_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_NUM_INDICES_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_OFFSET_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_PRE_EMPHASIS_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_RESERVED_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_TYPE_LEN
+         U FLAC__STREAM_METADATA_IS_LAST_LEN
+         U FLAC__STREAM_METADATA_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_COLORS_LEN
+         U FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN
+         U FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_TYPE_LEN
+         U FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN
+         U FLAC__STREAM_METADATA_SEEKPOINT_FRAME_SAMPLES_LEN
+         U FLAC__STREAM_METADATA_SEEKPOINT_PLACEHOLDER
+         U FLAC__STREAM_METADATA_SEEKPOINT_SAMPLE_NUMBER_LEN
+         U FLAC__STREAM_METADATA_SEEKPOINT_STREAM_OFFSET_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_BITS_PER_SAMPLE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_CHANNELS_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_MAX_BLOCK_SIZE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_MAX_FRAME_SIZE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_MIN_BLOCK_SIZE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_MIN_FRAME_SIZE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_SAMPLE_RATE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_TOTAL_SAMPLES_LEN
+         U FLAC__STREAM_METADATA_TYPE_LEN
+         U FLAC__STREAM_SYNC_STRING
+         U FLAC__SUBFRAME_LPC_QLP_COEFF_PRECISION_LEN
+         U FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN
+00000000 R FLAC__StreamDecoderErrorStatusString
+00000000 R FLAC__StreamDecoderInitStatusString
+00000000 R FLAC__StreamDecoderLengthStatusString
+00000000 R FLAC__StreamDecoderReadStatusString
+00000000 R FLAC__StreamDecoderSeekStatusString
+00000000 R FLAC__StreamDecoderStateString
+00000000 R FLAC__StreamDecoderTellStatusString
+00000000 R FLAC__StreamDecoderWriteStatusString
+         U FLAC__bitreader_bits_left_for_byte_alignment
+         U FLAC__bitreader_clear
+         U FLAC__bitreader_delete
+         U FLAC__bitreader_free
+         U FLAC__bitreader_get_input_bits_unconsumed
+         U FLAC__bitreader_get_read_crc16
+         U FLAC__bitreader_init
+         U FLAC__bitreader_is_consumed_byte_aligned
+         U FLAC__bitreader_new
+         U FLAC__bitreader_read_byte_block_aligned_no_crc
+         U FLAC__bitreader_read_raw_int32
+         U FLAC__bitreader_read_raw_uint32
+         U FLAC__bitreader_read_raw_uint64
+         U FLAC__bitreader_read_rice_signed_block
+         U FLAC__bitreader_read_uint32_little_endian
+         U FLAC__bitreader_read_unary_unsigned
+         U FLAC__bitreader_read_utf8_uint32
+         U FLAC__bitreader_read_utf8_uint64
+         U FLAC__bitreader_reset_read_crc16
+         U FLAC__bitreader_skip_bits_no_crc
+         U FLAC__bitreader_skip_byte_block_aligned_no_crc
+         U FLAC__cpu_info
+         U FLAC__crc16_table
+         U FLAC__crc8
+         U FLAC__fixed_restore_signal
+         U FLAC__format_entropy_coding_method_partitioned_rice_contents_clear
+         U FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size
+         U FLAC__format_entropy_coding_method_partitioned_rice_contents_init
+         U FLAC__lpc_restore_signal
+         U FLAC__lpc_restore_signal_wide
+         U FLAC__memory_alloc_aligned_int32_array
+00000000 T FLAC__stream_decoder_delete
+00000000 T FLAC__stream_decoder_finish
+00000000 T FLAC__stream_decoder_flush
+00000000 T FLAC__stream_decoder_get_bits_per_sample
+00000000 T FLAC__stream_decoder_get_blocksize
+00000000 T FLAC__stream_decoder_get_channel_assignment
+00000000 T FLAC__stream_decoder_get_channels
+00000000 T FLAC__stream_decoder_get_decode_position
+00000000 T FLAC__stream_decoder_get_input_bytes_unconsumed
+00000000 T FLAC__stream_decoder_get_md5_checking
+00000000 T FLAC__stream_decoder_get_resolved_state_string
+00000000 T FLAC__stream_decoder_get_sample_rate
+00000000 T FLAC__stream_decoder_get_state
+00000000 T FLAC__stream_decoder_get_total_samples
+00000000 T FLAC__stream_decoder_init_FILE
+00000000 T FLAC__stream_decoder_init_ogg_FILE
+00000000 T FLAC__stream_decoder_init_ogg_stream
+00000000 T FLAC__stream_decoder_init_stream
+00000000 T FLAC__stream_decoder_new
+00000000 T FLAC__stream_decoder_process_once
+00000000 T FLAC__stream_decoder_process_single
+00000000 T FLAC__stream_decoder_process_until_end_of_metadata
+00000000 T FLAC__stream_decoder_process_until_end_of_stream
+00000000 T FLAC__stream_decoder_reset
+00000000 T FLAC__stream_decoder_seek_absolute
+00000000 T FLAC__stream_decoder_set_md5_checking
+00000000 T FLAC__stream_decoder_set_metadata_ignore
+00000000 T FLAC__stream_decoder_set_metadata_ignore_all
+00000000 T FLAC__stream_decoder_set_metadata_ignore_application
+00000000 T FLAC__stream_decoder_set_metadata_respond
+00000000 T FLAC__stream_decoder_set_metadata_respond_all
+00000000 T FLAC__stream_decoder_set_metadata_respond_application
+00000000 T FLAC__stream_decoder_set_ogg_serial_number
+00000000 T FLAC__stream_decoder_skip_single_frame
+00000000 r ID3V2_TAG_
+         U __divdf3
+         U __fixdfdi
+         U __floatundidf
+         U __getreent
+         U __muldf3
+         U __udivdi3
+         U bitreader_read_from_client_
+         U fclose
+         U feof
+         U ferror
+00000000 t file_eof_callback_
+00000000 t file_length_callback_
+00000000 t file_read_callback_
+00000000 t file_seek_callback_
+00000000 t file_tell_callback_
+         U fileno
+00000000 t find_metadata_
+00000000 t frame_sync_
+         U fread
+         U fseeko
+         U fstat
+         U ftello
+00000000 t init_FILE_internal_
+00000000 t init_stream_internal_$part$0
+         U media_lib_free
+         U media_lib_module_calloc
+         U media_lib_module_malloc
+         U media_lib_module_realloc
+         U memcmp
+         U memcpy
+         U memset
+00000000 t read_callback_
+00000000 t read_frame_
+00000000 t read_metadata_
+00000000 t read_residual_partitioned_rice_
+00000000 t safe_calloc_
+00000000 t safe_malloc_add_2op_$constprop$0
+         U safe_malloc_mul_2op_p
+00000000 t safe_realloc_mul_2op_
+00000000 t send_error_to_client_
+00000000 t set_defaults_
+
+stream_encoder.c.obj:
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_ESCAPE_PARAMETER
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_PARAMETER_LEN
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ESCAPE_PARAMETER
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ORDER_LEN
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_PARAMETER_LEN
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_RAW_LEN
+         U FLAC__ENTROPY_CODING_METHOD_TYPE_LEN
+         U FLAC__FRAME_FOOTER_CRC_LEN
+         U FLAC__MD5Accumulate
+         U FLAC__MD5Final
+         U FLAC__MD5Init
+         U FLAC__STREAM_METADATA_STREAMINFO_BITS_PER_SAMPLE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_CHANNELS_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_MAX_BLOCK_SIZE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_MAX_FRAME_SIZE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_MIN_BLOCK_SIZE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_MIN_FRAME_SIZE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_SAMPLE_RATE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_TOTAL_SAMPLES_LEN
+         U FLAC__STREAM_SYNC
+         U FLAC__STREAM_SYNC_LEN
+         U FLAC__STREAM_SYNC_STRING
+         U FLAC__SUBFRAME_LPC_QLP_COEFF_PRECISION_LEN
+         U FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN
+         U FLAC__SUBFRAME_TYPE_LEN
+         U FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN
+         U FLAC__SUBFRAME_ZERO_PAD_LEN
+00000000 R FLAC__StreamEncoderInitStatusString
+00000000 R FLAC__StreamEncoderReadStatusString
+00000000 R FLAC__StreamEncoderSeekStatusString
+00000000 R FLAC__StreamEncoderStateString
+00000000 R FLAC__StreamEncoderTellStatusString
+00000000 R FLAC__StreamEncoderWriteStatusString
+         U FLAC__add_metadata_block
+         U FLAC__bitwriter_clear
+         U FLAC__bitwriter_delete
+         U FLAC__bitwriter_free
+         U FLAC__bitwriter_get_buffer
+         U FLAC__bitwriter_get_write_crc16
+         U FLAC__bitwriter_init
+         U FLAC__bitwriter_new
+         U FLAC__bitwriter_release_buffer
+         U FLAC__bitwriter_write_raw_uint32
+         U FLAC__bitwriter_zero_pad_to_byte_boundary
+         U FLAC__cpu_info
+         U FLAC__fixed_compute_best_predictor
+         U FLAC__fixed_compute_best_predictor_wide
+         U FLAC__fixed_compute_residual
+         U FLAC__format_blocksize_is_subset
+         U FLAC__format_cuesheet_is_legal
+         U FLAC__format_entropy_coding_method_partitioned_rice_contents_clear
+         U FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size
+         U FLAC__format_entropy_coding_method_partitioned_rice_contents_init
+         U FLAC__format_get_max_rice_partition_order_from_blocksize
+         U FLAC__format_get_max_rice_partition_order_from_blocksize_limited_max_and_predictor_order
+         U FLAC__format_picture_is_legal
+         U FLAC__format_sample_rate_is_subset
+         U FLAC__format_sample_rate_is_valid
+         U FLAC__format_seektable_is_legal
+         U FLAC__format_seektable_sort
+         U FLAC__frame_add_header
+         U FLAC__lpc_compute_autocorrelation
+         U FLAC__lpc_compute_best_order
+         U FLAC__lpc_compute_expected_bits_per_residual_sample
+         U FLAC__lpc_compute_lp_coefficients
+         U FLAC__lpc_compute_residual_from_qlp_coefficients
+         U FLAC__lpc_compute_residual_from_qlp_coefficients_wide
+         U FLAC__lpc_quantize_coefficients
+         U FLAC__lpc_window_data
+         U FLAC__memory_alloc_aligned_int32_array
+         U FLAC__memory_alloc_aligned_real_array
+         U FLAC__memory_alloc_aligned_uint64_array
+         U FLAC__memory_alloc_aligned_unsigned_array
+         U FLAC__stream_decoder_delete
+         U FLAC__stream_decoder_finish
+         U FLAC__stream_decoder_get_resolved_state_string
+         U FLAC__stream_decoder_get_state
+         U FLAC__stream_decoder_init_stream
+         U FLAC__stream_decoder_new
+         U FLAC__stream_decoder_process_single
+00000000 T FLAC__stream_encoder_delete
+00000000 T FLAC__stream_encoder_disable_constant_subframes
+00000000 T FLAC__stream_encoder_disable_fixed_subframes
+00000000 T FLAC__stream_encoder_disable_verbatim_subframes
+00000000 T FLAC__stream_encoder_finish
+00000000 T FLAC__stream_encoder_get_bits_per_sample
+00000000 T FLAC__stream_encoder_get_blocksize
+00000000 T FLAC__stream_encoder_get_channels
+00000000 T FLAC__stream_encoder_get_do_escape_coding
+00000000 T FLAC__stream_encoder_get_do_exhaustive_model_search
+00000000 T FLAC__stream_encoder_get_do_md5
+00000000 T FLAC__stream_encoder_get_do_mid_side_stereo
+00000000 T FLAC__stream_encoder_get_do_qlp_coeff_prec_search
+00000000 T FLAC__stream_encoder_get_loose_mid_side_stereo
+00000000 T FLAC__stream_encoder_get_max_lpc_order
+00000000 T FLAC__stream_encoder_get_max_residual_partition_order
+00000000 T FLAC__stream_encoder_get_min_residual_partition_order
+00000000 T FLAC__stream_encoder_get_qlp_coeff_precision
+00000000 T FLAC__stream_encoder_get_resolved_state_string
+00000000 T FLAC__stream_encoder_get_rice_parameter_search_dist
+00000000 T FLAC__stream_encoder_get_sample_rate
+00000000 T FLAC__stream_encoder_get_state
+00000000 T FLAC__stream_encoder_get_streamable_subset
+00000000 T FLAC__stream_encoder_get_total_samples_estimate
+00000000 T FLAC__stream_encoder_get_verify
+00000000 T FLAC__stream_encoder_get_verify_decoder_error_stats
+00000000 T FLAC__stream_encoder_get_verify_decoder_state
+00000000 T FLAC__stream_encoder_init_FILE
+00000000 T FLAC__stream_encoder_init_ogg_FILE
+00000000 T FLAC__stream_encoder_init_ogg_stream
+00000000 T FLAC__stream_encoder_init_stream
+00000000 T FLAC__stream_encoder_new
+00000000 T FLAC__stream_encoder_process
+00000000 T FLAC__stream_encoder_process_interleaved
+00000000 T FLAC__stream_encoder_set_apodization
+00000000 T FLAC__stream_encoder_set_bits_per_sample
+00000000 T FLAC__stream_encoder_set_blocksize
+00000000 T FLAC__stream_encoder_set_channels
+00000000 T FLAC__stream_encoder_set_compression_level
+00000000 T FLAC__stream_encoder_set_do_escape_coding
+00000000 T FLAC__stream_encoder_set_do_exhaustive_model_search
+00000000 T FLAC__stream_encoder_set_do_md5
+00000000 T FLAC__stream_encoder_set_do_mid_side_stereo
+00000000 T FLAC__stream_encoder_set_do_qlp_coeff_prec_search
+00000000 T FLAC__stream_encoder_set_loose_mid_side_stereo
+00000000 T FLAC__stream_encoder_set_max_lpc_order
+00000000 T FLAC__stream_encoder_set_max_residual_partition_order
+00000000 T FLAC__stream_encoder_set_metadata
+00000000 T FLAC__stream_encoder_set_min_residual_partition_order
+00000000 T FLAC__stream_encoder_set_ogg_serial_number
+00000000 T FLAC__stream_encoder_set_qlp_coeff_precision
+00000000 T FLAC__stream_encoder_set_rice_parameter_search_dist
+00000000 T FLAC__stream_encoder_set_sample_rate
+00000000 T FLAC__stream_encoder_set_streamable_subset
+00000000 T FLAC__stream_encoder_set_total_samples_estimate
+00000000 T FLAC__stream_encoder_set_verify
+         U FLAC__subframe_add_constant
+         U FLAC__subframe_add_fixed
+         U FLAC__subframe_add_lpc
+         U FLAC__subframe_add_verbatim
+         U FLAC__window_bartlett
+         U FLAC__window_bartlett_hann
+         U FLAC__window_blackman
+         U FLAC__window_blackman_harris_4term_92db_sidelobe
+         U FLAC__window_connes
+         U FLAC__window_flattop
+         U FLAC__window_gauss
+         U FLAC__window_hamming
+         U FLAC__window_hann
+         U FLAC__window_kaiser_bessel
+         U FLAC__window_nuttall
+         U FLAC__window_partial_tukey
+         U FLAC__window_punchout_tukey
+         U FLAC__window_rectangle
+         U FLAC__window_triangle
+         U FLAC__window_tukey
+         U FLAC__window_welch
+         U __adddf3
+         U __ashldi3
+         U __divdf3
+         U __divsf3
+         U __extendsfdf2
+         U __fixdfsi
+         U __fixunsdfsi
+         U __floatunsidf
+         U __getreent
+         U __gtdf2
+         U __ledf2
+         U __lshrdi3
+         U __muldf3
+         U __truncdfsf2
+         U __udivdi3
+00000000 t add_subframe_
+00000000 t append_to_verify_fifo_interleaved_
+00000000 r compression_levels_
+         U fclose
+         U feof
+         U ferror
+00000000 t file_read_callback_
+00000000 t file_seek_callback_
+00000000 t file_tell_callback_
+00000000 t file_write_callback_
+00000000 t find_best_partition_order_$isra$0
+         U fprintf
+         U fread
+         U fseeko
+         U ftello
+         U fwrite
+00000000 t get_wasted_bits_
+00000000 t init_FILE_internal_
+00000000 t init_stream_internal_
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcmp
+         U memcpy
+         U memmove
+         U memset
+00000000 t precompute_partition_info_sums_
+00000000 t process_frame_$isra$0
+00000000 t process_subframe_
+         U safe_malloc_mul_2op_p
+00000000 t set_defaults_
+         U strchr
+         U strcmp
+         U strlen
+         U strncmp
+         U strtod
+00000000 t verify_error_callback_
+00000000 t verify_metadata_callback_
+00000000 t verify_read_callback_
+00000000 t verify_write_callback_
+00000000 t write_bitbuffer_$isra$0
+
+stream_encoder_framing.c.obj:
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_ESCAPE_PARAMETER
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_PARAMETER_LEN
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ESCAPE_PARAMETER
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_ORDER_LEN
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_PARAMETER_LEN
+         U FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE_RAW_LEN
+         U FLAC__ENTROPY_CODING_METHOD_TYPE_LEN
+         U FLAC__FRAME_HEADER_BITS_PER_SAMPLE_LEN
+         U FLAC__FRAME_HEADER_BLOCKING_STRATEGY_LEN
+         U FLAC__FRAME_HEADER_BLOCK_SIZE_LEN
+         U FLAC__FRAME_HEADER_CHANNEL_ASSIGNMENT_LEN
+         U FLAC__FRAME_HEADER_CRC_LEN
+         U FLAC__FRAME_HEADER_RESERVED_LEN
+         U FLAC__FRAME_HEADER_SAMPLE_RATE_LEN
+         U FLAC__FRAME_HEADER_SYNC
+         U FLAC__FRAME_HEADER_SYNC_LEN
+         U FLAC__FRAME_HEADER_ZERO_PAD_LEN
+         U FLAC__STREAM_METADATA_APPLICATION_ID_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_INDEX_NUMBER_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_INDEX_OFFSET_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_INDEX_RESERVED_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_IS_CD_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_NUM_TRACKS_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_RESERVED_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_ISRC_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_NUMBER_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_NUM_INDICES_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_OFFSET_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_PRE_EMPHASIS_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_RESERVED_LEN
+         U FLAC__STREAM_METADATA_CUESHEET_TRACK_TYPE_LEN
+         U FLAC__STREAM_METADATA_IS_LAST_LEN
+         U FLAC__STREAM_METADATA_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_COLORS_LEN
+         U FLAC__STREAM_METADATA_PICTURE_DATA_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_DEPTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_DESCRIPTION_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_HEIGHT_LEN
+         U FLAC__STREAM_METADATA_PICTURE_MIME_TYPE_LENGTH_LEN
+         U FLAC__STREAM_METADATA_PICTURE_TYPE_LEN
+         U FLAC__STREAM_METADATA_PICTURE_WIDTH_LEN
+         U FLAC__STREAM_METADATA_SEEKPOINT_FRAME_SAMPLES_LEN
+         U FLAC__STREAM_METADATA_SEEKPOINT_SAMPLE_NUMBER_LEN
+         U FLAC__STREAM_METADATA_SEEKPOINT_STREAM_OFFSET_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_BITS_PER_SAMPLE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_CHANNELS_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_MAX_BLOCK_SIZE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_MAX_FRAME_SIZE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_MIN_BLOCK_SIZE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_MIN_FRAME_SIZE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_SAMPLE_RATE_LEN
+         U FLAC__STREAM_METADATA_STREAMINFO_TOTAL_SAMPLES_LEN
+         U FLAC__STREAM_METADATA_TYPE_LEN
+         U FLAC__SUBFRAME_LPC_QLP_COEFF_PRECISION_LEN
+         U FLAC__SUBFRAME_LPC_QLP_SHIFT_LEN
+         U FLAC__SUBFRAME_TYPE_CONSTANT_BYTE_ALIGNED_MASK
+         U FLAC__SUBFRAME_TYPE_FIXED_BYTE_ALIGNED_MASK
+         U FLAC__SUBFRAME_TYPE_LEN
+         U FLAC__SUBFRAME_TYPE_LPC_BYTE_ALIGNED_MASK
+         U FLAC__SUBFRAME_TYPE_VERBATIM_BYTE_ALIGNED_MASK
+         U FLAC__SUBFRAME_WASTED_BITS_FLAG_LEN
+         U FLAC__SUBFRAME_ZERO_PAD_LEN
+         U FLAC__VENDOR_STRING
+00000000 T FLAC__add_metadata_block
+         U FLAC__bitwriter_get_write_crc8
+         U FLAC__bitwriter_write_byte_block
+         U FLAC__bitwriter_write_raw_int32
+         U FLAC__bitwriter_write_raw_uint32
+         U FLAC__bitwriter_write_raw_uint32_little_endian
+         U FLAC__bitwriter_write_raw_uint64
+         U FLAC__bitwriter_write_rice_signed_block
+         U FLAC__bitwriter_write_unary_unsigned
+         U FLAC__bitwriter_write_utf8_uint32
+         U FLAC__bitwriter_write_utf8_uint64
+         U FLAC__bitwriter_write_zeroes
+00000000 T FLAC__frame_add_header
+00000000 T FLAC__subframe_add_constant
+00000000 T FLAC__subframe_add_fixed
+00000000 T FLAC__subframe_add_lpc
+00000000 T FLAC__subframe_add_verbatim
+00000000 t add_entropy_coding_method_
+00000000 t add_residual_partitioned_rice_
+         U strlen
+
+stream_encoder_intrin_avx2.c.obj:
+
+stream_encoder_intrin_sse2.c.obj:
+
+stream_encoder_intrin_ssse3.c.obj:
+
+window.c.obj:
+00000000 T FLAC__window_bartlett
+00000000 T FLAC__window_bartlett_hann
+00000000 T FLAC__window_blackman
+00000000 T FLAC__window_blackman_harris_4term_92db_sidelobe
+00000000 T FLAC__window_connes
+00000000 T FLAC__window_flattop
+00000000 T FLAC__window_gauss
+00000000 T FLAC__window_hamming
+00000000 T FLAC__window_hann
+00000000 T FLAC__window_kaiser_bessel
+00000000 T FLAC__window_nuttall
+00000000 T FLAC__window_partial_tukey
+00000000 T FLAC__window_punchout_tukey
+00000000 T FLAC__window_rectangle
+00000000 T FLAC__window_triangle
+00000000 T FLAC__window_tukey
+00000000 T FLAC__window_welch
+         U __adddf3
+         U __divdf3
+         U __divsf3
+         U __extendsfdf2
+         U __floatsidf
+         U __muldf3
+         U __subdf3
+         U __truncdfsf2
+         U cos
+         U exp
+         U memset
+
+esp_vorbis_dec.c.obj:
+         U _vorbis_unpack_books
+         U _vorbis_unpack_info
+00000000 r dec_lib$0
+         U esp_audio_dec_register
+         U esp_log_timestamp
+         U esp_log_write
+00000000 T esp_vorbis_dec_close
+00000000 T esp_vorbis_dec_decode
+00000000 T esp_vorbis_dec_open
+00000000 T esp_vorbis_dec_register
+         U media_lib_free
+         U media_lib_module_calloc
+         U vorbis_dsp_create
+         U vorbis_dsp_destroy
+         U vorbis_dsp_pcmout
+         U vorbis_dsp_read
+         U vorbis_dsp_synthesis
+         U vorbis_info_clear
+         U vorbis_info_init
+
+bitwise.c.obj:
+00000000 t _span
+         U memset
+00000000 r tremor_mask
+00000000 T tremor_oggpack_adv
+00000000 T tremor_oggpack_bits
+00000000 T tremor_oggpack_bytes
+00000000 T tremor_oggpack_eop
+00000000 T tremor_oggpack_look
+00000000 T tremor_oggpack_read
+00000000 T tremor_oggpack_readinit
+
+codebook.c.obj:
+00000000 T _book_maptype1_quantvals
+00000000 t _determine_node_bytes
+00000000 t _float32_unpack
+00000000 T _ilog
+00000000 t _make_decode_table
+00000000 t _make_words
+00000000 T decode_map
+00000000 t decode_packed_entry_number
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+         U memset
+00000000 t tremor_ogg_malloc
+         U tremor_oggpack_adv
+         U tremor_oggpack_eop
+         U tremor_oggpack_look
+         U tremor_oggpack_read
+00000000 T vorbis_book_clear
+00000000 T vorbis_book_decode
+00000000 T vorbis_book_decodev_add
+00000000 T vorbis_book_decodev_set
+00000000 T vorbis_book_decodevs_add
+00000000 T vorbis_book_decodevv_add
+00000000 T vorbis_book_unpack
+
+dsp.c.obj:
+00000000 t _vorbis_window
+         U mapping_inverse
+         U mdct_shift_right
+         U mdct_unroll_lap
+         U media_lib_free
+         U media_lib_module_calloc
+         U tremor_oggpack_read
+         U tremor_oggpack_readinit
+00000000 T vorbis_dsp_create
+00000000 T vorbis_dsp_destroy
+00000000 T vorbis_dsp_pcmout
+00000000 T vorbis_dsp_read
+00000000 T vorbis_dsp_restart
+00000000 T vorbis_dsp_synthesis
+00000000 T vorbis_packet_blocksize
+00000000 r vwin1024
+00000000 r vwin128
+00000000 r vwin2048
+00000000 r vwin256
+00000000 r vwin4096
+00000000 r vwin512
+00000000 r vwin64
+00000000 r vwin8192
+
+floor0.c.obj:
+00000000 r ADJUST_SQRT2
+00000000 r COS_LOOKUP_I
+         U FLOOR_fromdB_LOOKUP
+00000000 r INVSQ_LOOKUP_I
+00000000 r INVSQ_LOOKUP_IDel
+00000000 r MLOOP_1
+00000000 r MLOOP_2
+00000000 r MLOOP_3
+         U _ilog
+00000000 r barklook
+00000000 T floor0_free_info
+00000000 T floor0_info_unpack
+00000000 T floor0_inverse1
+00000000 T floor0_inverse2
+00000000 T floor0_memosize
+         U media_lib_free
+         U media_lib_module_calloc
+         U memset
+         U tremor_oggpack_eop
+         U tremor_oggpack_read
+         U vorbis_book_decodev_set
+00000000 T vorbis_lsp_to_curve
+
+floor1.c.obj:
+         U FLOOR_fromdB_LOOKUP
+00000000 T floor1_free_info
+00000000 T floor1_info_unpack
+00000000 T floor1_inverse1
+00000000 T floor1_inverse2
+00000000 T floor1_memosize
+         U media_lib_free
+         U media_lib_module_calloc
+         U memset
+00000000 r quant_look
+00000000 t tremor_ogg_malloc
+         U tremor_oggpack_eop
+         U tremor_oggpack_read
+         U vorbis_book_decode
+
+floor_lookup.c.obj:
+00000000 R FLOOR_fromdB_LOOKUP
+
+framing.c.obj:
+00000000 t _fetch_ref
+00000000 t _next_lace
+00000000 t _ogg_buffer_destroy$part$0
+00000000 t _positionB
+00000000 t _positionF
+00000000 t _span_queued_page
+00000000 r crc_lookup
+         U media_lib_free
+         U media_lib_module_calloc
+         U memchr
+         U memcpy
+         U memset
+00000000 t ogg_buffer_alloc
+00000000 T ogg_buffer_dup
+00000000 t ogg_buffer_pretruncate
+00000000 t ogg_buffer_release
+00000000 t ogg_buffer_release_one
+00000000 t ogg_buffer_split
+00000000 t oggbyte_init
+00000000 t oggbyte_read1
+00000000 t oggbyte_read4
+00000000 t oggbyte_set4$constprop$0
+00000000 T tremor_ogg_packet_release
+00000000 T tremor_ogg_page_bos
+00000000 T tremor_ogg_page_continued
+00000000 T tremor_ogg_page_dup
+00000000 T tremor_ogg_page_eos
+00000000 T tremor_ogg_page_granulepos
+00000000 T tremor_ogg_page_packets
+00000000 T tremor_ogg_page_pageno
+00000000 T tremor_ogg_page_release
+00000000 T tremor_ogg_page_serialno
+00000000 T tremor_ogg_page_version
+00000000 T tremor_ogg_stream_create
+00000000 T tremor_ogg_stream_destroy
+00000000 T tremor_ogg_stream_packetout
+00000000 T tremor_ogg_stream_packetpeek
+00000000 T tremor_ogg_stream_pagein
+00000000 T tremor_ogg_stream_reset
+00000000 T tremor_ogg_stream_reset_serialno
+00000000 T tremor_ogg_sync_bufferin
+00000000 T tremor_ogg_sync_create
+00000000 T tremor_ogg_sync_destroy
+00000000 T tremor_ogg_sync_pageout
+00000000 T tremor_ogg_sync_pageseek
+00000000 T tremor_ogg_sync_reset
+00000000 T tremor_ogg_sync_wrote
+
+info.c.obj:
+         U _ctype_
+00000000 t _v_readstring
+00000000 T _vorbis_unpack_books
+00000000 T _vorbis_unpack_info
+         U floor0_free_info
+         U floor0_info_unpack
+         U floor1_free_info
+         U floor1_info_unpack
+         U mapping_clear_info
+         U mapping_info_unpack
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcmp
+         U memset
+         U res_clear_info
+         U res_unpack
+         U strcat
+         U strcpy
+         U strlen
+00000000 t tagcompare
+00000000 t tremor_ogg_calloc
+00000000 t tremor_ogg_malloc
+         U tremor_oggpack_read
+         U tremor_oggpack_readinit
+         U vorbis_book_clear
+         U vorbis_book_unpack
+00000000 T vorbis_comment_clear
+00000000 T vorbis_comment_init
+00000000 T vorbis_comment_query
+00000000 T vorbis_comment_query_count
+00000000 T vorbis_dsp_headerin
+00000000 T vorbis_info_blocksize
+00000000 T vorbis_info_clear
+00000000 T vorbis_info_init
+
+ivorbisfile_example.c.obj:
+
+mapping0.c.obj:
+         U floor0_inverse1
+         U floor0_inverse2
+         U floor0_memosize
+         U floor1_inverse1
+         U floor1_inverse2
+         U floor1_memosize
+00000000 T mapping_clear_info
+00000000 T mapping_info_unpack
+00000000 T mapping_inverse
+         U mdct_backward
+         U media_lib_free
+         U media_lib_module_calloc
+         U memset
+         U res_inverse
+00000000 t tremor_ogg_malloc
+         U tremor_oggpack_read
+
+mdct.c.obj:
+00000000 t CLIP_TO_15
+00000000 t XNPROD31
+00000000 t XPROD31
+00000000 r bitrev
+00000000 T mdct_backward
+00000000 t mdct_butterfly_16
+00000000 t mdct_butterfly_8
+00000000 T mdct_shift_right
+00000000 T mdct_unroll_lap
+00000000 r sincos_lookup0
+00000000 r sincos_lookup1
+
+misc.c.obj:
+00000000 T _VDBG_dump
+00000000 T _VDBG_free
+00000000 T _VDBG_malloc
+00000000 B global_bytes
+         U media_lib_free
+         U media_lib_module_malloc
+         U media_lib_module_realloc
+         U memset
+00000000 D start_time
+
+res012.c.obj:
+         U media_lib_free
+         U media_lib_module_calloc
+         U memset
+00000000 T res_clear_info
+00000000 T res_inverse
+00000000 T res_unpack
+         U tremor_oggpack_eop
+         U tremor_oggpack_read
+         U vorbis_book_decode
+         U vorbis_book_decodev_add
+         U vorbis_book_decodevs_add
+         U vorbis_book_decodevv_add
+
+vorbisfile.c.obj:
+         U __divdi3
+         U __errno
+00000000 t _decode_clear$isra$0
+00000000 t _fetch_headers
+00000000 t _get_data
+00000000 t _get_next_page
+00000000 t _seek_helper
+00000000 t _set_link_number_preserve_pos
+         U fclose
+         U fread
+         U ftell
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+         U memset
+00000000 T oggheader_read_resume
+00000000 T oggheader_saving
+00000000 T ov_bitrate
+00000000 T ov_bitrate_instant
+00000000 T ov_clear
+00000000 T ov_comment
+00000000 T ov_info
+00000000 T ov_open
+00000000 T ov_open_callbacks
+00000000 T ov_pcm_tell
+00000000 T ov_pcm_total
+00000000 T ov_raw_tell
+00000000 T ov_raw_total
+00000000 T ov_read
+00000000 T ov_seekable
+00000000 T ov_serialnumber
+00000000 T ov_streams
+00000000 T ov_time_tell
+00000000 T ov_time_total
+         U printf
+         U tremor_ogg_packet_release
+         U tremor_ogg_page_release
+         U tremor_ogg_page_serialno
+         U tremor_ogg_stream_create
+         U tremor_ogg_stream_destroy
+         U tremor_ogg_stream_packetout
+         U tremor_ogg_stream_pagein
+         U tremor_ogg_stream_reset_serialno
+         U tremor_ogg_sync_bufferin
+         U tremor_ogg_sync_create
+         U tremor_ogg_sync_destroy
+         U tremor_ogg_sync_pageseek
+         U tremor_ogg_sync_reset
+         U tremor_ogg_sync_wrote
+         U vorbis_comment_clear
+         U vorbis_comment_init
+         U vorbis_dsp_create
+         U vorbis_dsp_destroy
+         U vorbis_dsp_headerin
+         U vorbis_dsp_pcmout
+         U vorbis_dsp_read
+         U vorbis_dsp_synthesis
+         U vorbis_info_clear
+         U vorbis_info_init
+
+esp_mp3_dec.c.obj:
+00000000 t L3_dct3_9
+00000000 t L3_imdct12
+00000000 t L3_imdct36
+00000000 t L3_ldexp_q2
+00000000 t L3_midside_stereo
+         U __divsf3
+00000000 r dec_lib$0
+         U esp_audio_dec_register
+         U esp_chip_info
+         U esp_log_timestamp
+         U esp_log_write
+00000000 T esp_mp3_dec_close
+00000000 T esp_mp3_dec_decode
+00000000 T esp_mp3_dec_open
+00000000 T esp_mp3_dec_register
+00000000 r g_aa$12
+00000000 r g_alloc_L1$7
+00000000 r g_alloc_L2M1$5
+00000000 r g_alloc_L2M1_lowrate$4
+00000000 r g_alloc_L2M2$6
+00000000 r g_bitalloc_code_tab$8
+00000000 r g_deq_L12$3
+00000000 r g_expfrac$19
+00000000 r g_hz$28
+00000000 r g_linbits$16
+00000000 r g_mdct_window$11
+00000000 r g_mod$21
+00000000 r g_pan$13
+00000000 r g_pow43
+00000000 r g_preamp$20
+00000000 r g_scf_long$26
+00000000 r g_scf_mixed$24
+00000000 r g_scf_partitions$23
+00000000 r g_scf_short$25
+00000000 r g_scfc_decode$22
+00000000 r g_sec$2
+00000000 r g_twid3$10
+00000000 r g_twid9$9
+00000000 r g_win$1
+00000000 t get_bits
+00000000 r halfrate$27
+00000000 t hdr_bitrate_kbps
+00000000 t hdr_compare
+00000000 t hdr_frame_bytes
+00000000 t hdr_frame_samples
+00000000 t hdr_padding
+00000000 t hdr_sample_rate_hz
+00000000 t hdr_valid
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+         U memmove
+         U memset
+00000000 t mp3d_scale_pcm
+00000000 t mp3d_synth_granule
+00000000 t mp3d_synth_pair
+00000000 T mp3dec_decode_frame
+00000000 T mp3dec_init
+         U pvmp3_InitDecoder
+         U pvmp3_closeDecoder
+         U pvmp3_decoderMemRequirements
+         U pvmp3_framedecoder
+00000000 r tab32$14
+00000000 r tab33$15
+00000000 r tabindex$18
+00000000 r tabs$17
+
+pvmp3_alias_reduction.cpp.obj:
+00000000 r _ZL7c_alias
+00000000 r _ZL8c_signal
+00000000 T pvmp3_alias_reduction
+
+pvmp3_crc.cpp.obj:
+00000000 T calculate_crc
+         U getNbits
+00000000 T getbits_crc
+
+pvmp3_dct_16.cpp.obj:
+00000000 r _ZL14CosTable_dct32
+00000000 R dec16_win_mp3
+00000000 T pvmp3_merge_in_place_N32
+00000000 T pvmp3_split
+
+pvmp3_dct_6.cpp.obj:
+00000000 T pvmp3_dct_6
+
+pvmp3_dct_9.cpp.obj:
+00000000 T pvmp3_dct_9
+
+pvmp3_decode_header.cpp.obj:
+         U calculate_crc
+         U getNbits
+         U getUpTo17bits
+00000000 T pvmp3_decode_header
+         U pvmp3_header_sync
+
+pvmp3_decode_huff_cw.cpp.obj:
+         U getNbits
+         U getUpTo17bits
+         U getUpTo9bits
+         U huffTable_1
+         U huffTable_10
+         U huffTable_11
+         U huffTable_12
+         U huffTable_13
+         U huffTable_15
+         U huffTable_16
+         U huffTable_2
+         U huffTable_24
+         U huffTable_3
+         U huffTable_32
+         U huffTable_5
+         U huffTable_6
+         U huffTable_7
+         U huffTable_8
+         U huffTable_9
+00000000 T pvmp3_decode_huff_cw_tab0
+00000000 T pvmp3_decode_huff_cw_tab1
+00000000 T pvmp3_decode_huff_cw_tab10
+00000000 T pvmp3_decode_huff_cw_tab11
+00000000 T pvmp3_decode_huff_cw_tab12
+00000000 T pvmp3_decode_huff_cw_tab13
+00000000 T pvmp3_decode_huff_cw_tab15
+00000000 T pvmp3_decode_huff_cw_tab16
+00000000 T pvmp3_decode_huff_cw_tab2
+00000000 T pvmp3_decode_huff_cw_tab24
+00000000 T pvmp3_decode_huff_cw_tab3
+00000000 T pvmp3_decode_huff_cw_tab32
+00000000 T pvmp3_decode_huff_cw_tab33
+00000000 T pvmp3_decode_huff_cw_tab5
+00000000 T pvmp3_decode_huff_cw_tab6
+00000000 T pvmp3_decode_huff_cw_tab7
+00000000 T pvmp3_decode_huff_cw_tab8
+00000000 T pvmp3_decode_huff_cw_tab9
+
+pvmp3_dequantize_sample.cpp.obj:
+00000000 r _ZL14pow_2_1_fourth
+00000000 r _ZL15two_cubic_roots
+00000000 r _ZL6pretab
+00000000 t esp_mul32_32_q30
+         U memset
+         U mp3_sfBandIndex
+         U mp3_shortwindBandWidths
+00000000 T power_1_third
+         U power_one_third
+00000000 T pvmp3_dequantize_sample
+         U pvmp3_normalize
+
+pvmp3_equalizer.cpp.obj:
+00000000 r _ZL12equalizerTbl
+00000000 T pvmp3_equalizer
+
+pvmp3_framedecoder.cpp.obj:
+00000000 W _Z11fillDataBufP8tmp3Bitsm
+00000000 T fillMainDataBuf
+         U getUpTo17bits
+         U media_lib_free
+         U media_lib_module_calloc
+         U memcpy
+         U memset
+         U mp3_bitrate
+         U mp3_s_freq
+00000000 T pvmp3_InitDecoder
+         U pvmp3_alias_reduction
+00000000 T pvmp3_closeDecoder
+         U pvmp3_decode_header
+         U pvmp3_decode_huff_cw_tab0
+         U pvmp3_decode_huff_cw_tab1
+         U pvmp3_decode_huff_cw_tab10
+         U pvmp3_decode_huff_cw_tab11
+         U pvmp3_decode_huff_cw_tab12
+         U pvmp3_decode_huff_cw_tab13
+         U pvmp3_decode_huff_cw_tab15
+         U pvmp3_decode_huff_cw_tab16
+         U pvmp3_decode_huff_cw_tab2
+         U pvmp3_decode_huff_cw_tab24
+         U pvmp3_decode_huff_cw_tab3
+         U pvmp3_decode_huff_cw_tab32
+         U pvmp3_decode_huff_cw_tab33
+         U pvmp3_decode_huff_cw_tab5
+         U pvmp3_decode_huff_cw_tab6
+         U pvmp3_decode_huff_cw_tab7
+         U pvmp3_decode_huff_cw_tab8
+         U pvmp3_decode_huff_cw_tab9
+00000000 T pvmp3_decoderMemRequirements
+         U pvmp3_dequantize_sample
+00000000 T pvmp3_framedecoder
+         U pvmp3_get_main_data_size
+         U pvmp3_get_scale_factors
+         U pvmp3_get_side_info
+         U pvmp3_huffman_parsing
+         U pvmp3_imdct_synth
+         U pvmp3_mpeg2_get_scale_factors
+         U pvmp3_mpeg2_stereo_proc
+         U pvmp3_poly_phase_synthesis
+         U pvmp3_reorder
+00000000 T pvmp3_resetDecoder
+         U pvmp3_stereo_proc
+
+pvmp3_get_main_data_size.cpp.obj:
+         U inv_sfreq
+         U mp3_bitrate
+00000000 T pvmp3_get_main_data_size
+
+pvmp3_get_scale_factors.cpp.obj:
+00000000 r _ZL13long_sfbtable
+00000000 r _ZL4slen
+         U getNbits
+         U memset
+00000000 T pvmp3_get_scale_factors
+
+pvmp3_get_side_info.cpp.obj:
+         U getbits_crc
+00000000 T pvmp3_get_side_info
+
+pvmp3_getbits.cpp.obj:
+00000000 T get1bit
+00000000 T getNbits
+00000000 T getUpTo17bits
+00000000 T getUpTo9bits
+
+pvmp3_huffman_decoding.cpp.obj:
+         U get1bit
+         U getUpTo17bits
+00000000 T pvmp3_huffman_pair_decoding
+00000000 T pvmp3_huffman_pair_decoding_linbits
+00000000 T pvmp3_huffman_quad_decoding
+
+pvmp3_huffman_parsing.cpp.obj:
+         U mp3_sfBandIndex
+         U pvmp3_huffman_pair_decoding
+         U pvmp3_huffman_pair_decoding_linbits
+00000000 T pvmp3_huffman_parsing
+         U pvmp3_huffman_quad_decoding
+
+pvmp3_imdct_synth.cpp.obj:
+00000000 r _ZL10normal_win
+00000000 r _ZL8stop_win
+00000000 r _ZL9short_win
+00000000 r _ZL9start_win
+         U memset
+00000000 T pvmp3_imdct_synth
+         U pvmp3_mdct_18
+         U pvmp3_mdct_6
+
+pvmp3_mdct_18.cpp.obj:
+00000000 r _ZL14cosTerms_dct18
+00000000 r _ZL21cosTerms_1_ov_cos_phi
+         U pvmp3_dct_9
+00000000 T pvmp3_mdct_18
+
+pvmp3_mdct_6.cpp.obj:
+00000000 r _ZL24cosTerms_1_ov_cos_phi_N6
+         U pvmp3_dct_6
+00000000 T pvmp3_mdct_6
+
+pvmp3_mpeg2_get_scale_data.cpp.obj:
+00000000 r _ZL15nr_of_sfb_block
+         U getNbits
+00000000 T pvmp3_mpeg2_get_scale_data
+
+pvmp3_mpeg2_get_scale_factors.cpp.obj:
+         U pvmp3_mpeg2_get_scale_data
+00000000 T pvmp3_mpeg2_get_scale_factors
+
+pvmp3_mpeg2_stereo_proc.cpp.obj:
+00000000 r _ZL26is_pos_pow_eitgh_root_of_2
+         U memcpy
+         U mp3_sfBandIndex
+00000000 T pvmp3_mpeg2_stereo_proc
+00000000 T pvmp3_st_intensity_ver2
+         U pvmp3_st_mid_side
+
+pvmp3_normalize.cpp.obj:
+00000000 T pvmp3_normalize
+
+pvmp3_poly_phase_synthesis.cpp.obj:
+         U dct_16_opt
+         U dec16_win_mp3
+         U memcpy
+         U pqmfSynthWin
+         U pvmp3_equalizer
+         U pvmp3_merge_in_place_N32
+00000000 T pvmp3_poly_phase_synthesis
+         U pvmp3_polyphase_filter_window_c
+         U pvmp3_polyphase_filter_window_opt
+         U pvmp3_split
+
+pvmp3_polyphase_filter_window.cpp.obj:
+00000000 T pvmp3_polyphase_filter_window_c
+
+pvmp3_polyphase_filter_window_opt.S.obj:
+0000016a t FRIST_NUMBER
+0000000c t INNER_LOOP
+00000006 t SURROUND_LOOP
+00000000 T pvmp3_polyphase_filter_window_opt
+
+pvmp3_reorder.cpp.obj:
+         U memcpy
+         U mp3_sfBandIndex
+00000000 T pvmp3_reorder
+
+pvmp3_seek_synch.cpp.obj:
+         U getNbits
+         U getUpTo17bits
+         U getUpTo9bits
+         U inv_sfreq
+         U mp3_bitrate
+00000000 T pvmp3_frame_synch
+00000000 T pvmp3_header_sync
+
+pvmp3_stereo_proc.cpp.obj:
+00000000 r _ZL15is_ratio_factor
+         U mp3_sfBandIndex
+00000000 T pvmp3_st_intensity
+00000000 T pvmp3_st_mid_side
+00000000 T pvmp3_stereo_proc
+
+pvmp3_tables.cpp.obj:
+00000000 R huffTable_1
+00000000 R huffTable_10
+00000000 R huffTable_11
+00000000 R huffTable_12
+00000000 R huffTable_13
+00000000 R huffTable_15
+00000000 R huffTable_16
+00000000 R huffTable_2
+00000000 R huffTable_24
+00000000 R huffTable_3
+00000000 R huffTable_32
+00000000 R huffTable_5
+00000000 R huffTable_6
+00000000 R huffTable_7
+00000000 R huffTable_8
+00000000 R huffTable_9
+00000000 R inv_sfreq
+00000000 R mp3_bitrate
+00000000 R mp3_s_freq
+00000000 R mp3_sfBandIndex
+00000000 R mp3_shortwindBandWidths
+00000000 R power_one_third
+00000000 R pqmfSynthWin
+
+dct_16.S.obj:
+00000000 T dct_16_opt
+0000000c t flag_end
+
+dsps_dotprod_s16_ae32.S.obj:
+00000028 t .loop
+00000034 t .loop_end
+00000058 t .mod1chk
+0000004c t .mod2chk
+00000000 T dsps_dotprod_s16_ae32
+00000061 t dsps_dotprod_s16_ae32_error
+
+dsps_dotprod_s16_m_ae32.S.obj:
+
+ADD_WINDOW_MDCT.S.obj:
+00000104 T POST_LONG_WINDOW_MDCT_128ASM
+00000000 T PRE_LONG_WINDOW_MDCT_128ASM
+00000102 t loop1
+00000211 t loop2
+
+CalcWindowEnergy.S.obj:
+00000000 T CALC_WINDOW_ENERGY_ASM
+00000044 t LOOP_1
+00000084 t LOOP_2
+000000c4 t LOOP_3
+00000104 t LOOP_4
+00000144 t LOOP_5
+00000184 t LOOP_6
+000001c4 t LOOP_7
+00000204 t LOOP_8
+
+LOAD_MDCTDATA.S.obj:
+000000e7 t END
+00000000 T LOAD_MDCT_DATA_128ASM
+00000019 t LOOP1
+00000050 t LOOP2
+0000009c t LOOP3
+000000e4 t LOOP4
+00000059 t ch0
+000000a0 t ch1
+00000028 t chIncrement1
+00000054 t chIncrement2
+
+MDCT.S.obj:
+0000006d t LOOP_END
+00000230 t LOOP_STOP
+00000000 T MDCT_RADIX4FIRST_128ASM
+00000070 T MDCT_RADIX8FIRST_128ASM
+
+PRE_MDCT.S.obj:
+0000000c t LOOP1
+00000015 t LOOP2
+0000014c t LOOP3
+00000000 T Radix4FFT_ASM
+
+TNS_AUTO_CORRELATION.S.obj:
+00000044 t LOOP1
+0000006f t LOOP2
+0000001b t LOOP_STOP
+00000020 T TNS_AUTOCORRELATION_2_ASM
+00000048 T TNS_AUTOCORRELATION_3_ASM
+00000000 T TNS_AUTOCORRELATION_ASM
+
+aac_calc_window_energy.c.obj:
+         U CALC_WINDOW_ENERGY_ASM
+00000000 T aac_calc_window_energy
+
+aac_enc_mdct.c.obj:
+         U LOAD_MDCT_DATA_128ASM
+         U MDCT_RADIX4FIRST_128ASM
+         U MDCT_RADIX8FIRST_128ASM
+         U POST_LONG_WINDOW_MDCT_128ASM
+         U PRE_LONG_WINDOW_MDCT_128ASM
+         U Radix4FFT_ASM
+00000000 T aac_fft_radix4
+00000000 T aac_mdct_post_add_window
+00000000 T aac_mdct_pre_add_window
+00000000 T aac_pre_radix4
+00000000 T aac_pre_radix8
+00000000 T aac_shift_mdct_delay_buffer
+
+aac_enc_tnc_auto_correlation.c.obj:
+         U TNS_AUTOCORRELATION_2_ASM
+         U TNS_AUTOCORRELATION_3_ASM
+         U TNS_AUTOCORRELATION_ASM
+00000000 T aac_auto_correlation
+
+calc_sbr_anafilterbank_core1_opt.S.obj:
+00000000 T calc_sbr_anafilterbank_LC_core_opt
+0000016b t loop_for_end1
+
+calc_sbr_synfilterbank.c.obj:
+00000000 T calc_sbr_synfilterbank
+00000000 T calc_sbr_synfilterbank_LC
+         U calc_sbr_synfilterbank_opt
+         U sbrDecoderFilterbankCoefficients_down_smpl
+00000000 R sbrDecoderFilterbankCoefficients_opt
+         U synthesis_sub_band
+         U synthesis_sub_band_LC
+         U synthesis_sub_band_LC_down_sampled
+         U synthesis_sub_band_down_sampled
+
+calc_sbr_synfilterbank_opt.S.obj:
+00000000 T calc_sbr_synfilterbank_opt
+0000010d t loop_for_end1
+00000209 t loop_for_end2
+
+synthesis_sub_band_LC_core1.S.obj:
+00000107 t loop_for_1
+00000171 t loop_for_2
+000001b9 t loop_for_3
+00000000 T synthesis_sub_band_LC_core1_opt
+
+synthesis_sub_band_LC_core2.S.obj:
+0000007d t _loop_end_for_1
+00000110 t _loop_end_for_2
+00000000 T synthesis_sub_band_LC_core2_opt

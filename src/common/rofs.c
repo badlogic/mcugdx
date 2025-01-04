@@ -34,6 +34,11 @@ typedef struct {
 
 rofs_file_system_t fs = {0};
 
+typedef struct rofs_file_handle_struct {
+	uint32_t index;
+	uint32_t current_offset;
+} rofs_file_handle_struct_t;
+
 #ifdef ESP_PLATFORM
 const esp_partition_t *partition;
 
@@ -257,44 +262,65 @@ bool rofs_exists(const char *path) {
 rofs_file_handle_t rofs_open(const char *path) {
 	for (uint32_t i = 0; i < fs.num_files; i++) {
 		if (strcmp(fs.files[i].name, path) == 0) {
-			return i + 1;
+			rofs_file_handle_struct_t* handle = mcugdx_mem_alloc(sizeof(rofs_file_handle_struct_t), MCUGDX_MEM_EXTERNAL);
+			if (!handle) return NULL;
+			handle->index = i;
+			handle->current_offset = 0;
+			return handle;
 		}
 	}
-	return 0;
+	return NULL;
 }
 
 uint32_t rofs_length(rofs_file_handle_t handle) {
-	return fs.files[handle - 1].size;
+	rofs_file_handle_struct_t* handle_struct = (rofs_file_handle_struct_t*) handle;
+	return fs.files[handle_struct->index].size;
 }
 
-uint32_t rofs_read(rofs_file_handle_t handle, uint32_t file_offset, uint8_t *buffer, uint32_t buffer_len) {
-    uint32_t i = handle - 1;
-    uint32_t file_size = fs.files[i].size;
-    uint32_t file_start_offset = fs.files[i].offset;
+bool rofs_seek(rofs_file_handle_t handle, uint32_t offset) {
+	rofs_file_handle_struct_t* handle_struct = (rofs_file_handle_struct_t*) handle;
+	if (offset >= fs.files[handle_struct->index].size) {
+		return false;
+	}
+	handle_struct->current_offset = offset;
+	return true;
+}
 
-    if (file_offset >= file_size) {
-		mcugdx_loge(TAG, "Offset %u pass end of file %s", file_offset, fs.files[i].name);
-        return 0;
-    }
+uint32_t rofs_read(rofs_file_handle_t handle, uint8_t *buffer, uint32_t buffer_len) {
+	rofs_file_handle_struct_t* handle_struct = (rofs_file_handle_struct_t*) handle;
+	uint32_t file_size = fs.files[handle_struct->index].size;
+	uint32_t file_start_offset = fs.files[handle_struct->index].offset;
 
-    uint32_t bytes_to_read = file_size - file_offset;
-    if (bytes_to_read > buffer_len) {
-        bytes_to_read = buffer_len;
-    }
+	if (handle_struct->current_offset >= file_size) {
+		mcugdx_loge(TAG, "Current offset %u past end of file %s",
+			handle_struct->current_offset, fs.files[handle_struct->index].name);
+		return 0;
+	}
+
+	uint32_t bytes_to_read = file_size - handle_struct->current_offset;
+	if (bytes_to_read > buffer_len) {
+		bytes_to_read = buffer_len;
+	}
 
 #ifdef ESP_PLATFORM
-    esp_err_t result = esp_partition_read(partition,
-                                          file_start_offset + file_offset,
-                                          buffer,
-                                          bytes_to_read);
-    if (result != ESP_OK) {
-        mcugdx_loge(TAG, "Failed to read file %s at offset %u\n", fs.files[i].name, file_offset);
-        return 0;
-    }
+	esp_err_t result = esp_partition_read(partition,
+										file_start_offset + handle_struct->current_offset,
+										buffer,
+										bytes_to_read);
+	if (result != ESP_OK) {
+		mcugdx_loge(TAG, "Failed to read file %s at offset %u\n",
+			fs.files[handle_struct->index].name, handle_struct->current_offset);
+		return 0;
+	}
 #else
-    const uint8_t *data = partition + file_start_offset + file_offset;
-    memcpy(buffer, data, bytes_to_read);
+	const uint8_t *data = partition + file_start_offset + handle_struct->current_offset;
+	memcpy(buffer, data, bytes_to_read);
 #endif
 
-    return bytes_to_read;
+	handle_struct->current_offset += bytes_to_read;
+	return bytes_to_read;
+}
+
+void rofs_close(rofs_file_handle_t handle) {
+	mcugdx_mem_free(handle);
 }

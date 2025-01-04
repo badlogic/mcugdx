@@ -5,11 +5,6 @@ bool mcugdx_rofs_init(void) {
 	return rofs_init();
 }
 
-static void rofs_close(mcugdx_file_handle_t handle) {
-	(void)handle;
-	return;
-}
-
 mcugdx_file_system_t mcugdx_rofs = {
 	.exists = rofs_exists,
 	.length = rofs_length,
@@ -17,6 +12,7 @@ mcugdx_file_system_t mcugdx_rofs = {
 	.close = rofs_close,
 	.read = rofs_read,
 	.read_fully = rofs_read_fully,
+	.seek = rofs_seek,
 	.num_files = rofs_num_files,
 	.file_name = rofs_file_name
 };

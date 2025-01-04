@@ -3,7 +3,7 @@
 #define reverse_color(color) (((color) >> 8) | ((color) << 8))
 
 #define QOI_IMPLEMENTATION
-#include "qoi.h"
+#include "thirdparty/qoi.h"
 
 mcugdx_image_t *mcugdx_image_load(const char *path, mcugdx_file_system_t *fs, mcugdx_memory_type_t mem_type) {
 	uint32_t size;
