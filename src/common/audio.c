@@ -85,7 +85,7 @@ static uint32_t preloaded_render(mcugdx_sound_internal_t *sound, mcugdx_audio_re
 			right_sample = data->frames[data->position * 2 + 1];
 		}
 
-		output = mix_frames(output, left_sample, right_sample, channels, pan_left_gain, pan_right_gain, final_gain);
+		output = mix_frames(output, channels, left_sample, right_sample, pan_left_gain, pan_right_gain, final_gain);
 		data->position++;
 	}
 	return frames_to_render;
@@ -97,7 +97,8 @@ static void preloaded_reset(mcugdx_sound_internal_t *sound, mcugdx_audio_rendere
 }
 
 static void preloaded_free(mcugdx_sound_internal_t *sound, mcugdx_audio_renderer_t *renderer) {
-	mcugdx_mem_free(renderer->renderer_data);
+	// Renderer data is stored on sound and shared between instances, no need to free it.
+	// mcugdx_mem_free(renderer->renderer_data);
 	mcugdx_mem_free(renderer);
 }
 
@@ -180,9 +181,97 @@ static bool qoa_init_preloaded(const char *path, mcugdx_file_system_t *fs, mcugd
 	return *frames != NULL;
 }
 
+// Helper struct to hold file system context
+typedef struct {
+	mcugdx_file_system_t *fs;
+	mcugdx_file_handle_t handle;
+} mcugdx_file_io_t;
+
+// File-based seek function compatible with helix_mp3_io_t
+static int mcugdx_file_seek(void* ctx, int offset) {
+	mcugdx_file_io_t *io = (mcugdx_file_io_t*)ctx;
+	return io->fs->seek(io->handle, offset) ? 0 : -1;
+}
+
+// File-based read function compatible with helix_mp3_io_t
+static size_t mcugdx_file_read(void* ctx, void* buffer, size_t size) {
+	mcugdx_file_io_t *io = (mcugdx_file_io_t*)ctx;
+	return io->fs->read(io->handle, buffer, size);
+}
+
+static bool mp3_init_preloaded(const char *path, mcugdx_file_system_t *fs, mcugdx_memory_type_t mem_type,
+							   int16_t **frames, uint32_t *sample_rate, uint32_t *channels, uint32_t *num_samples) {
+	// Setup file IO for helix
+	helix_mp3_t mp3;
+	helix_mp3_io_t io = {0};
+
+	// Open the file
+	mcugdx_file_handle_t handle = fs->open(path);
+	if (!handle) return false;
+
+	// Setup file IO context
+	mcugdx_file_io_t file_io = { fs, handle };
+
+	io.seek = mcugdx_file_seek;
+	io.read = mcugdx_file_read;
+	io.user_data = &file_io;
+
+	// Initialize decoder
+	if (helix_mp3_init(&mp3, &io) != 0) {
+		fs->close(handle);
+		return false;
+	}
+
+	// First pass: count total frames
+	size_t total_frames = 0;
+	int16_t temp_buffer[HELIX_MP3_MAX_SAMPLES_PER_FRAME * 2]; // Double buffer size for stereo
+
+	while (true) {
+		size_t frames = helix_mp3_read_pcm_frames_s16(&mp3, temp_buffer, HELIX_MP3_MAX_SAMPLES_PER_FRAME);
+		if (frames == 0) break;
+		total_frames += frames;
+	}
+
+	// Allocate buffer for all frames
+	size_t buffer_size = total_frames * 2 * sizeof(int16_t); // Stereo samples
+	*frames = mcugdx_mem_alloc(buffer_size, mem_type);
+	if (!*frames) {
+		helix_mp3_deinit(&mp3);
+		fs->close(handle);
+		return false;
+	}
+
+	// Reset file and decoder
+	fs->seek(handle, 0);
+	helix_mp3_deinit(&mp3);
+	if (helix_mp3_init(&mp3, &io) != 0) {
+		mcugdx_mem_free(*frames);
+		fs->close(handle);
+		return false;
+	}
+
+	// Second pass: decode all frames
+	size_t frames_read = 0;
+	while (frames_read < total_frames) {
+		size_t num_frames = helix_mp3_read_pcm_frames_s16(&mp3,
+			*frames + (frames_read * 2),  // Advance by 2 samples per frame (stereo)
+			total_frames - frames_read);
+		if (num_frames == 0) break;
+		frames_read += num_frames;
+	}
+
+	*sample_rate = helix_mp3_get_sample_rate(&mp3);
+	*channels = 2; // MP3 decoder always outputs stereo
+	*num_samples = frames_read; // Use actual frames read instead of total_frames
+
+	helix_mp3_deinit(&mp3);
+	fs->close(handle);
+	return true;
+}
+
 static const mcugdx_audio_format_t formats[] = {
 		{".qoa", NULL, qoa_init_preloaded},
-		// { ".mp3", mp3_init_streaming, NULL }, // Add MP3 support
+		{".mp3", NULL, mp3_init_preloaded}, // Add MP3 support
 		{NULL, NULL, NULL}};
 
 mcugdx_sound_t *mcugdx_sound_load(const char *path, mcugdx_file_system_t *fs,
