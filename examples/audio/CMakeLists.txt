@@ -7,6 +7,8 @@ endif()
 project(audio)
 
 if(NOT DEFINED ESP_PLATFORM)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_subdirectory(../../ ${CMAKE_BINARY_DIR}/mcugdx)
 add_executable(audio "main/main.cpp")
 target_link_libraries(audio PUBLIC mcugdx)

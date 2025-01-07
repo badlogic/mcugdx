@@ -9,6 +9,10 @@
 #include <math.h>
 #include "helix_mp3.h"
 
+#ifdef _WIN32
+	#define strcasecmp _stricmp
+#endif
+
 #define TAG "mcugdx_audio"
 #define MAX_SOUND_INSTANCES 32
 
