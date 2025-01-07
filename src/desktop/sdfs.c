@@ -158,7 +158,11 @@ static void sdfs_full_path(mcugdx_file_handle_t handle, char* buffer, size_t buf
 
 static bool sdfs_is_dir_handle(mcugdx_file_handle_t handle) {
     sdfs_handle_t* h = (sdfs_handle_t*)handle;
+#ifdef _WIN32
+    return h && h->dir_handle != INVALID_HANDLE_VALUE;
+#else
     return h && h->dir != NULL;
+#endif
 }
 
 static mcugdx_file_handle_t sdfs_read_dir(mcugdx_file_handle_t handle) {

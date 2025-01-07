@@ -35,9 +35,9 @@ if(CMAKE_BUILD_TYPE MATCHES Release)
 endif()
 
 if(MSVC)
-    add_compile_options(/DDESKTOP_BUILD /std:c++20 /W4 /wd4065 /wd4100 /wd4324 /wd4996 /wd4201 /wd4189 /wd4101 /wd4100)
+    add_compile_options(/DDESKTOP_BUILD /std:c17 /std:c++20 /W4 /wd4065 /wd4100 /wd4324 /wd4996 /wd4201 /wd4189 /wd4101 /wd4100)
 else()
-    add_compile_options(-DDESKTOP_BUILD -Wall -Wextra -Wpedantic -Werror -Wno-implicit-fallthrough -Wno-unused-but-set-variable -Wno-unused-variable -Wno-unused-parameter)
+    add_compile_options(-DDESKTOP_BUILD -std=c11 -std=c++20 -Wall -Wextra -Wpedantic -Werror -Wno-implicit-fallthrough -Wno-unused-but-set-variable -Wno-unused-variable -Wno-unused-parameter)
 endif()
 
 # Library

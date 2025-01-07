@@ -51,7 +51,11 @@
 #ifndef _ASSEMBLY_H
 #define _ASSEMBLY_H
 
-#define ALWAYS_INLINE inline __attribute__((always_inline))
+#ifdef _MSC_VER
+    #define ALWAYS_INLINE __forceinline
+#else
+    #define ALWAYS_INLINE inline __attribute__((always_inline))
+#endif
 
 #if defined(__GNUC__) && defined(__arm__) && (__ARM_ARCH >= 7)
 

@@ -5,27 +5,26 @@
 #include <stdio.h>
 
 #define HELIX_MP3_MIN(x, y) (((x) < (y)) ? (x) : (y))
+#define ID3V2_FRAME_HEADER_SIZE    10
+#define ID3V2_FRAME_OFFSET         0
+#define ID3V2_MAGIC_STRING_LENGTH  3
+#define ID3V2_MAGIC_STRING         "ID3"
 
 static int helix_mp3_skip_id3v2_tag(helix_mp3_t *mp3)
 {
-    const size_t id3v2_frame_header_size = 10;
-    const size_t id3v2_frame_offset = 0;
-    const size_t id3v2_frame_magic_string_length = 3;
-    const char *id3v2_frame_magic_string = "ID3";
-
-    uint8_t frame_buffer[id3v2_frame_header_size];
+    uint8_t frame_buffer[ID3V2_FRAME_HEADER_SIZE];
 
     /* Seek to the beginning of the frame and read frame's header */
-    if (mp3->io->seek(mp3->io->user_data, id3v2_frame_offset) != 0) {
+    if (mp3->io->seek(mp3->io->user_data, ID3V2_FRAME_OFFSET) != 0) {
         return -EIO;
     }
-    if (mp3->io->read(mp3->io->user_data, frame_buffer, id3v2_frame_header_size) != id3v2_frame_header_size) {
+    if (mp3->io->read(mp3->io->user_data, frame_buffer, ID3V2_FRAME_HEADER_SIZE) != ID3V2_FRAME_HEADER_SIZE) {
         return -EIO;
     }
 
     /* Check magic */
-    if (strncmp((const char *)frame_buffer, id3v2_frame_magic_string, id3v2_frame_magic_string_length) != 0) {
-        mp3->io->seek(mp3->io->user_data, id3v2_frame_offset);
+    if (strncmp((const char *)frame_buffer, ID3V2_MAGIC_STRING, ID3V2_MAGIC_STRING_LENGTH) != 0) {
+        mp3->io->seek(mp3->io->user_data, ID3V2_FRAME_OFFSET);
         return 0;
     }
 
@@ -34,10 +33,10 @@ static int helix_mp3_skip_id3v2_tag(helix_mp3_t *mp3)
      * Those frame indices are just copied from the ID3V2 docs. */
     const size_t id3v2_tag_total_size = (((frame_buffer[6] & 0x7F) << 21) | ((frame_buffer[7] & 0x7F) << 14) |
                                         ((frame_buffer[8] & 0x7F) << 7) | ((frame_buffer[9] & 0x7F) << 0)) +
-                                        id3v2_frame_header_size;
+                                        ID3V2_FRAME_HEADER_SIZE;
 
     /* Skip the tag */
-    if (mp3->io->seek(mp3->io->user_data, id3v2_frame_offset + id3v2_tag_total_size) != 0) {
+    if (mp3->io->seek(mp3->io->user_data, ID3V2_FRAME_OFFSET + id3v2_tag_total_size) != 0) {
         return -EIO;
     }
     return id3v2_tag_total_size;

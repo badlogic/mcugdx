@@ -53,14 +53,20 @@ extern "C" int mcugdx_main() {
 	}
 
    mcugdx_sdfs_config_t sdfs_config = {
-			.mount_path = "../data"};
+			.mount_path = 
+			#ifdef WIN32
+				"../../data"
+			#else
+				"../data"
+			#endif
+			};
 	if (!mcugdx_sdfs_init(&sdfs_config)) {
 		mcugdx_log(TAG, "Failed to initialize SDFS");
 		return -1;
 	}
 
 	// Traverse ROFS root
-	/*{
+	{
 		mcugdx_log(TAG, "ROFS contents:");
 		mcugdx_file_handle_t root = mcugdx_rofs.open_root();
 		if (root != NULL) {
@@ -70,7 +76,7 @@ extern "C" int mcugdx_main() {
 			mcugdx_log(TAG, "Failed to open root directory");
 			return -1;
 		}
-	}*/
+	}
 
 	// Traverse SDFS data directory
 	{
