@@ -324,3 +324,104 @@ uint32_t rofs_read(rofs_file_handle_t handle, uint8_t *buffer, uint32_t buffer_l
 void rofs_close(rofs_file_handle_t handle) {
 	mcugdx_mem_free(handle);
 }
+
+bool rofs_is_dir(const char *path) {
+    for (uint32_t i = 0; i < fs.num_files; i++) {
+        if (strcmp(fs.files[i].name, path) == 0) {
+            return fs.files[i].size == (uint32_t)-1;
+        }
+    }
+    return false;
+}
+
+rofs_file_handle_t rofs_open_root(void) {
+    rofs_file_handle_struct_t* handle = mcugdx_mem_alloc(sizeof(rofs_file_handle_struct_t), MCUGDX_MEM_EXTERNAL);
+    if (!handle) return NULL;
+    handle->index = (uint32_t)-1;
+    handle->current_offset = 0;
+    return handle;
+}
+
+void rofs_file_name_handle(rofs_file_handle_t handle, char *buffer, size_t buffer_len) {
+    rofs_file_handle_struct_t* handle_struct = (rofs_file_handle_struct_t*)handle;
+    if (handle_struct->index == (uint32_t)-1) {
+        strncpy(buffer, "", buffer_len);
+        return;
+    }
+    const char* full_path = fs.files[handle_struct->index].name;
+
+    // Find last separator
+    const char* last_sep = strrchr(full_path, '/');
+    const char* name = last_sep ? last_sep + 1 : full_path;
+
+    strncpy(buffer, name, buffer_len);
+    buffer[buffer_len - 1] = '\0';
+}
+
+void rofs_full_path(rofs_file_handle_t handle, char *buffer, size_t buffer_len) {
+    rofs_file_handle_struct_t* handle_struct = (rofs_file_handle_struct_t*)handle;
+    if (handle_struct->index == (uint32_t)-1) {
+        strncpy(buffer, "", buffer_len);
+        return;
+    }
+    strncpy(buffer, fs.files[handle_struct->index].name, buffer_len);
+    buffer[buffer_len - 1] = '\0';
+}
+
+bool rofs_is_dir_handle(rofs_file_handle_t handle) {
+    rofs_file_handle_struct_t* handle_struct = (rofs_file_handle_struct_t*)handle;
+    if (handle_struct->index == (uint32_t)-1) {
+        return true;
+    }
+    return fs.files[handle_struct->index].size == (uint32_t)-1;
+}
+
+static rofs_file_handle_t create_file_handle(uint32_t index) {
+    rofs_file_handle_struct_t* new_handle = mcugdx_mem_alloc(sizeof(rofs_file_handle_struct_t), MCUGDX_MEM_EXTERNAL);
+    if (!new_handle) return NULL;
+    new_handle->index = index;
+    new_handle->current_offset = 0;
+    return new_handle;
+}
+
+rofs_file_handle_t rofs_read_dir(rofs_file_handle_t handle) {
+    rofs_file_handle_struct_t* handle_struct = (rofs_file_handle_struct_t*)handle;
+
+    // Get the current directory's path
+    const char* current_dir = (handle_struct->index == (uint32_t)-1) ?
+                            "" : fs.files[handle_struct->index].name;
+    size_t current_dir_len = strlen(current_dir);
+
+    // Special handling for root directory
+    bool is_root = (handle_struct->index == (uint32_t)-1);
+
+    // Look for the next file/directory that's a direct child of the current directory
+    while (handle_struct->current_offset < fs.num_files) {
+        uint32_t next_idx = handle_struct->current_offset++;
+        const char* next_path = fs.files[next_idx].name;
+
+        if (is_root) {
+            // For root directory, only include entries with no '/'
+            if (strchr(next_path, '/') == NULL) {
+                return create_file_handle(next_idx);
+            }
+        } else {
+            // Original logic for non-root directories
+            if (strcmp(next_path, current_dir) == 0) {
+                continue;
+            }
+
+            if (strncmp(next_path, current_dir, current_dir_len) == 0) {
+                const char* remaining = next_path + current_dir_len;
+                if (*remaining == '/') {
+                    remaining++;
+                    if (strchr(remaining, '/') == NULL) {
+                        return create_file_handle(next_idx);
+                    }
+                }
+            }
+        }
+    }
+
+    return NULL;
+}

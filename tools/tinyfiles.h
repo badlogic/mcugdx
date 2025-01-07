@@ -189,16 +189,22 @@ void tfTraverse( const char* path, tfCallback cb, void* udata )
 		tfFILE file;
 		tfReadFile( &dir, &file );
 
+		// Call callback for both regular files and directories (except . and ..)
+		if (file.name[0] != '.' && (file.is_reg || file.is_dir))
+		{
+			cb( &file, udata );
+		}
+
+		// Handle subdirectory traversal
 		if ( file.is_dir && file.name[ 0 ] != '.' )
 		{
 			char path2[ TF_MAX_PATH ];
 			int n = tfSafeStrCpy( path2, path, 0, TF_MAX_PATH );
 			n = tfSafeStrCpy( path2, "/", n - 1, TF_MAX_PATH );
-			tfSafeStrCpy( path2, file.name, n -1, TF_MAX_PATH );
+			tfSafeStrCpy( path2, file.name, n - 1, TF_MAX_PATH );
 			tfTraverse( path2, cb, udata );
 		}
 
-		if ( file.is_reg ) cb( &file, udata );
 		tfDirNext( &dir );
 	}
 

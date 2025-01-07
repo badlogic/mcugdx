@@ -30,6 +30,18 @@ int32_t rofs_num_files(void);
 
 const char *rofs_file_name(int32_t index);
 
+bool rofs_is_dir(const char *path);
+
+rofs_file_handle_t rofs_open_root(void);
+
+void rofs_file_name_handle(rofs_file_handle_t handle, char *buffer, size_t buffer_len);
+
+void rofs_full_path(rofs_file_handle_t handle, char *buffer, size_t buffer_len);
+
+bool rofs_is_dir_handle(rofs_file_handle_t handle);
+
+rofs_file_handle_t rofs_read_dir(rofs_file_handle_t handle);
+
 #ifdef __cplusplus
 }
 #endif
