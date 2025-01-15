@@ -35,7 +35,7 @@ static void log(
 static void mix_and_stream(float *buffer, int num_frames, int num_channels) {
 	if(frames == NULL) {
 		int buffer_frames = saudio_buffer_frames();
-		frames = (int32_t *) mcugdx_mem_alloc(sizeof(int32_t) * buffer_frames * channels, MCUGDX_MEM_EXTERNAL);
+		frames = (int32_t *) malloc(sizeof(int32_t) * buffer_frames * channels);//, MCUGDX_MEM_EXTERNAL);
 	}
 
 	mcugdx_audio_mix(frames, num_frames, num_channels);

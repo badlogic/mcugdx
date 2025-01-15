@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "mem.h"
 #include "log.h"
+#include <string.h>
 
 #ifdef ESP_PLATFORM
 #include "freertos/FreeRTOS.h"
@@ -102,4 +103,15 @@ void mcugdx_mem_print(void) {
 			heap_caps_get_free_size(MALLOC_CAP_IRAM_8BIT),
 			heap_caps_get_free_size(MALLOC_CAP_RETENTION));
 #endif
+}
+
+char *mcugdx_mem_strdup(const char *str, mcugdx_memory_type_t mem_type) {
+	if (!str) return NULL;
+
+	size_t len = strlen(str) + 1;
+	char *dup = mcugdx_mem_alloc(len, mem_type);
+	if (dup) {
+		memcpy(dup, str, len);
+	}
+	return dup;
 }

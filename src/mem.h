@@ -21,6 +21,8 @@ size_t mcugdx_mem_internal_usage(void);
 
 size_t mcugdx_mem_get_external_usage(void);
 
+char *mcugdx_mem_strdup(const char *str, mcugdx_memory_type_t mem_type);
+
 #ifdef __cplusplus
 }
 #endif

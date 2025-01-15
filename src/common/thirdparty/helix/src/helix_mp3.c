@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include "mem.h"
 
 #define HELIX_MP3_MIN(x, y) (((x) < (y)) ? (x) : (y))
 #define ID3V2_FRAME_HEADER_SIZE    10
@@ -121,43 +122,37 @@ static helix_mp3_io_t default_io =
 
 int helix_mp3_init(helix_mp3_t *mp3, const helix_mp3_io_t *io)
 {
-    /* Sanity check */
     if ((mp3 == NULL) || (io == NULL)) {
         return -EINVAL;
     }
 
-    /* Initialize decoder context */
     memset(mp3, 0, sizeof(*mp3));
     mp3->io = io;
 
     int err = 0;
     do {
-        /* Initialize decoder */
         mp3->dec = MP3InitDecoder();
         if (mp3->dec == NULL) {
             err = -ENOMEM;
             break;
         }
 
-        /* Initialize buffers */
-        mp3->mp3_buffer = malloc(HELIX_MP3_DATA_CHUNK_SIZE);
+        mp3->mp3_buffer = mcugdx_mem_alloc(HELIX_MP3_DATA_CHUNK_SIZE, MCUGDX_MEM_EXTERNAL);
         if (mp3->mp3_buffer == NULL) {
             err = -ENOMEM;
             break;
         }
-        mp3->pcm_buffer = malloc(HELIX_MP3_MAX_SAMPLES_PER_FRAME * sizeof(*mp3->pcm_buffer));
+        mp3->pcm_buffer = mcugdx_mem_alloc(HELIX_MP3_MAX_SAMPLES_PER_FRAME * sizeof(*mp3->pcm_buffer), MCUGDX_MEM_EXTERNAL);
         if (mp3->pcm_buffer == NULL) {
             err = -ENOMEM;
             break;
         }
 
-        /* Skip ID3V2 tag */
         if (helix_mp3_skip_id3v2_tag(mp3) < 0) {
             err = -EIO;
             break;
         }
 
-        /* Decode first frame */
         if (helix_mp3_decode_next_frame(mp3) == 0) {
             err = -ENOTSUP;
             break;
@@ -165,8 +160,8 @@ int helix_mp3_init(helix_mp3_t *mp3, const helix_mp3_io_t *io)
     } while (0);
 
     if (err) {
-        free(mp3->pcm_buffer);
-        free(mp3->mp3_buffer);
+        mcugdx_mem_free(mp3->pcm_buffer);
+        mcugdx_mem_free(mp3->mp3_buffer);
         MP3FreeDecoder(mp3->dec);
     }
     return err;
@@ -201,8 +196,8 @@ int helix_mp3_deinit(helix_mp3_t *mp3)
     if (mp3->io->read == default_io.read) {
         fclose((FILE *)mp3->io->user_data);
     }
-    free(mp3->pcm_buffer);
-    free(mp3->mp3_buffer);
+    mcugdx_mem_free(mp3->pcm_buffer);
+    mcugdx_mem_free(mp3->mp3_buffer);
     MP3FreeDecoder(mp3->dec);
 
     return 0;

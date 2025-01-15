@@ -148,6 +148,17 @@ extern "C" int mcugdx_main() {
 	mcugdx_log(TAG, "After unload");
 	mcugdx_mem_print();
 
+	// load the sound, play the sound for 2 seconds, then unload the sound, do this
+	// 10 times, then output the memory usage
+
+	for (int i = 0; i < 11; i++) {
+		mcugdx_sound_t *sound = mcugdx_sound_load("synth.qoa", &mcugdx_rofs, MCUGDX_PRELOADED, MCUGDX_MEM_EXTERNAL);
+		mcugdx_sound_id_t synth = mcugdx_sound_play(sound, 255, 127, MCUGDX_SINGLE_SHOT);
+		mcugdx_sleep(1000);
+		mcugdx_sound_unload(sound);
+	}
+	mcugdx_mem_print();
+
 	return 0;
 }
 
