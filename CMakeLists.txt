@@ -2,7 +2,7 @@ if(DEFINED ESP_PLATFORM)
     idf_component_register(
         SRC_DIRS "src/common" "src/esp-idf" "src/common/thirdparty/helix/src" "src/common/thirdparty/helix/src/libhelix" "src/common/thirdparty/helix/src/libhelix/real"
         INCLUDE_DIRS "src" "src/common/thirdparty/helix/src" "src/common/thirdparty/helix/src/libhelix/pub"
-        REQUIRES driver esp_timer esp_partition nvs_flash esp_adc
+        REQUIRES driver esp_timer esp_partition nvs_flash esp_adc fatfs
     )
 else()
 cmake_minimum_required(VERSION 3.16)

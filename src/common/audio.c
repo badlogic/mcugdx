@@ -153,7 +153,7 @@ static uint32_t qoa_decode_frames(void *decoder_state, int32_t *output, uint32_t
             uint32_t bytes_read = state->fs->read(state->file, state->encoded_buffer, state->encoded_buffer_size);
             if (bytes_read == 0) break;
 
-            uint32_t frame_samples;
+            unsigned int frame_samples;
             if (!qoa_decode_frame(state->encoded_buffer, bytes_read, &state->qoa,
                                 state->decoded_buffer, &frame_samples)) {
                 break;
@@ -570,7 +570,7 @@ void mcugdx_audio_mix(int32_t *frames, uint32_t num_frames, mcugdx_audio_channel
 
 	mcugdx_mutex_lock(&audio_lock);
 
-	double start = mcugdx_time();
+	double start =  mcugdx_time();
 	for (int i = 0; i < MAX_SOUND_INSTANCES; i++) {
 		mcugdx_sound_instance_t *instance = &sound_instances[i];
 		if (!instance->sound) continue;

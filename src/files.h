@@ -47,13 +47,15 @@ extern mcugdx_file_system_t mcugdx_rofs;
 
 typedef struct {
     int pin_clk;
-    int pin_do;
-    int pin_di;
-    int pin_cs;
+    int pin_cmd;
+    int pin_d0;
+    int pin_cd;  // New field for card detect pin
     const char* mount_path;  // Used on desktop to specify the directory the file system will work off of
 } mcugdx_sdfs_config_t;
 
 bool mcugdx_sdfs_init(const mcugdx_sdfs_config_t* config);
+void mcugdx_sdfs_deinit(void);  // New function to tear down SDFS
+bool mcugdx_sdfs_is_card_present(void);  // New function to check card presence
 extern mcugdx_file_system_t mcugdx_sdfs;
 
 #ifdef __cplusplus
