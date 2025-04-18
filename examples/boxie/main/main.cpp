@@ -1,6 +1,7 @@
 #include "mcugdx.h"
 #include <string.h>
 #include <math.h>
+#include "esp_system.h"
 
 #define TAG "Boxie"
 #define MOUNT_POINT "/sdcard"
@@ -369,20 +370,9 @@ extern "C" int mcugdx_main() {
 				}
 			} else {
 				mcugdx_log(TAG, "Card removed");
-				if (currently_mounted) {
-					if (current_sound) {
-						mcugdx_sound_stop(current_sound_id);
-						mcugdx_sound_unload(current_sound);
-						current_sound = NULL;
-						current_sound_id = -1;
-					}
-					if (current_mp3_list) {
-						free_mp3s(current_mp3_list);
-						current_mp3_list = NULL;
-					}
-					mcugdx_sdfs_deinit();
-					currently_mounted = false;
-				}
+				mcugdx_log(TAG, "Restarting ESP32...");
+				mcugdx_sleep(1000);  // Wait 1 second before restarting
+				esp_restart();  // Restart the ESP32
 			}
 			last_card_state = card_present;
 		}

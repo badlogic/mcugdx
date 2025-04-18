@@ -10,11 +10,12 @@ fi
 PLAYLIST_URL="$1"
 
 # Download audio in best quality and convert to mp3
-~/Downloads/yt-dlp_macos \
+yt-dlp_macos \
     --extract-audio \
     --audio-format mp3 \
     --audio-quality 0 \
-    --output "%(title)s.%(ext)s" \
+    --output "%(playlist_index)02d-%(title)s.%(ext)s" \
+    --postprocessor-args "ExtractAudio:-ar 44100" \
     --add-metadata \
     --embed-thumbnail \
     --ignore-errors \
@@ -25,3 +26,5 @@ PLAYLIST_URL="$1"
 # On Ubuntu/Debian: sudo apt install youtube-dl ffmpeg
 # On macOS with Homebrew: brew install youtube-dl ffmpeg
 # On Windows with Chocolatey: choco install youtube-dl ffmpeg
+
+# ./convert.sh

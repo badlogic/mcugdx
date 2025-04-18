@@ -1,7 +1,7 @@
 {
     "cmake.buildDirectory": "${workspaceFolder}/build-desktop",
     "idf.flashType": "UART",
-    "idf.port": "/dev/tty.usbmodem1101",
+    "idf.port": "/dev/tty.usbmodem2101",
     "idf.espIdfPath": "/Users/badlogic/esp/v5.3.2/esp-idf",
     "idf.toolsPath": "/Users/badlogic/.espressif",
     "idf.openOcdConfigs": [

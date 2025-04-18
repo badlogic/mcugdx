@@ -6,3 +6,5 @@ sdkconfig
 build
 build-desktop
 examples/screaming_cauldron/main/password.h
+examples/boxie/downloads
+examples/boxie/sdkconfig.old
