@@ -27,7 +27,7 @@ typedef struct {
 	int samples_collected;
 } Average;
 
-#define MAX_VOLUME 40 // Maximum volume level (0-255)
+#define MAX_VOLUME 128 // Maximum volume level (0-255)
 
 // Add this function before mcugdx_main()
 int gpio_read_average(int pin, Average *state) {
@@ -277,7 +277,6 @@ static void play_mp3_at_index(int index) {
 
 extern "C" int mcugdx_main() {
 	mcugdx_init();
-	mcugdx_log(TAG, "Initializing SD card system...");
 
 	// Initialize buttons with 50ms debounce time
 	left_button = mcugdx_button_create(LEFT_BUTTON_PIN, 50, MCUGDX_KEY_LEFT);
@@ -302,6 +301,19 @@ extern "C" int mcugdx_main() {
 	last_volume = volume;
 	mcugdx_log(TAG, "Initial volume: %d", volume);
 
+		// Initialize both filesystems
+	if (!mcugdx_rofs_init()) {
+		mcugdx_log(TAG, "Failed to initialize ROFS");
+		return -1;
+	}
+	mcugdx_sound_t *startup_sound = mcugdx_sound_load("startup.mp3", &mcugdx_rofs, MCUGDX_PRELOADED, MCUGDX_MEM_EXTERNAL);
+	mcugdx_sound_id_t startup_sound_id = mcugdx_sound_play(startup_sound, 255, 127, MCUGDX_SINGLE_SHOT);
+	while(mcugdx_sound_is_playing(startup_sound_id)) {
+		mcugdx_sleep(100);
+	}
+	mcugdx_sleep(500);
+
+	mcugdx_log(TAG, "Initializing SD card system...");
 	mcugdx_sdfs_config_t config = {
 			.pin_clk = SD_CLK_PIN,
 			.pin_cmd = SD_CMD_PIN,
@@ -323,6 +335,10 @@ extern "C" int mcugdx_main() {
 			current_mp3_index = 0;
 			play_mp3_at_index(current_mp3_index);
 		}
+	} else {
+		mcugdx_log(TAG, "Could not mount SD card, restarting after 1s pause");
+		mcugdx_sleep(5000);
+		esp_restart();
 	}
 
 	bool last_card_state = mcugdx_sdfs_is_card_present();

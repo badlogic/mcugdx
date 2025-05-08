@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+ºcmake_minimum_required(VERSION 3.16)
 
 if(DEFINED ESP_PLATFORM)
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
